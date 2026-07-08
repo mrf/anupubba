@@ -1,10 +1,13 @@
 import { useState } from 'preact/hooks';
 
 interface SyllableDrill {
-  word: string;
+  /** Asks for the sound this page just taught. */
+  prompt: string;
   syllables: readonly string[];
-  /** Index of the long syllable. */
+  /** Index of the syllable carrying that sound. */
   answer: number;
+  success: string;
+  hint: string;
 }
 
 interface Page {
@@ -16,6 +19,7 @@ interface Page {
 /**
  * Lesson 0 (§4.1): Pali is phonetically regular, so five minutes here pays
  * off across the whole app — and justifies the later diacritic drills.
+ * Each page's micro-drill exercises the sound that page introduces.
  */
 const PAGES: readonly Page[] = [
   {
@@ -25,7 +29,13 @@ const PAGES: readonly Page[] = [
       'samādhi is sa-MAA-dhi: the mā carries the weight.',
       'Every other vowel is short and light.',
     ],
-    drill: { word: 'samādhi', syllables: ['sa', 'mā', 'dhi'], answer: 1 },
+    drill: {
+      prompt: 'tap the long syllable in samādhi',
+      syllables: ['sa', 'mā', 'dhi'],
+      answer: 1,
+      success: 'yes — the line means linger',
+      hint: 'listen again — the macron (¯) marks the long one',
+    },
   },
   {
     title: 'c, ñ, and the hum',
@@ -34,7 +44,13 @@ const PAGES: readonly Page[] = [
       'ñ is the Spanish ñ: paññā is PUN-yaa.',
       'ṃ is a nasal hum through the nose, as in saṃsāra.',
     ],
-    drill: { word: 'mettā', syllables: ['met', 'tā'], answer: 1 },
+    drill: {
+      prompt: 'tap the syllable that sounds like “chaa” in vicāra',
+      syllables: ['vi', 'cā', 'ra'],
+      answer: 1,
+      success: 'yes — vicāra is vi-CHAA-ra',
+      hint: 'listen again — c always sounds like “ch”, never “k” or “s”',
+    },
   },
   {
     title: 'the tongue and the breath',
@@ -43,7 +59,13 @@ const PAGES: readonly Page[] = [
       'kh, gh, th, dh, bh, ph add a puff of breath — dukkha is duk-kha, never “duck-a”.',
       'Doubled consonants are truly doubled: hold them a beat.',
     ],
-    drill: { word: 'nibbāna', syllables: ['nib', 'bā', 'na'], answer: 1 },
+    drill: {
+      prompt: 'tap the syllable with the puff of breath in dukkha',
+      syllables: ['duk', 'kha'],
+      answer: 1,
+      success: 'yes — duk-kha, with a little push of air',
+      hint: 'listen again — kh carries the breath, plain k does not',
+    },
   },
 ];
 
@@ -81,7 +103,7 @@ export function Lesson0(props: { onDone: () => void; onSkip: () => void }) {
             <li key={point}>{point}</li>
           ))}
         </ul>
-        <p class="drill-prompt">tap the long syllable in</p>
+        <p class="drill-prompt">{page.drill.prompt}</p>
         <div class="options syllables">
           {page.drill.syllables.map((syllable, index) => (
             <button
@@ -95,9 +117,7 @@ export function Lesson0(props: { onDone: () => void; onSkip: () => void }) {
         </div>
         {picked !== null && (
           <p class={solved ? 'feedback clear' : 'feedback not-yet'}>
-            {solved
-              ? 'yes — the line means linger'
-              : 'listen again — the macron (¯) marks the long one'}
+            {solved ? page.drill.success : page.drill.hint}
           </p>
         )}
         {solved && (
