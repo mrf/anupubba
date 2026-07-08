@@ -1,0 +1,116 @@
+{
+  "id": "jhana-factors",
+  "name": "The Five Jhāna Factors",
+  "paliName": "pañca jhānaṅgāni",
+  "order": 8,
+  "intro": "The five factors of the first jhāna — including the pair most often confused in every dharma talk: pīti and sukha.",
+  "words": [
+    {
+      "id": "vitakka",
+      "pali": "vitakka",
+      "gloss": "initial application of mind; directed thought",
+      "literal": "thinking onto",
+      "etymology": { "root": "vi + √tark (to reason)", "note": "placing the mind on its object — the first touch" },
+      "cluster": "jhana-factors",
+      "confusables": ["vicara"],
+      "canonicalLine": {
+        "pali": "savitakkaṃ savicāraṃ vivekajaṃ pītisukhaṃ",
+        "translation": "with directed thought and evaluation, with rapture and happiness born of seclusion",
+        "ref": "sn45.8"
+      },
+      "sources": [
+        { "type": "sutta", "ref": "sn45.8", "url": "https://suttacentral.net/sn45.8" },
+        { "type": "dictionary", "ref": "dpd:vitakka", "url": "https://dpdict.net/?q=vitakka" }
+      ],
+      "pronunciation": "vi-TUK-ka"
+    },
+    {
+      "id": "vicara",
+      "pali": "vicāra",
+      "gloss": "sustained examination; evaluation",
+      "literal": "moving about, exploring",
+      "etymology": { "root": "vi + √car (to move)", "note": "keeping the mind with its object — the sustained touch after vitakka's first" },
+      "cluster": "jhana-factors",
+      "confusables": ["vitakka"],
+      "sources": [
+        { "type": "sutta", "ref": "sn45.8", "url": "https://suttacentral.net/sn45.8" },
+        { "type": "dictionary", "ref": "dpd:vicāra", "url": "https://dpdict.net/?q=vicāra" }
+      ],
+      "pronunciation": "vi-CHAA-ra"
+    },
+    {
+      "id": "piti",
+      "pali": "pīti",
+      "gloss": "rapture; joyful energy",
+      "literal": "delight",
+      "etymology": { "root": "√pī (to delight)", "note": "the energetic uprush of joy — coarser and more thrilling than sukha" },
+      "cluster": "jhana-factors",
+      "confusables": ["sukha"],
+      "sources": [
+        { "type": "sutta", "ref": "sn45.8", "url": "https://suttacentral.net/sn45.8" },
+        { "type": "dictionary", "ref": "dpd:pīti", "url": "https://dpdict.net/?q=pīti" }
+      ],
+      "pronunciation": "PEE-ti"
+    },
+    {
+      "id": "sukha",
+      "pali": "sukha",
+      "gloss": "happiness; ease; pleasure",
+      "literal": "the good axle-hole; riding smoothly",
+      "etymology": { "root": "su (good) + kha (axle-hole)", "note": "dukkha's mirror — quieter and steadier than pīti's thrill" },
+      "cluster": "jhana-factors",
+      "confusables": ["piti"],
+      "canonicalLine": {
+        "pali": "sukhino vā khemino hontu",
+        "translation": "may they be happy and secure",
+        "ref": "snp1.8"
+      },
+      "sources": [
+        { "type": "sutta", "ref": "snp1.8", "url": "https://suttacentral.net/snp1.8" },
+        { "type": "dictionary", "ref": "dpd:sukha", "url": "https://dpdict.net/?q=sukha" }
+      ],
+      "pronunciation": "SOO-kha"
+    },
+    {
+      "id": "ekaggata",
+      "pali": "ekaggatā",
+      "gloss": "one-pointedness; unification of mind",
+      "literal": "one-peaked-ness",
+      "etymology": { "root": "eka (one) + agga (peak) + -tā", "note": "the mind gathered to a single point — samādhi's defining mark" },
+      "cluster": "jhana-factors",
+      "confusables": ["samadhi"],
+      "canonicalLine": {
+        "pali": "yā kho, āvuso visākha, cittassa ekaggatā ayaṃ samādhi",
+        "translation": "unification of mind, friend Visākha — this is concentration",
+        "ref": "mn44"
+      },
+      "sources": [
+        { "type": "sutta", "ref": "mn44", "url": "https://suttacentral.net/mn44" },
+        { "type": "dictionary", "ref": "dpd:ekaggatā", "url": "https://dpdict.net/?q=ekaggatā" }
+      ],
+      "pronunciation": "ay-KUG-ga-taa"
+    }
+  ],
+  "talk": [
+    { "text": "The first jhāna has five factors. " },
+    { "term": "vitakka", "surface": "vitakka" },
+    { "text": " places the mind on the breath; " },
+    { "term": "vicara", "surface": "vicāra" },
+    { "text": " keeps it there, examining. From seclusion come " },
+    { "term": "piti", "surface": "pīti" },
+    { "text": " — rapture, the body flooded with joyful energy — and " },
+    { "term": "sukha", "surface": "sukha" },
+    { "text": ", a happiness quieter and steadier than pīti. " },
+    { "term": "ekaggata", "surface": "ekaggatā" },
+    { "text": " gathers everything into one point. This is " },
+    { "term": "samadhi", "surface": "samādhi" },
+    { "text": " ripening." }
+  ],
+  "suttaRec": {
+    "title": "Pañcaṅgika — The Five-Factored Concentration",
+    "ref": "an5.28",
+    "url": "https://suttacentral.net/an5.28",
+    "blurb": "The jhāna similes: bath powder kneaded with water, a lake fed by a spring, lotuses submerged, a man wrapped in white cloth.",
+    "minutes": 6
+  }
+}

@@ -1,0 +1,111 @@
+{
+  "id": "four-noble-truths",
+  "name": "The Four Noble Truths",
+  "paliName": "cattāri ariyasaccāni",
+  "order": 4,
+  "intro": "The first teaching: suffering, its origin in craving, its cessation, and the path there.",
+  "words": [
+    {
+      "id": "tanha",
+      "pali": "taṇhā",
+      "gloss": "craving; thirst",
+      "literal": "thirst",
+      "etymology": { "root": "tṛṣṇā (Skt., thirst)", "note": "the leaning into the next moment that keeps the wheel turning" },
+      "cluster": "four-noble-truths",
+      "confusables": [],
+      "canonicalLine": {
+        "pali": "yāyaṃ taṇhā ponobbhavikā",
+        "translation": "it is this craving that leads to renewed existence",
+        "ref": "sn56.11"
+      },
+      "sources": [
+        { "type": "sutta", "ref": "sn56.11", "url": "https://suttacentral.net/sn56.11" },
+        { "type": "dictionary", "ref": "dpd:taṇhā", "url": "https://dpdict.net/?q=taṇhā" }
+      ],
+      "pronunciation": "TUN-haa"
+    },
+    {
+      "id": "samudaya",
+      "pali": "samudaya",
+      "gloss": "origin; arising (of suffering)",
+      "literal": "rising up together",
+      "etymology": { "root": "saṃ + udaya (rising)", "note": "how suffering comes to be — the second truth" },
+      "cluster": "four-noble-truths",
+      "confusables": ["nirodha"],
+      "sources": [
+        { "type": "sutta", "ref": "sn56.11", "url": "https://suttacentral.net/sn56.11" },
+        { "type": "dictionary", "ref": "dpd:samudaya", "url": "https://dpdict.net/?q=samudaya" }
+      ],
+      "pronunciation": "sa-MOO-da-ya"
+    },
+    {
+      "id": "nirodha",
+      "pali": "nirodha",
+      "gloss": "cessation; ending",
+      "literal": "stopping",
+      "etymology": { "root": "ni + √rudh (to stop)", "note": "suffering can end — the third truth" },
+      "cluster": "four-noble-truths",
+      "confusables": ["samudaya", "nibbana"],
+      "sources": [
+        { "type": "sutta", "ref": "sn56.11", "url": "https://suttacentral.net/sn56.11" },
+        { "type": "dictionary", "ref": "dpd:nirodha", "url": "https://dpdict.net/?q=nirodha" }
+      ],
+      "pronunciation": "ni-ROH-dha"
+    },
+    {
+      "id": "magga",
+      "pali": "magga",
+      "gloss": "the path",
+      "literal": "road, way",
+      "etymology": { "root": "magga (track, road)", "note": "the eightfold way between suffering and its end" },
+      "cluster": "four-noble-truths",
+      "confusables": [],
+      "canonicalLine": {
+        "pali": "ayameva ariyo aṭṭhaṅgiko maggo",
+        "translation": "it is just this noble eightfold path",
+        "ref": "sn56.11"
+      },
+      "sources": [
+        { "type": "sutta", "ref": "sn56.11", "url": "https://suttacentral.net/sn56.11" },
+        { "type": "dictionary", "ref": "dpd:magga", "url": "https://dpdict.net/?q=magga" }
+      ],
+      "pronunciation": "MUG-ga"
+    },
+    {
+      "id": "nibbana",
+      "pali": "nibbāna",
+      "gloss": "extinguishing; liberation",
+      "literal": "blowing out (of a flame)",
+      "etymology": { "root": "nir + √vā (to blow)", "note": "the fire of craving going out for lack of fuel" },
+      "cluster": "four-noble-truths",
+      "confusables": ["nirodha"],
+      "sources": [
+        { "type": "sutta", "ref": "sn56.11", "url": "https://suttacentral.net/sn56.11" },
+        { "type": "dictionary", "ref": "dpd:nibbāna", "url": "https://dpdict.net/?q=nibbāna" }
+      ],
+      "pronunciation": "nib-BAA-na"
+    }
+  ],
+  "talk": [
+    { "text": "The four truths turn on craving. " },
+    { "term": "dukkha", "surface": "dukkha" },
+    { "text": " has a cause: " },
+    { "term": "tanha", "surface": "taṇhā" },
+    { "text": ", the thirst that keeps us leaning into the next moment. Its " },
+    { "term": "samudaya", "surface": "samudaya" },
+    { "text": " is how suffering arises; its " },
+    { "term": "nirodha", "surface": "nirodha" },
+    { "text": " is suffering's ending — " },
+    { "term": "nibbana", "surface": "nibbāna" },
+    { "text": ", the flame blown out. The " },
+    { "term": "magga", "surface": "magga" },
+    { "text": " is the road between them." }
+  ],
+  "suttaRec": {
+    "title": "Dhammacakkappavattana — Turning the Wheel",
+    "ref": "sn56.11",
+    "url": "https://suttacentral.net/sn56.11",
+    "blurb": "The first discourse. Every term you just studied appears here in its original setting.",
+    "minutes": 8
+  }
+}

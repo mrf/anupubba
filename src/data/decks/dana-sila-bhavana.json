@@ -1,0 +1,86 @@
+{
+  "id": "dana-sila-bhavana",
+  "name": "Giving, Virtue, Cultivation",
+  "paliName": "dāna–sīla–bhāvanā",
+  "order": 3,
+  "intro": "The three grounds of merit — the gradual path's own first steps, each making the next possible.",
+  "words": [
+    {
+      "id": "dana",
+      "pali": "dāna",
+      "gloss": "generosity; giving",
+      "literal": "gift, the act of giving",
+      "etymology": { "root": "√dā (to give)", "note": "the practice that loosens the grip of holding" },
+      "cluster": "dana-sila-bhavana",
+      "confusables": [],
+      "canonicalLine": {
+        "pali": "dānamayaṃ puññakiriyavatthu",
+        "translation": "giving is a ground for making merit",
+        "ref": "iti60"
+      },
+      "sources": [
+        { "type": "sutta", "ref": "iti60", "url": "https://suttacentral.net/iti60" },
+        { "type": "dictionary", "ref": "dpd:dāna", "url": "https://dpdict.net/?q=dāna" }
+      ],
+      "pronunciation": "DAA-na"
+    },
+    {
+      "id": "sila",
+      "pali": "sīla",
+      "gloss": "ethical conduct; virtue",
+      "literal": "character, habit",
+      "etymology": { "root": "sīla (nature, habit)", "note": "conduct that has become second nature" },
+      "cluster": "dana-sila-bhavana",
+      "confusables": [],
+      "canonicalLine": {
+        "pali": "sīlamayaṃ puññakiriyavatthu",
+        "translation": "virtue is a ground for making merit",
+        "ref": "iti60"
+      },
+      "sources": [
+        { "type": "sutta", "ref": "iti60", "url": "https://suttacentral.net/iti60" },
+        { "type": "dictionary", "ref": "dpd:sīla", "url": "https://dpdict.net/?q=sīla" }
+      ],
+      "pronunciation": "SEE-la"
+    },
+    {
+      "id": "bhavana",
+      "pali": "bhāvanā",
+      "gloss": "cultivation; meditative development",
+      "literal": "causing to become",
+      "etymology": { "root": "√bhū (to become)", "note": "meditation as gardening — growing states of mind, not forcing them" },
+      "cluster": "dana-sila-bhavana",
+      "confusables": [],
+      "canonicalLine": {
+        "pali": "bhāvanāmayaṃ puññakiriyavatthu",
+        "translation": "cultivation is a ground for making merit",
+        "ref": "iti60"
+      },
+      "sources": [
+        { "type": "sutta", "ref": "iti60", "url": "https://suttacentral.net/iti60" },
+        { "type": "dictionary", "ref": "dpd:bhāvanā", "url": "https://dpdict.net/?q=bhāvanā" }
+      ],
+      "pronunciation": "BHAA-va-naa"
+    }
+  ],
+  "talk": [
+    { "text": "The path begins simply. " },
+    { "term": "dana", "surface": "dāna" },
+    { "text": " loosens the grip of holding; " },
+    { "term": "sila", "surface": "sīla" },
+    { "text": " keeps our actions from causing harm; " },
+    { "term": "bhavana", "surface": "bhāvanā" },
+    { "text": " cultivates the mind itself. The " },
+    { "term": "buddha", "surface": "buddha" },
+    { "text": " taught them in this order — each one makes the next possible, a gradual path out of " },
+    { "term": "dukkha", "surface": "dukkha" },
+    { "text": "." }
+  ],
+  "suttaRec": {
+    "title": "Puññakiriyavatthu — Grounds for Making Merit",
+    "ref": "iti60",
+    "url": "https://suttacentral.net/iti60",
+    "blurb": "The short discourse behind this cluster: giving, virtue, and cultivation as the three grounds of merit.",
+    "minutes": 2
+  }
+}

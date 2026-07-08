@@ -1,0 +1,82 @@
+{
+  "id": "three-refuges",
+  "name": "The Three Refuges",
+  "paliName": "tisaraṇa",
+  "order": 1,
+  "intro": "Practice begins by taking refuge — orienting toward the teacher, the teaching, and the community that carries it.",
+  "words": [
+    {
+      "id": "buddha",
+      "pali": "buddha",
+      "gloss": "the Awakened One; the teacher",
+      "literal": "awakened, one who has woken up",
+      "etymology": { "root": "√budh (to wake)", "note": "not a name but a description: one who woke up" },
+      "cluster": "three-refuges",
+      "confusables": [],
+      "canonicalLine": {
+        "pali": "buddhaṃ saraṇaṃ gacchāmi",
+        "translation": "I go to the Buddha for refuge",
+        "ref": "kp1"
+      },
+      "sources": [
+        { "type": "sutta", "ref": "kp1", "url": "https://suttacentral.net/kp1" },
+        { "type": "dictionary", "ref": "dpd:buddha", "url": "https://dpdict.net/?q=buddha" }
+      ],
+      "pronunciation": "BOOD-dha"
+    },
+    {
+      "id": "dhamma",
+      "pali": "dhamma",
+      "gloss": "the teaching; the way things are",
+      "literal": "that which upholds",
+      "etymology": { "root": "√dhṛ (to hold, support)", "note": "what holds — both the teaching and the nature it points to" },
+      "cluster": "three-refuges",
+      "confusables": [],
+      "canonicalLine": {
+        "pali": "dhammaṃ saraṇaṃ gacchāmi",
+        "translation": "I go to the Dhamma for refuge",
+        "ref": "kp1"
+      },
+      "sources": [
+        { "type": "sutta", "ref": "kp1", "url": "https://suttacentral.net/kp1" },
+        { "type": "dictionary", "ref": "dpd:dhamma", "url": "https://dpdict.net/?q=dhamma" }
+      ],
+      "pronunciation": "DHUM-ma"
+    },
+    {
+      "id": "sangha",
+      "pali": "saṅgha",
+      "gloss": "the community of practitioners",
+      "literal": "assembly, gathering",
+      "etymology": { "root": "saṃ- (together)", "note": "those gathered together in practice" },
+      "cluster": "three-refuges",
+      "confusables": [],
+      "canonicalLine": {
+        "pali": "saṅghaṃ saraṇaṃ gacchāmi",
+        "translation": "I go to the Saṅgha for refuge",
+        "ref": "kp1"
+      },
+      "sources": [
+        { "type": "sutta", "ref": "kp1", "url": "https://suttacentral.net/kp1" },
+        { "type": "dictionary", "ref": "dpd:saṅgha", "url": "https://dpdict.net/?q=saṅgha" }
+      ],
+      "pronunciation": "SUNG-gha"
+    }
+  ],
+  "talk": [
+    { "text": "We begin by taking refuge. The " },
+    { "term": "buddha", "surface": "buddha" },
+    { "text": " is not a god but a teacher — one who woke up. The " },
+    { "term": "dhamma", "surface": "dhamma" },
+    { "text": " he pointed to is both the teaching and the way things actually are. And the " },
+    { "term": "sangha", "surface": "saṅgha" },
+    { "text": " carries the practice forward, so that no one sits alone." }
+  ],
+  "suttaRec": {
+    "title": "Saraṇagamana — Going for Refuge",
+    "ref": "kp1",
+    "url": "https://suttacentral.net/kp1",
+    "blurb": "The refuge formula itself — three lines, chanted for 2,500 years. You just learned every word in it.",
+    "minutes": 1
+  }
+}

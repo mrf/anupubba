@@ -1,0 +1,84 @@
+{
+  "id": "three-marks",
+  "name": "The Three Marks",
+  "paliName": "tilakkhaṇa",
+  "order": 2,
+  "intro": "Three characteristics show up in every experience, when looked at closely enough.",
+  "words": [
+    {
+      "id": "anicca",
+      "pali": "anicca",
+      "gloss": "impermanent; inconstant",
+      "literal": "not lasting",
+      "etymology": { "root": "a- + nicca (constant)", "note": "the negation of permanence — already changing as we meet it" },
+      "cluster": "three-marks",
+      "confusables": ["anatta"],
+      "canonicalLine": {
+        "pali": "sabbe saṅkhārā aniccā",
+        "translation": "all conditioned things are impermanent",
+        "ref": "dhp277"
+      },
+      "sources": [
+        { "type": "sutta", "ref": "dhp277", "url": "https://suttacentral.net/dhp273-289" },
+        { "type": "dictionary", "ref": "dpd:anicca", "url": "https://dpdict.net/?q=anicca" }
+      ],
+      "pronunciation": "uh-NICH-cha"
+    },
+    {
+      "id": "dukkha",
+      "pali": "dukkha",
+      "gloss": "suffering; unsatisfactoriness; stress",
+      "literal": "hard to bear; the bad axle-hole",
+      "etymology": { "root": "du (bad) + kha (axle-hole)", "note": "a wheel mounted off-center — life that rides rough" },
+      "cluster": "three-marks",
+      "confusables": [],
+      "canonicalLine": {
+        "pali": "sabbe saṅkhārā dukkhā",
+        "translation": "all conditioned things are unsatisfying",
+        "ref": "dhp278"
+      },
+      "sources": [
+        { "type": "sutta", "ref": "dhp278", "url": "https://suttacentral.net/dhp273-289" },
+        { "type": "dictionary", "ref": "dpd:dukkha", "url": "https://dpdict.net/?q=dukkha" }
+      ],
+      "pronunciation": "DOOK-kha"
+    },
+    {
+      "id": "anatta",
+      "pali": "anattā",
+      "gloss": "not-self; without fixed essence",
+      "literal": "not self",
+      "etymology": { "root": "an- + attā (self)", "note": "nothing in experience holds still long enough to be a self" },
+      "cluster": "three-marks",
+      "confusables": ["anicca"],
+      "canonicalLine": {
+        "pali": "sabbe dhammā anattā",
+        "translation": "all things are not-self",
+        "ref": "dhp279"
+      },
+      "sources": [
+        { "type": "sutta", "ref": "dhp279", "url": "https://suttacentral.net/dhp273-289" },
+        { "type": "dictionary", "ref": "dpd:anattā", "url": "https://dpdict.net/?q=anattā" }
+      ],
+      "pronunciation": "uh-NUT-taa"
+    }
+  ],
+  "talk": [
+    { "text": "Look closely at any experience and three marks appear. It is " },
+    { "term": "anicca", "surface": "anicca" },
+    { "text": " — already changing as we meet it. Grasping at what changes brings " },
+    { "term": "dukkha", "surface": "dukkha" },
+    { "text": ". And nowhere in it can a fixed self be found — this is " },
+    { "term": "anatta", "surface": "anattā" },
+    { "text": ". The " },
+    { "term": "dhamma", "surface": "dhamma" },
+    { "text": " is simply this, seen clearly." }
+  ],
+  "suttaRec": {
+    "title": "Maggavagga — The Path (Dhammapada 273–289)",
+    "ref": "dhp273-289",
+    "url": "https://suttacentral.net/dhp273-289",
+    "blurb": "The three marks, three verses in a row — aniccā, dukkhā, anattā — each ending: seeing this, one turns away from suffering.",
+    "minutes": 4
+  }
+}

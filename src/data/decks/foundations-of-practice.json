@@ -1,0 +1,129 @@
+{
+  "id": "foundations-of-practice",
+  "name": "Foundations of Practice",
+  "paliName": "paṭipatti",
+  "order": 7,
+  "intro": "The working vocabulary of meditation instruction — the words teachers reach for most, and the ones most often blurred together.",
+  "words": [
+    {
+      "id": "sati",
+      "pali": "sati",
+      "gloss": "mindfulness; present-moment awareness",
+      "literal": "memory, remembering",
+      "etymology": { "root": "smṛti (Skt.)", "note": "remembering to be present" },
+      "cluster": "foundations-of-practice",
+      "confusables": ["sampajanna", "samadhi"],
+      "canonicalLine": {
+        "pali": "sati ca kho ahaṃ, bhikkhave, sabbatthikaṃ vadāmi",
+        "translation": "but mindfulness, monks, I declare useful everywhere",
+        "ref": "sn46.53:12.1"
+      },
+      "sources": [
+        { "type": "sutta", "ref": "sn46.53:12.1", "url": "https://suttacentral.net/sn46.53" },
+        { "type": "dictionary", "ref": "dpd:sati", "url": "https://dpdict.net/?q=sati" }
+      ],
+      "pronunciation": "SUH-ti"
+    },
+    {
+      "id": "sampajanna",
+      "pali": "sampajañña",
+      "gloss": "clear comprehension; situational awareness",
+      "literal": "knowing fully together",
+      "etymology": { "root": "saṃ + pa + √jñā (to know)", "note": "sati's partner: knowing clearly what is happening and why" },
+      "cluster": "foundations-of-practice",
+      "confusables": ["sati"],
+      "sources": [
+        { "type": "sutta", "ref": "mn10", "url": "https://suttacentral.net/mn10" },
+        { "type": "dictionary", "ref": "dpd:sampajañña", "url": "https://dpdict.net/?q=sampajañña" }
+      ],
+      "pronunciation": "sum-pa-JUN-ya"
+    },
+    {
+      "id": "samadhi",
+      "pali": "samādhi",
+      "gloss": "concentration; unification of mind",
+      "literal": "placing together",
+      "etymology": { "root": "saṃ + ā + √dhā (to place)", "note": "the mind gathered into one place" },
+      "cluster": "foundations-of-practice",
+      "confusables": ["samatha"],
+      "canonicalLine": {
+        "pali": "samādhiṃ, bhikkhave, bhāvetha",
+        "translation": "develop concentration, monks",
+        "ref": "sn22.5"
+      },
+      "sources": [
+        { "type": "sutta", "ref": "sn22.5", "url": "https://suttacentral.net/sn22.5" },
+        { "type": "dictionary", "ref": "dpd:samādhi", "url": "https://dpdict.net/?q=samādhi" }
+      ],
+      "pronunciation": "sa-MAA-dhi"
+    },
+    {
+      "id": "samatha",
+      "pali": "samatha",
+      "gloss": "calm; tranquility",
+      "literal": "calming, settling",
+      "etymology": { "root": "√śam (to be quiet)", "note": "the settling side of practice — often paired with vipassanā" },
+      "cluster": "foundations-of-practice",
+      "confusables": ["samadhi", "vipassana"],
+      "sources": [
+        { "type": "sutta", "ref": "an2.31", "url": "https://suttacentral.net/an2.31" },
+        { "type": "dictionary", "ref": "dpd:samatha", "url": "https://dpdict.net/?q=samatha" }
+      ],
+      "pronunciation": "SA-ma-tha"
+    },
+    {
+      "id": "vipassana",
+      "pali": "vipassanā",
+      "gloss": "insight; clear seeing",
+      "literal": "seeing distinctly",
+      "etymology": { "root": "vi + √paś (to see)", "note": "seeing experience break into the three marks" },
+      "cluster": "foundations-of-practice",
+      "confusables": ["samatha"],
+      "sources": [
+        { "type": "sutta", "ref": "an2.31", "url": "https://suttacentral.net/an2.31" },
+        { "type": "dictionary", "ref": "dpd:vipassanā", "url": "https://dpdict.net/?q=vipassanā" }
+      ],
+      "pronunciation": "vi-PUS-sa-naa"
+    },
+    {
+      "id": "panna",
+      "pali": "paññā",
+      "gloss": "wisdom; discernment",
+      "literal": "knowing fully",
+      "etymology": { "root": "pa + √jñā (to know)", "note": "not accumulated knowledge — seeing that has ripened into understanding" },
+      "cluster": "foundations-of-practice",
+      "confusables": ["sanna"],
+      "sources": [
+        { "type": "sutta", "ref": "mn43", "url": "https://suttacentral.net/mn43" },
+        { "type": "dictionary", "ref": "dpd:paññā", "url": "https://dpdict.net/?q=paññā" }
+      ],
+      "pronunciation": "PUN-yaa"
+    }
+  ],
+  "talk": [
+    { "text": "In sitting, the factors sort themselves out. " },
+    { "term": "sati", "surface": "sati" },
+    { "text": " remembers to be present; " },
+    { "term": "sampajanna", "surface": "sampajañña" },
+    { "text": " knows clearly what is happening. Settling deepens into " },
+    { "term": "samatha", "surface": "samatha" },
+    { "text": ", and gathering deepens into " },
+    { "term": "samadhi", "surface": "samādhi" },
+    { "text": ". From that stillness, " },
+    { "term": "vipassana", "surface": "vipassanā" },
+    { "text": " sees the three marks directly — and seeing ripens into " },
+    { "term": "panna", "surface": "paññā" },
+    { "text": ". When " },
+    { "term": "tanha", "surface": "taṇhā" },
+    { "text": " arises, " },
+    { "term": "sati", "surface": "sati" },
+    { "text": " simply notices." }
+  ],
+  "suttaRec": {
+    "title": "Aggi Sutta — Fire",
+    "ref": "sn46.53",
+    "url": "https://suttacentral.net/sn46.53",
+    "blurb": "When the mind is sluggish, which factors to stoke; when restless, which to cool. And the line you learned: mindfulness is useful everywhere.",
+    "minutes": 6
+  }
+}

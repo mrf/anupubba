@@ -1,0 +1,90 @@
+{
+  "id": "brahmaviharas",
+  "name": "The Four Brahmavihāras",
+  "paliName": "cattāro brahmavihārā",
+  "order": 5,
+  "intro": "Four ways the heart opens — the 'divine abodes' — each with its own near and far enemy, easily confused and worth telling apart.",
+  "words": [
+    {
+      "id": "metta",
+      "pali": "mettā",
+      "gloss": "loving-kindness; goodwill",
+      "literal": "friendliness",
+      "etymology": { "root": "mitta (friend)", "note": "the mind of a friend, extended without condition" },
+      "cluster": "brahmaviharas",
+      "confusables": ["karuna"],
+      "canonicalLine": {
+        "pali": "mettañca sabbalokasmi, mānasaṃ bhāvaye aparimāṇaṃ",
+        "translation": "cultivate a boundless heart of goodwill toward the whole world",
+        "ref": "snp1.8"
+      },
+      "sources": [
+        { "type": "sutta", "ref": "snp1.8", "url": "https://suttacentral.net/snp1.8" },
+        { "type": "dictionary", "ref": "dpd:mettā", "url": "https://dpdict.net/?q=mettā" }
+      ],
+      "pronunciation": "MET-taa"
+    },
+    {
+      "id": "karuna",
+      "pali": "karuṇā",
+      "gloss": "compassion",
+      "literal": "the heart's trembling at pain",
+      "etymology": { "root": "√kṛ (to act, to stir)", "note": "what mettā becomes when it meets suffering" },
+      "cluster": "brahmaviharas",
+      "confusables": ["metta", "mudita"],
+      "sources": [
+        { "type": "sutta", "ref": "snp1.8", "url": "https://suttacentral.net/snp1.8" },
+        { "type": "dictionary", "ref": "dpd:karuṇā", "url": "https://dpdict.net/?q=karuṇā" }
+      ],
+      "pronunciation": "KA-ru-naa"
+    },
+    {
+      "id": "mudita",
+      "pali": "muditā",
+      "gloss": "sympathetic joy; delight in others' happiness",
+      "literal": "gladness",
+      "etymology": { "root": "√mud (to rejoice)", "note": "what mettā becomes when it meets another's success — joy that asks for nothing" },
+      "cluster": "brahmaviharas",
+      "confusables": ["karuna"],
+      "sources": [
+        { "type": "sutta", "ref": "snp1.8", "url": "https://suttacentral.net/snp1.8" },
+        { "type": "dictionary", "ref": "dpd:muditā", "url": "https://dpdict.net/?q=muditā" }
+      ],
+      "pronunciation": "MOO-di-taa"
+    },
+    {
+      "id": "upekkha",
+      "pali": "upekkhā",
+      "gloss": "equanimity; balanced presence",
+      "literal": "looking on",
+      "etymology": { "root": "upa + √īkṣ (to look)", "note": "watching over — steady, not indifferent" },
+      "cluster": "brahmaviharas",
+      "confusables": [],
+      "sources": [
+        { "type": "sutta", "ref": "snp1.8", "url": "https://suttacentral.net/snp1.8" },
+        { "type": "dictionary", "ref": "dpd:upekkhā", "url": "https://dpdict.net/?q=upekkhā" }
+      ],
+      "pronunciation": "oo-PEK-khaa"
+    }
+  ],
+  "talk": [
+    { "text": "The brahmavihāras are four ways the heart opens. " },
+    { "term": "metta", "surface": "mettā" },
+    { "text": " wishes beings well without condition. When mettā meets " },
+    { "term": "dukkha", "surface": "dukkha" },
+    { "text": ", it becomes " },
+    { "term": "karuna", "surface": "karuṇā" },
+    { "text": " — compassion. When it meets another's success, it becomes " },
+    { "term": "mudita", "surface": "muditā" },
+    { "text": " — joy that asks for nothing. And " },
+    { "term": "upekkha", "surface": "upekkhā" },
+    { "text": " holds all of it steadily, even when nothing can be done." }
+  ],
+  "suttaRec": {
+    "title": "Karaṇīyamettā Sutta — Loving-Kindness",
+    "ref": "snp1.8",
+    "url": "https://suttacentral.net/snp1.8",
+    "blurb": "You worked with the brahmavihāras today; here is the Mettā Sutta — five minutes, and the canonical line you just learned is in it.",
+    "minutes": 5
+  }
+}

@@ -1,0 +1,108 @@
+{
+  "id": "five-khandhas",
+  "name": "The Five Khandhas",
+  "paliName": "pañcakkhandhā",
+  "order": 6,
+  "intro": "What we call a self, the teaching unbundles into five aggregates — heaps of experience, none of them a person.",
+  "words": [
+    {
+      "id": "rupa",
+      "pali": "rūpa",
+      "gloss": "form; the material",
+      "literal": "form, appearance",
+      "etymology": { "root": "rūpa (form)", "note": "the body and the sensed world — the material side of experience" },
+      "cluster": "five-khandhas",
+      "confusables": [],
+      "sources": [
+        { "type": "sutta", "ref": "sn22.59", "url": "https://suttacentral.net/sn22.59" },
+        { "type": "dictionary", "ref": "dpd:rūpa", "url": "https://dpdict.net/?q=rūpa" }
+      ],
+      "pronunciation": "ROO-pa"
+    },
+    {
+      "id": "vedana",
+      "pali": "vedanā",
+      "gloss": "feeling-tone: pleasant, unpleasant, or neutral",
+      "literal": "what is felt",
+      "etymology": { "root": "√vid (to know, to feel)", "note": "not emotion — the bare hedonic tone that precedes it" },
+      "cluster": "five-khandhas",
+      "confusables": ["sanna"],
+      "sources": [
+        { "type": "sutta", "ref": "sn22.59", "url": "https://suttacentral.net/sn22.59" },
+        { "type": "dictionary", "ref": "dpd:vedanā", "url": "https://dpdict.net/?q=vedanā" }
+      ],
+      "pronunciation": "VAY-da-naa"
+    },
+    {
+      "id": "sanna",
+      "pali": "saññā",
+      "gloss": "perception; recognition",
+      "literal": "co-knowing",
+      "etymology": { "root": "saṃ + √jñā (to know)", "note": "the naming function — 'blue', 'bell', 'breath'" },
+      "cluster": "five-khandhas",
+      "confusables": ["vinnana", "vedana"],
+      "sources": [
+        { "type": "sutta", "ref": "sn22.59", "url": "https://suttacentral.net/sn22.59" },
+        { "type": "dictionary", "ref": "dpd:saññā", "url": "https://dpdict.net/?q=saññā" }
+      ],
+      "pronunciation": "SUN-yaa"
+    },
+    {
+      "id": "sankhara",
+      "pali": "saṅkhāra",
+      "gloss": "formations; volitional constructs",
+      "literal": "putting together",
+      "etymology": { "root": "saṃ + √kṛ (to make)", "note": "the constructing impulses — everything the mind fabricates and wills" },
+      "cluster": "five-khandhas",
+      "confusables": ["sanna"],
+      "canonicalLine": {
+        "pali": "sabbe saṅkhārā aniccā",
+        "translation": "all conditioned things are impermanent",
+        "ref": "dhp277"
+      },
+      "sources": [
+        { "type": "sutta", "ref": "sn22.59", "url": "https://suttacentral.net/sn22.59" },
+        { "type": "dictionary", "ref": "dpd:saṅkhāra", "url": "https://dpdict.net/?q=saṅkhāra" }
+      ],
+      "pronunciation": "sun-KHAA-ra"
+    },
+    {
+      "id": "vinnana",
+      "pali": "viññāṇa",
+      "gloss": "consciousness; cognizance",
+      "literal": "discriminative knowing",
+      "etymology": { "root": "vi + √jñā (to know)", "note": "the knowing of each moment at each sense door" },
+      "cluster": "five-khandhas",
+      "confusables": ["sanna"],
+      "sources": [
+        { "type": "sutta", "ref": "sn22.59", "url": "https://suttacentral.net/sn22.59" },
+        { "type": "dictionary", "ref": "dpd:viññāṇa", "url": "https://dpdict.net/?q=viññāṇa" }
+      ],
+      "pronunciation": "vin-YAA-na"
+    }
+  ],
+  "talk": [
+    { "text": "What we call a self, the teaching unbundles into five heaps. " },
+    { "term": "rupa", "surface": "rūpa" },
+    { "text": " — the body, the material. " },
+    { "term": "vedana", "surface": "vedanā" },
+    { "text": " — the immediate tone: pleasant, unpleasant, neither. " },
+    { "term": "sanna", "surface": "saññā" },
+    { "text": " — recognition, naming what appears. " },
+    { "term": "sankhara", "surface": "saṅkhāra" },
+    { "text": " — the constructing impulses that lean toward or away. " },
+    { "term": "vinnana", "surface": "viññāṇa" },
+    { "text": " — the knowing of it all. Each one is " },
+    { "term": "anicca", "surface": "anicca" },
+    { "text": ", and each is " },
+    { "term": "anatta", "surface": "anattā" },
+    { "text": " — not mine, not me." }
+  ],
+  "suttaRec": {
+    "title": "Anattalakkhaṇa — The Not-Self Characteristic",
+    "ref": "sn22.59",
+    "url": "https://suttacentral.net/sn22.59",
+    "blurb": "The second discourse ever given: each khandha examined in turn and found to be not-self.",
+    "minutes": 7
+  }
+}
