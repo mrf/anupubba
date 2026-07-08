@@ -34,7 +34,7 @@ export function Home(props: {
       {notice !== null && <p class="notice">{notice}</p>}
 
       <button class="btn primary big" onClick={onStart}>
-        begin a sit · ~{meta.settings.minutes} min
+        begin a session · ~{meta.settings.minutes} min
       </button>
 
       <section class="clusters">

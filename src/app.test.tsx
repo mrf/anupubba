@@ -35,7 +35,7 @@ describe('App', () => {
 
     // Skipping the primer lands home, with the session invitation.
     fireEvent.click(screen.getByText(/skip for now/i));
-    await screen.findByText(/begin a sit/i);
+    await screen.findByText(/begin a session/i);
     expect(screen.getByText(/lifetime/i)).toBeTruthy();
   });
 
@@ -44,7 +44,7 @@ describe('App', () => {
 
     // This test file shares one IndexedDB with the previous test, which
     // finished onboarding — so a fresh mount lands home.
-    fireEvent.click(await screen.findByText(/begin a sit/i));
+    fireEvent.click(await screen.findByText(/begin a session/i));
 
     // First session: three refuges, intro then drill each, then the talk.
     for (let i = 0; i < 3; i++) {
@@ -69,6 +69,6 @@ describe('App', () => {
     expect(screen.getByText(/this sit/)).toBeTruthy();
 
     fireEvent.click(screen.getByText('close'));
-    await screen.findByText(/begin a sit/i);
+    await screen.findByText(/begin a session/i);
   });
 });
