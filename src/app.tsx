@@ -3,8 +3,8 @@ import { ringBell } from './audio/bell.ts';
 import { catalog } from './data/catalog.ts';
 import type { SuttaRec } from './data/types.ts';
 import { advanceMastery, initialMastery } from './engine/mastery.ts';
-import { planSession, recommendSutta } from './engine/session.ts';
-import type { SessionPlan, WordSnapshot } from './engine/session.ts';
+import { planSession, recommendSutta, toSnapshots } from './engine/session.ts';
+import type { SessionPlan } from './engine/session.ts';
 import { maturity, newWordState, reviewWord, seedFromFamiliarity } from './engine/srs.ts';
 import type { FamiliarityLevel, SessionGrade } from './engine/srs.ts';
 import { DEFAULT_META, openStore } from './engine/store.ts';
@@ -15,6 +15,7 @@ import { FamiliaritySort } from './ui/FamiliaritySort.tsx';
 import { Home } from './ui/Home.tsx';
 import { Lesson0 } from './ui/Lesson0.tsx';
 import { SessionView } from './ui/SessionView.tsx';
+import { STAGE_GROWTH } from './ui/stages.ts';
 
 type Phase =
   | { name: 'loading' }
@@ -23,13 +24,6 @@ type Phase =
   | { name: 'home' }
   | { name: 'session'; plan: SessionPlan }
   | { name: 'closing'; rec: SuttaRec; reps: number; growth: readonly DeckGrowth[] };
-
-const GROWTH_STAGES = [
-  ['recognition', 'seed'],
-  ['recall', 'sprout'],
-  ['discrimination', 'bud'],
-  ['comprehension', 'bloom'],
-] as const;
 
 export function App() {
   // Refs are the source of truth for mutable app data: session handlers fire
@@ -80,17 +74,6 @@ export function App() {
     rerender();
   }
 
-  function snapshots(): WordSnapshot[] {
-    return [...catalog.words.keys()].map((id) => {
-      const state = wordsRef.current.get(id);
-      return {
-        id,
-        card: state?.card ?? null,
-        mastery: state?.mastery ?? initialMastery(),
-      };
-    });
-  }
-
   /** Every graded rep — drill or talk tap — is one moment of cultivation (§2). */
   function applyGrade(wordId: string, grade: SessionGrade) {
     const now = new Date();
@@ -117,7 +100,7 @@ export function App() {
   function startSession() {
     setNotice(null);
     const meta = metaRef.current;
-    const plan = planSession(snapshots(), catalog, meta.settings, new Date());
+    const plan = planSession(toSnapshots(catalog, wordsRef.current), catalog, meta.settings, new Date());
     if (plan.items.length === 0) {
       setNotice('nothing to tend right now — everything is resting. come back later.');
       return;
@@ -139,7 +122,7 @@ export function App() {
       .filter((deck) => deckIds.has(deck.id))
       .map((deck) => ({
         name: deck.name,
-        counts: GROWTH_STAGES.map(([stage, label]) => [
+        counts: STAGE_GROWTH.map(([stage, label]) => [
           label,
           deck.words.filter((w) => wordsRef.current.get(w.id)?.mastery.stage === stage).length,
         ]),
@@ -153,7 +136,7 @@ export function App() {
   }
 
   function onTalkFinish(deckId: string, tapped: ReadonlySet<string>) {
-    const deck = catalog.decks.find((d) => d.id === deckId);
+    const deck = catalog.deckById.get(deckId);
     if (deck === undefined) return;
     const termIds = new Set(deck.talk.flatMap((s) => (s.kind === 'term' ? [s.term] : [])));
     for (const id of termIds) {

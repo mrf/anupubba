@@ -46,6 +46,7 @@ describe('buildCatalog', () => {
     expect(catalog.decks.map((d) => d.id)).toEqual(['one', 'two']);
     expect(catalog.words.get('two-b')?.gloss).toBe('gloss of two-b');
     expect(catalog.deckOf.get('one-a')?.id).toBe('one');
+    expect(catalog.deckById.get('two')?.name).toBe('Deck two');
     expect(catalog.familiarity).toEqual(['one-a']);
   });
 

@@ -1,7 +1,6 @@
 import { describe, expect, it } from 'vitest';
 import { catalog } from '../data/catalog.ts';
-import { initialMastery } from './mastery.ts';
-import { planSession, recommendSutta } from './session.ts';
+import { planSession, recommendSutta, toSnapshots } from './session.ts';
 import type { WordSnapshot } from './session.ts';
 import { newWordState, reviewWord, seedFromFamiliarity } from './srs.ts';
 
@@ -9,11 +8,7 @@ const NOW = new Date('2026-07-08T12:00:00Z');
 const OPTS = { minutes: 5, maxNew: 3 };
 
 function blankSnapshots(): WordSnapshot[] {
-  return [...catalog.words.values()].map((w) => ({
-    id: w.id,
-    card: null,
-    mastery: initialMastery(),
-  }));
+  return toSnapshots(catalog, new Map());
 }
 
 describe('planSession', () => {

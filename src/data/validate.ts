@@ -16,7 +16,7 @@ function fail(path: string, message: string): never {
   throw new ContentError(`${path}: ${message}`);
 }
 
-function isRecord(value: unknown): value is Record<string, unknown> {
+export function isRecord(value: unknown): value is Record<string, unknown> {
   return typeof value === 'object' && value !== null && !Array.isArray(value);
 }
 
@@ -147,14 +147,14 @@ export function buildCatalog(rawDecks: unknown, familiarity: readonly string[]):
   }
   const decks = rawDecks.map(parseDeck).sort((a, b) => a.order - b.order);
 
-  const deckIds = new Set<string>();
+  const deckById = new Map<string, Deck>();
   const orders = new Set<number>();
   const words = new Map<string, WordCard>();
   const deckOf = new Map<string, Deck>();
 
   for (const deck of decks) {
-    if (deckIds.has(deck.id)) fail(`deck(${deck.id})`, 'duplicate deck id');
-    deckIds.add(deck.id);
+    if (deckById.has(deck.id)) fail(`deck(${deck.id})`, 'duplicate deck id');
+    deckById.set(deck.id, deck);
     if (orders.has(deck.order)) fail(`deck(${deck.id})`, `duplicate order ${String(deck.order)}`);
     orders.add(deck.order);
     for (const word of deck.words) {
@@ -199,5 +199,5 @@ export function buildCatalog(rawDecks: unknown, familiarity: readonly string[]):
     }
   }
 
-  return { decks, words, deckOf, familiarity };
+  return { decks, words, deckById, deckOf, familiarity };
 }

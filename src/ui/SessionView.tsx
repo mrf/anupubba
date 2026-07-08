@@ -65,7 +65,7 @@ function SessionItemView(props: {
   const { item, catalog, maturityOf, onIntro, onGrade, onTalkTap, onTalkFinish, advance } = props;
 
   if (item.kind === 'talk') {
-    const deck = catalog.decks.find((d) => d.id === item.deckId);
+    const deck = catalog.deckById.get(item.deckId);
     if (deck === undefined) return null;
     return (
       <TalkReader

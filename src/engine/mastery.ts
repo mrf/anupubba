@@ -1,7 +1,14 @@
 import type { FamiliarityLevel, SessionGrade } from './srs.ts';
 
-/** The per-word mastery ladder (§3.2). */
-export type MasteryStage = 'recognition' | 'recall' | 'discrimination' | 'comprehension';
+/** The per-word mastery ladder (§3.2), in climbing order. */
+export const MASTERY_LADDER = [
+  'recognition',
+  'recall',
+  'discrimination',
+  'comprehension',
+] as const;
+
+export type MasteryStage = (typeof MASTERY_LADDER)[number];
 
 export interface Mastery {
   stage: MasteryStage;
@@ -11,12 +18,7 @@ export interface Mastery {
 
 export type DrillKind = 'recognition' | 'recall' | 'discrimination';
 
-const LADDER: readonly MasteryStage[] = [
-  'recognition',
-  'recall',
-  'discrimination',
-  'comprehension',
-];
+const LADDER: readonly MasteryStage[] = MASTERY_LADDER;
 
 const PROMOTE_AT = 2;
 

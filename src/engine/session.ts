@@ -1,13 +1,28 @@
 import type { Catalog, Deck, SuttaRec } from '../data/types.ts';
-import { drillFor } from './mastery.ts';
-import type { DrillKind, Mastery } from './mastery.ts';
+import { drillFor, initialMastery } from './mastery.ts';
+import type { DrillKind } from './mastery.ts';
 import { isDue } from './srs.ts';
+import type { WordState } from './store.ts';
 import type { Card } from 'ts-fsrs';
 
-export interface WordSnapshot {
-  id: string;
+/** A WordState that may not exist yet — untouched words carry a null card. */
+export interface WordSnapshot extends Omit<WordState, 'card'> {
   card: Card | null;
-  mastery: Mastery;
+}
+
+/** One snapshot per catalog word, whether or not it has stored state yet. */
+export function toSnapshots(
+  catalog: Catalog,
+  states: ReadonlyMap<string, WordState>,
+): WordSnapshot[] {
+  return [...catalog.words.keys()].map((id) => {
+    const state = states.get(id);
+    return {
+      id,
+      card: state?.card ?? null,
+      mastery: state?.mastery ?? initialMastery(),
+    };
+  });
 }
 
 export type SessionItem =
@@ -101,11 +116,16 @@ function pickTalkDeck(
     if (deck === undefined) continue;
     counts.set(deck.id, (counts.get(deck.id) ?? 0) + 1);
   }
+  return mostCountedDeck(counts, catalog);
+}
+
+/** Ties go to the later deck — the deeper teaching. */
+function mostCountedDeck(counts: ReadonlyMap<string, number>, catalog: Catalog): Deck | null {
   let best: Deck | null = null;
   let bestCount = 0;
-  for (const [deckId, count] of counts) {
-    const deck = catalog.decks.find((d) => d.id === deckId);
-    if (deck !== undefined && count > bestCount) {
+  for (const deck of catalog.decks) {
+    const count = counts.get(deck.id) ?? 0;
+    if (count > 0 && count >= bestCount) {
       best = deck;
       bestCount = count;
     }
@@ -121,21 +141,10 @@ export function recommendSutta(plan: SessionPlan, catalog: Catalog): SuttaRec {
   const counts = new Map<string, number>();
   for (const item of plan.items) {
     const deck =
-      item.kind === 'talk'
-        ? catalog.decks.find((d) => d.id === item.deckId)
-        : catalog.deckOf.get(item.wordId);
+      item.kind === 'talk' ? catalog.deckById.get(item.deckId) : catalog.deckOf.get(item.wordId);
     if (deck !== undefined) counts.set(deck.id, (counts.get(deck.id) ?? 0) + 1);
   }
-  let best: Deck | undefined;
-  let bestCount = 0;
-  for (const deck of catalog.decks) {
-    const count = counts.get(deck.id) ?? 0;
-    if (count >= bestCount && count > 0) {
-      best = deck;
-      bestCount = count;
-    }
-  }
-  const chosen = best ?? catalog.decks[0];
+  const chosen = mostCountedDeck(counts, catalog) ?? catalog.decks[0];
   if (chosen === undefined) {
     throw new Error('catalog has no decks');
   }

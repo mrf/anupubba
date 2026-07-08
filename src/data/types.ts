@@ -57,6 +57,7 @@ export interface Deck {
 export interface Catalog {
   decks: readonly Deck[];
   words: ReadonlyMap<string, WordCard>;
+  deckById: ReadonlyMap<string, Deck>;
   deckOf: ReadonlyMap<string, Deck>;
   familiarity: readonly string[];
 }

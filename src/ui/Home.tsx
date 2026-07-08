@@ -1,17 +1,13 @@
 import type { Catalog } from '../data/types.ts';
 import type { Meta, Settings, WordState } from '../engine/store.ts';
+import { STAGE_GROWTH, UNTOUCHED_LABEL } from './stages.ts';
 
-const STAGE_LABELS = {
-  untouched: 'not yet met',
-  recognition: 'seed',
-  recall: 'sprout',
-  discrimination: 'bud',
-  comprehension: 'bloom',
-} as const;
+const STAGE_LABELS = new Map<string, string>([
+  ['untouched', UNTOUCHED_LABEL],
+  ...STAGE_GROWTH,
+]);
 
-type StageKey = keyof typeof STAGE_LABELS;
-
-function stageOf(state: WordState | undefined): StageKey {
+function stageOf(state: WordState | undefined): string {
   return state === undefined ? 'untouched' : state.mastery.stage;
 }
 
@@ -57,7 +53,7 @@ export function Home(props: {
                   <span
                     key={word.id}
                     class={`dot ${stage}`}
-                    title={`${word.pali} — ${STAGE_LABELS[stage]}`}
+                    title={`${word.pali} — ${STAGE_LABELS.get(stage) ?? stage}`}
                   />
                 );
               })}
@@ -65,9 +61,13 @@ export function Home(props: {
           </div>
         ))}
         <p class="legend">
-          <span class="dot untouched" /> not yet met · <span class="dot recognition" /> seed ·{' '}
-          <span class="dot recall" /> sprout · <span class="dot discrimination" /> bud ·{' '}
-          <span class="dot comprehension" /> bloom
+          <span class="dot untouched" /> {UNTOUCHED_LABEL}
+          {STAGE_GROWTH.map(([stage, label]) => (
+            <span key={stage}>
+              {' · '}
+              <span class={`dot ${stage}`} /> {label}
+            </span>
+          ))}
         </p>
       </section>
 

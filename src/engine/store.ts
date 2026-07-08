@@ -1,7 +1,9 @@
 import { deleteDB, openDB } from 'idb';
 import type { DBSchema, IDBPDatabase } from 'idb';
 import type { Card } from 'ts-fsrs';
-import type { Mastery, MasteryStage } from './mastery.ts';
+import { isRecord } from '../data/validate.ts';
+import { MASTERY_LADDER } from './mastery.ts';
+import type { Mastery } from './mastery.ts';
 
 export interface WordState {
   id: string;
@@ -87,34 +89,26 @@ function reviveCard(card: ExportedCard): Card {
   return out;
 }
 
-const STAGES: readonly MasteryStage[] = [
-  'recognition',
-  'recall',
-  'discrimination',
-  'comprehension',
-];
+const STAGES: readonly string[] = MASTERY_LADDER;
 
 function isExportFile(value: unknown): value is ExportFile {
-  if (typeof value !== 'object' || value === null) return false;
-  const obj = value as Record<string, unknown>;
-  if (obj['app'] !== 'anupubba' || obj['version'] !== 1) return false;
-  if (typeof obj['meta'] !== 'object' || obj['meta'] === null) return false;
-  const words = obj['words'];
+  if (!isRecord(value)) return false;
+  if (value['app'] !== 'anupubba' || value['version'] !== 1) return false;
+  if (!isRecord(value['meta'])) return false;
+  const words = value['words'];
   if (!Array.isArray(words)) return false;
-  return words.every((w: unknown) => {
-    if (typeof w !== 'object' || w === null) return false;
-    const word = w as Record<string, unknown>;
-    const mastery = word['mastery'] as Record<string, unknown> | null | undefined;
-    const card = word['card'] as Record<string, unknown> | null | undefined;
+  return words.every((word: unknown) => {
+    if (!isRecord(word)) return false;
+    const mastery = word['mastery'];
+    const card = word['card'];
     return (
       typeof word['id'] === 'string' &&
-      typeof card === 'object' &&
-      card !== null &&
+      isRecord(card) &&
       typeof card['due'] === 'string' &&
       !Number.isNaN(Date.parse(card['due'])) &&
-      typeof mastery === 'object' &&
-      mastery !== null &&
-      STAGES.includes(mastery['stage'] as MasteryStage) &&
+      isRecord(mastery) &&
+      typeof mastery['stage'] === 'string' &&
+      STAGES.includes(mastery['stage']) &&
       typeof mastery['streak'] === 'number'
     );
   });
