@@ -2,7 +2,7 @@ import type { Catalog, WordCard } from '../data/types.ts';
 
 export type Rng = () => number;
 
-function shuffled<T>(items: readonly T[], rng: Rng): T[] {
+export function shuffled<T>(items: readonly T[], rng: Rng): T[] {
   const out = [...items];
   for (let i = out.length - 1; i > 0; i--) {
     const j = Math.floor(rng() * (i + 1));

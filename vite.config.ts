@@ -40,6 +40,9 @@ export default defineConfig({
   ],
   test: {
     environment: 'jsdom',
+    // Globals let @testing-library auto-cleanup between tests; without it a
+    // previous test's mounted App keeps answering screen queries.
+    globals: true,
     setupFiles: ['./src/test/setup.ts'],
   },
 });

@@ -36,3 +36,388 @@ body {
   gap: 1rem;
   padding-top: 1rem;
 }
+
+.wordmark {
+  align-items: center;
+  padding-top: 40vh;
+  color: var(--ink-soft);
+  letter-spacing: 0.15em;
+}
+
+.screen-head h1 {
+  margin: 0 0 0.25rem;
+  font-size: 1.6rem;
+  font-weight: normal;
+  letter-spacing: 0.06em;
+}
+
+.screen-head p {
+  margin: 0;
+  color: var(--ink-soft);
+  line-height: 1.5;
+}
+
+.tagline {
+  font-style: italic;
+}
+
+.card {
+  background: var(--card);
+  border: 1px solid var(--line);
+  border-radius: var(--radius);
+  padding: 1.25rem;
+  display: flex;
+  flex-direction: column;
+  gap: 0.75rem;
+}
+
+.pali-big {
+  margin: 0;
+  font-size: 2.2rem;
+  text-align: center;
+  letter-spacing: 0.03em;
+}
+
+.pronunciation {
+  margin: 0;
+  text-align: center;
+  color: var(--ink-soft);
+  font-size: 0.9rem;
+  letter-spacing: 0.08em;
+}
+
+.gloss {
+  margin: 0;
+  text-align: center;
+  font-size: 1.15rem;
+  line-height: 1.45;
+}
+
+.literal,
+.etymology {
+  margin: 0;
+  text-align: center;
+  color: var(--ink-soft);
+  font-size: 0.95rem;
+  line-height: 1.45;
+}
+
+.canonical {
+  margin: 0.25rem 0 0;
+  padding: 0.75rem 1rem;
+  border-left: 3px solid var(--accent);
+  background: color-mix(in srgb, var(--accent) 7%, transparent);
+  font-size: 0.95rem;
+}
+
+.canonical p {
+  margin: 0 0 0.25rem;
+  line-height: 1.5;
+}
+
+.canonical cite {
+  color: var(--ink-soft);
+  font-size: 0.85rem;
+}
+
+.sources {
+  margin: 0;
+  display: flex;
+  gap: 1rem;
+  justify-content: center;
+  font-size: 0.85rem;
+}
+
+.sources a,
+.rec-title {
+  color: var(--accent-deep);
+}
+
+.btn {
+  font: inherit;
+  border: 1px solid var(--line);
+  border-radius: var(--radius);
+  background: var(--card);
+  color: var(--ink);
+  padding: 0.7rem 1.1rem;
+  cursor: pointer;
+  transition: background 0.15s ease;
+}
+
+.btn:hover {
+  background: color-mix(in srgb, var(--accent) 10%, var(--card));
+}
+
+.btn.primary {
+  background: var(--accent);
+  border-color: var(--accent);
+  color: #fff;
+}
+
+.btn.primary:hover {
+  background: var(--accent-deep);
+}
+
+.btn.big {
+  font-size: 1.15rem;
+  padding: 1rem;
+}
+
+.btn.quiet {
+  border: none;
+  background: transparent;
+  color: var(--ink-soft);
+  text-decoration: underline dotted;
+  padding: 0.4rem;
+}
+
+.btn.right {
+  border-color: var(--accent-deep);
+  background: color-mix(in srgb, var(--accent) 18%, var(--card));
+}
+
+.btn.soft {
+  color: var(--ink-soft);
+}
+
+.options {
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+}
+
+.options.syllables {
+  flex-direction: row;
+  justify-content: center;
+}
+
+.option {
+  text-align: center;
+}
+
+.feedback {
+  margin: 0;
+  text-align: center;
+  line-height: 1.45;
+}
+
+.feedback.clear {
+  color: var(--accent-deep);
+}
+
+.feedback.not-yet {
+  color: var(--not-yet);
+}
+
+.recall-input {
+  font: inherit;
+  width: 100%;
+  padding: 0.7rem 0.9rem;
+  border: 1px solid var(--line);
+  border-radius: var(--radius);
+  background: var(--paper);
+  margin-bottom: 0.5rem;
+}
+
+form {
+  display: flex;
+  flex-direction: column;
+}
+
+.count,
+.session-count {
+  margin: 0;
+  text-align: center;
+  color: var(--ink-soft);
+  font-size: 0.85rem;
+  letter-spacing: 0.1em;
+}
+
+.clusters {
+  display: flex;
+  flex-direction: column;
+  gap: 0.6rem;
+}
+
+.cluster-row {
+  display: flex;
+  justify-content: space-between;
+  align-items: baseline;
+  gap: 0.75rem;
+}
+
+.cluster-names {
+  display: flex;
+  flex-direction: column;
+}
+
+.cluster-name {
+  font-size: 0.98rem;
+}
+
+.cluster-pali {
+  color: var(--ink-soft);
+  font-size: 0.82rem;
+  font-style: italic;
+}
+
+.cluster-dots {
+  display: flex;
+  gap: 0.3rem;
+  flex-wrap: wrap;
+  justify-content: flex-end;
+}
+
+.dot {
+  width: 0.65rem;
+  height: 0.65rem;
+  border-radius: 50%;
+  display: inline-block;
+  border: 1px solid var(--line);
+  background: transparent;
+}
+
+.dot.recognition {
+  background: color-mix(in srgb, var(--accent) 25%, var(--paper));
+  border-color: var(--accent);
+}
+
+.dot.recall {
+  background: color-mix(in srgb, var(--accent) 50%, var(--paper));
+  border-color: var(--accent);
+}
+
+.dot.discrimination {
+  background: color-mix(in srgb, var(--accent) 75%, var(--paper));
+  border-color: var(--accent-deep);
+}
+
+.dot.comprehension {
+  background: var(--accent-deep);
+  border-color: var(--accent-deep);
+}
+
+.legend {
+  color: var(--ink-soft);
+  font-size: 0.8rem;
+  margin: 0.25rem 0 0;
+}
+
+.cultivation {
+  margin: 0;
+  text-align: center;
+  color: var(--ink-soft);
+  font-size: 0.9rem;
+  font-style: italic;
+}
+
+.notice {
+  margin: 0;
+  text-align: center;
+  color: var(--warm);
+}
+
+.settings {
+  display: flex;
+  gap: 1.5rem;
+  justify-content: center;
+  align-items: center;
+  color: var(--ink-soft);
+  font-size: 0.9rem;
+}
+
+.settings select {
+  font: inherit;
+  border: 1px solid var(--line);
+  border-radius: 8px;
+  background: var(--card);
+  padding: 0.2rem 0.4rem;
+}
+
+.home-foot {
+  display: flex;
+  gap: 0.5rem;
+  justify-content: center;
+}
+
+.file-label {
+  cursor: pointer;
+}
+
+.lesson ul {
+  margin: 0;
+  padding-left: 1.2rem;
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+  line-height: 1.5;
+}
+
+.lesson h2,
+.talk h2 {
+  margin: 0;
+  font-weight: normal;
+  font-size: 1.2rem;
+}
+
+.drill-prompt {
+  margin: 0.5rem 0 0;
+  text-align: center;
+  color: var(--ink-soft);
+}
+
+.talk-hint {
+  margin: 0;
+  color: var(--ink-soft);
+  font-size: 0.9rem;
+  font-style: italic;
+}
+
+.talk-body {
+  margin: 0;
+  font-size: 1.1rem;
+  line-height: 1.8;
+}
+
+.term {
+  font: inherit;
+  border: none;
+  background: transparent;
+  padding: 0;
+  cursor: pointer;
+  color: var(--accent-deep);
+  text-decoration: underline dotted;
+  text-underline-offset: 3px;
+}
+
+.term.tapped {
+  color: var(--warm);
+}
+
+.talk-gloss {
+  margin: 0;
+  padding: 0.6rem 0.9rem;
+  background: color-mix(in srgb, var(--accent) 8%, transparent);
+  border-radius: 8px;
+  line-height: 1.5;
+}
+
+.growth p {
+  margin: 0;
+  line-height: 1.6;
+}
+
+.rec-lead {
+  margin: 0;
+  color: var(--ink-soft);
+}
+
+.rec-title {
+  font-size: 1.15rem;
+}
+
+.rec-blurb {
+  margin: 0;
+  color: var(--ink-soft);
+  line-height: 1.5;
+}
