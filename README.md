@@ -1,5 +1,7 @@
 # Anupubba
 
+**Live app: [mrf.github.io/anupubba](https://mrf.github.io/anupubba/)**
+
 Gamified Pali vocabulary for dharma practitioners — *anu-* (following after) + *pubba* (what came before): gradual, step-by-step, in due order.
 
 For people who listen to talks, read suttas, and keep bumping into *saṅkhāra* and *pīti* without ever pinning them down. The goal is **receptive precision**: recognizing and discriminating Pali terms as they appear in talks, suttas, and chants — not composing Pali. Offered freely as dāna: no server, no analytics, no account.
