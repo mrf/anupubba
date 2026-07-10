@@ -21,9 +21,9 @@ npm run icons    # regenerate public/ icon set (no image deps)
 
 ## What's built (Phase 0–2 core)
 
-- **Eight cluster decks, 34 words** (`src/data/decks/`): refuges, three marks, dāna–sīla–bhāvanā, four noble truths, brahmavihāras, khandhas, foundations of practice, jhāna factors — each word with gloss, literal meaning, etymology, authored confusables, SuttaCentral + Digital Pali Dictionary sources, and (where well-attested) a canonical line. A runtime validator fails the build on any dangling reference.
+- **Eleven cluster decks, 47 words** (`src/data/decks/`): refuges, three marks, dāna–sīla–bhāvanā, four noble truths, brahmavihāras, khandhas, foundations of practice, jhāna factors, five hindrances, seven bojjhaṅgas, dependent origination — each word with gloss, literal meaning, etymology, authored confusables, SuttaCentral + Digital Pali Dictionary sources, and (where well-attested) a canonical line. A runtime validator fails the build on any dangling reference.
 - **FSRS engine** with non-aversive grading (*not yet / familiar / clear*), a four-stage mastery ladder (recognition → recall → discrimination → comprehension), and the **distractor dial** — new words get distant distractors, mature words face their true confusables (*pīti* finally meets *sukha*).
-- **Familiarity sort** onboarding (know it / heard it / new to me) seeding SRS state via backdated reviews; **Lesson 0** diacritics primer with tap-the-long-syllable micro-drills.
+- **Familiarity sort** onboarding (know it / heard it / new to me) seeding SRS state via backdated reviews; **Lesson 0** pronunciation primer — six pages covering long vowels, c/ñ/ṃ, retroflexes and aspirates, the ṅ nasal, long-by-nature e/o, and syllable weight — each with a tap-the-syllable micro-drill.
 - **Session as a sit**: synthesized bell to open and close, bounded reviews-first plans, intro-card-before-drill, and **talk mode** paragraphs with tappable glosses as each cluster's graduation.
 - **Closing screen**: lifetime cultivation count, per-deck growth (seed/sprout/bud/bloom), one sutta recommendation.
 - **Export/import** of all local state as JSON — the data belongs to the user.

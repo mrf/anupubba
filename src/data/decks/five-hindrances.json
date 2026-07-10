@@ -1,0 +1,108 @@
+{
+  "id": "five-hindrances",
+  "name": "The Five Hindrances",
+  "paliName": "pañca nīvaraṇā",
+  "order": 9,
+  "intro": "The five energies that cloud a sit — not enemies to fight but weather to know by name.",
+  "words": [
+    {
+      "id": "kamacchanda",
+      "pali": "kāmacchanda",
+      "gloss": "sensual desire; wanting the pleasant",
+      "literal": "desire for sense pleasure",
+      "etymology": { "root": "kāma (sense pleasure) + chanda (desire, intent)", "note": "the mind leaning toward something more pleasant than what is here" },
+      "cluster": "five-hindrances",
+      "confusables": ["tanha", "byapada"],
+      "canonicalLine": {
+        "pali": "pañcime, bhikkhave, āvaraṇā nīvaraṇā cetaso ajjhāruhā paññāya dubbalīkaraṇā",
+        "translation": "these five, monks, are obstructions, hindrances that overgrow the mind and weaken wisdom",
+        "ref": "an5.51"
+      },
+      "sources": [
+        { "type": "sutta", "ref": "an5.51", "url": "https://suttacentral.net/an5.51" },
+        { "type": "dictionary", "ref": "dpd:kāmacchanda", "url": "https://dpdict.net/?q=kāmacchanda" }
+      ],
+      "pronunciation": "kaa-much-CHUN-da"
+    },
+    {
+      "id": "byapada",
+      "pali": "byāpāda",
+      "gloss": "ill will; aversion, pushing against",
+      "literal": "going wrong against",
+      "etymology": { "root": "vi + ā + √pad (to go)", "note": "the mind gone against something — ill will at every temperature, from irritation to hatred" },
+      "cluster": "five-hindrances",
+      "confusables": ["kamacchanda"],
+      "sources": [
+        { "type": "sutta", "ref": "sn46.55", "url": "https://suttacentral.net/sn46.55" },
+        { "type": "dictionary", "ref": "dpd:byāpāda", "url": "https://dpdict.net/?q=byāpāda" }
+      ],
+      "pronunciation": "byaa-PAA-da"
+    },
+    {
+      "id": "thinamiddha",
+      "pali": "thīnamiddha",
+      "gloss": "sloth and torpor; sunken dullness",
+      "literal": "stiffness and drowsiness",
+      "etymology": { "root": "thīna (stiffness of mind) + middha (drowsiness of body)", "note": "the heavy blanket — mind gone stiff, body gone heavy" },
+      "cluster": "five-hindrances",
+      "confusables": ["uddhaccakukkucca"],
+      "sources": [
+        { "type": "sutta", "ref": "sn46.55", "url": "https://suttacentral.net/sn46.55" },
+        { "type": "dictionary", "ref": "dpd:thīnamiddha", "url": "https://dpdict.net/?q=thīnamiddha" }
+      ],
+      "pronunciation": "thee-na-MID-dha"
+    },
+    {
+      "id": "uddhaccakukkucca",
+      "pali": "uddhaccakukkucca",
+      "gloss": "restlessness and remorse; agitated scattering",
+      "literal": "shaken-upward-ness and badly-done-ness",
+      "etymology": { "root": "ud (up) + √dhu (to shake); ku (wrongly) + kata (done)", "note": "the mind shaken forward into plans and backward over what was done or left undone" },
+      "cluster": "five-hindrances",
+      "confusables": ["thinamiddha"],
+      "sources": [
+        { "type": "sutta", "ref": "sn46.55", "url": "https://suttacentral.net/sn46.55" },
+        { "type": "dictionary", "ref": "dpd:uddhaccakukkucca", "url": "https://dpdict.net/?q=uddhaccakukkucca" }
+      ],
+      "pronunciation": "ood-dhuch-cha-kook-KOOCH-cha"
+    },
+    {
+      "id": "vicikiccha",
+      "pali": "vicikicchā",
+      "gloss": "doubt; the wobble that cannot commit",
+      "literal": "thinking pulled two ways",
+      "etymology": { "root": "vi + √cit (to think), reduplicated", "note": "not honest questioning but the paralysis of it — is this working? am I doing it right?" },
+      "cluster": "five-hindrances",
+      "confusables": ["vicara"],
+      "sources": [
+        { "type": "sutta", "ref": "sn46.55", "url": "https://suttacentral.net/sn46.55" },
+        { "type": "dictionary", "ref": "dpd:vicikicchā", "url": "https://dpdict.net/?q=vicikicchā" }
+      ],
+      "pronunciation": "vi-chi-KICH-chaa"
+    }
+  ],
+  "talk": [
+    { "text": "Sit down and the hindrances arrive like weather. " },
+    { "term": "kamacchanda", "surface": "kāmacchanda" },
+    { "text": " reaches for something more pleasant than the breath; " },
+    { "term": "byapada", "surface": "byāpāda" },
+    { "text": " pushes against what is already here. " },
+    { "term": "thinamiddha", "surface": "thīnamiddha" },
+    { "text": " pulls the mind under, while " },
+    { "term": "uddhaccakukkucca", "surface": "uddhaccakukkucca" },
+    { "text": " shakes it — replaying what was said, rehearsing what is next. And " },
+    { "term": "vicikiccha", "surface": "vicikicchā" },
+    { "text": " whispers: is this even working? None of them are enemies. Met with " },
+    { "term": "sati", "surface": "sati" },
+    { "text": ", named and known, each one loosens — and the water clears toward " },
+    { "term": "samadhi", "surface": "samādhi" },
+    { "text": "." }
+  ],
+  "suttaRec": {
+    "title": "Saṅgārava — The Bowl of Water",
+    "ref": "sn46.55",
+    "url": "https://suttacentral.net/sn46.55",
+    "blurb": "Each hindrance as a bowl of water — dyed, boiling, mossy, wind-churned, muddy — and why verses won't come to mind when the water is disturbed.",
+    "minutes": 8
+  }
+}

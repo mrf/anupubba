@@ -57,6 +57,7 @@ const PAGES: readonly Page[] = [
     points: [
       'Dots under ṭ, ḍ, ṇ curl the tongue back against the roof of the mouth: taṇhā.',
       'kh, gh, th, dh, bh, ph add a puff of breath — dukkha is duk-kha, never “duck-a”.',
+      'So th is a breathy t — never the th of “thin”: Theravāda is tay-ra-VAA-da. And ph is a breathy p, never “f”: phala is PHA-la.',
       'Doubled consonants are truly doubled: hold them a beat.',
     ],
     drill: {
@@ -65,6 +66,51 @@ const PAGES: readonly Page[] = [
       answer: 1,
       success: 'yes — duk-kha, with a little push of air',
       hint: 'listen again — kh carries the breath, plain k does not',
+    },
+  },
+  {
+    title: 'the ng at the back',
+    points: [
+      'ṅ is the “ng” of “singer”: saṅgha is SUNG-gha, saṅkhāra is sun-KHAA-ra.',
+      'Three nasals, three places: ñ at the palate (paññā), ṅ at the back (saṅgha), ṃ humming through the nose (saṃsāra).',
+      'Where English would break “n-k” apart, Pali glides: think “sung-KHAA-ra”, not “san-KHAA-ra”.',
+    ],
+    drill: {
+      prompt: 'tap the syllable with the “ng” in saṅkhāra',
+      syllables: ['saṅ', 'khā', 'ra'],
+      answer: 0,
+      success: 'yes — sun-KHAA-ra, the ng gliding into the kh',
+      hint: 'listen again — ṅ is the “ng” of “singer”, right at the back',
+    },
+  },
+  {
+    title: 'e and o — long without the line',
+    points: [
+      'e and o are always long, so they never wear a macron: e as in “grey”, o as in “go”.',
+      'bodhi is BOH-dhi; deva is DAY-va; mettā — squeezed by the doubled tt — drops to the e of “met”.',
+      'So Pali has ten vowels: a, i, u short; ā, ī, ū long; e and o long by nature, shortened only when doubled consonants press in.',
+    ],
+    drill: {
+      prompt: 'tap the long syllable in bodhi',
+      syllables: ['bo', 'dhi'],
+      answer: 0,
+      success: 'yes — BOH-dhi: o is long without any line over it',
+      hint: 'listen again — o is long by nature; dhi stays short and light',
+    },
+  },
+  {
+    title: 'where the weight falls',
+    points: [
+      'Pali has no heavy accent like English — the rhythm comes from length alone.',
+      'A syllable is heavy when its vowel is long, or when doubled consonants close it: u-PEK-khaa, a-NUT-taa.',
+      'Meet a new word by finding its heavy syllables and letting them carry it: nibbāna, viññāṇa, anicca.',
+    ],
+    drill: {
+      prompt: 'tap the heavy syllable in anicca',
+      syllables: ['a', 'nic', 'ca'],
+      answer: 1,
+      success: 'yes — a-NICH-cha: no long vowel anywhere, the doubled cc alone makes it heavy',
+      hint: 'listen again — no macrons here; the doubled consonant carries the weight',
     },
   },
 ];

@@ -3,8 +3,8 @@ import { catalog } from './catalog.ts';
 
 describe('shipped deck content', () => {
   it('loads and cross-validates', () => {
-    expect(catalog.decks.length).toBe(8);
-    expect(catalog.words.size).toBeGreaterThanOrEqual(30);
+    expect(catalog.decks.length).toBe(11);
+    expect(catalog.words.size).toBeGreaterThanOrEqual(45);
   });
 
   it('orders decks along the gradual path', () => {
@@ -17,6 +17,9 @@ describe('shipped deck content', () => {
       'five-khandhas',
       'foundations-of-practice',
       'jhana-factors',
+      'five-hindrances',
+      'bojjhangas',
+      'paticca-samuppada',
     ]);
   });
 
@@ -26,6 +29,17 @@ describe('shipped deck content', () => {
     expect(catalog.words.get('samatha')?.confusables).toContain('samadhi');
     expect(catalog.words.get('karuna')?.confusables).toContain('mudita');
     expect(catalog.words.get('sati')?.confusables).toContain('sampajanna');
+  });
+
+  it('authors the new clusters as discrimination pairs, not islands', () => {
+    // taṇhā vs upādāna — craving vs clinging, the classic adjacent links
+    expect(catalog.words.get('upadana')?.confusables).toContain('tanha');
+    // the energy axis of the hindrances: sunk low vs shaken high
+    expect(catalog.words.get('thinamiddha')?.confusables).toContain('uddhaccakukkucca');
+    expect(catalog.words.get('uddhaccakukkucca')?.confusables).toContain('thinamiddha');
+    // sound-alikes across decks
+    expect(catalog.words.get('vicikiccha')?.confusables).toContain('vicara');
+    expect(catalog.words.get('bhava')?.confusables).toContain('bhavana');
   });
 
   it('gives every word an etymology, pronunciation, and sutta-or-dictionary source', () => {

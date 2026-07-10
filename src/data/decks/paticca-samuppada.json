@@ -1,0 +1,128 @@
+{
+  "id": "paticca-samuppada",
+  "name": "Dependent Origination — The Key Links",
+  "paliName": "paṭicca-samuppāda",
+  "order": 11,
+  "intro": "The twelve-link chain compressed to the terms teachers actually say — and the place where it can break.",
+  "words": [
+    {
+      "id": "avijja",
+      "pali": "avijjā",
+      "gloss": "ignorance; not seeing clearly",
+      "literal": "not-knowing",
+      "etymology": { "root": "a (not) + vijjā (√vid, to know)", "note": "not stupidity but non-seeing — of the four truths, of the three marks; the first link because it is the last to fall" },
+      "cluster": "paticca-samuppada",
+      "confusables": ["panna"],
+      "canonicalLine": {
+        "pali": "avijjāpaccayā saṅkhārā; saṅkhārapaccayā viññāṇaṃ",
+        "translation": "with ignorance as condition, formations; with formations as condition, consciousness",
+        "ref": "sn12.1"
+      },
+      "sources": [
+        { "type": "sutta", "ref": "sn12.1", "url": "https://suttacentral.net/sn12.1" },
+        { "type": "dictionary", "ref": "dpd:avijjā", "url": "https://dpdict.net/?q=avijjā" }
+      ],
+      "pronunciation": "uh-VIJ-jaa"
+    },
+    {
+      "id": "phassa",
+      "pali": "phassa",
+      "gloss": "contact; the meeting of sense, object, and consciousness",
+      "literal": "touch",
+      "etymology": { "root": "√phus (to touch; phusati)", "note": "where experience begins — eye meets form, awareness arises, and the three together are contact" },
+      "cluster": "paticca-samuppada",
+      "confusables": ["vedana"],
+      "sources": [
+        { "type": "sutta", "ref": "sn12.2", "url": "https://suttacentral.net/sn12.2" },
+        { "type": "dictionary", "ref": "dpd:phassa", "url": "https://dpdict.net/?q=phassa" }
+      ],
+      "pronunciation": "PHUS-sa"
+    },
+    {
+      "id": "upadana",
+      "pali": "upādāna",
+      "gloss": "clinging; grasping, holding on",
+      "literal": "taking up close",
+      "etymology": { "root": "upa + ā + √dā (to take)", "note": "also the word for a fire's fuel — craving reaches, clinging holds and feeds on what it holds" },
+      "cluster": "paticca-samuppada",
+      "confusables": ["tanha"],
+      "canonicalLine": {
+        "pali": "taṇhāpaccayā upādānaṃ; upādānapaccayā bhavo",
+        "translation": "with craving as condition, clinging; with clinging as condition, becoming",
+        "ref": "sn12.1"
+      },
+      "sources": [
+        { "type": "sutta", "ref": "sn12.1", "url": "https://suttacentral.net/sn12.1" },
+        { "type": "dictionary", "ref": "dpd:upādāna", "url": "https://dpdict.net/?q=upādāna" }
+      ],
+      "pronunciation": "oo-paa-DAA-na"
+    },
+    {
+      "id": "bhava",
+      "pali": "bhava",
+      "gloss": "becoming; existence gathering momentum",
+      "literal": "being",
+      "etymology": { "root": "√bhū (to be)", "note": "the identity taking shape — not rebirth only, but every 'I am this' under construction" },
+      "cluster": "paticca-samuppada",
+      "confusables": ["bhavana", "jati"],
+      "sources": [
+        { "type": "sutta", "ref": "sn12.2", "url": "https://suttacentral.net/sn12.2" },
+        { "type": "dictionary", "ref": "dpd:bhava", "url": "https://dpdict.net/?q=bhava" }
+      ],
+      "pronunciation": "BHUH-va"
+    },
+    {
+      "id": "jati",
+      "pali": "jāti",
+      "gloss": "birth",
+      "literal": "being born",
+      "etymology": { "root": "√jan (to be born)", "note": "of beings — and, teachers often add, of every self that mounts an experience" },
+      "cluster": "paticca-samuppada",
+      "confusables": ["bhava"],
+      "canonicalLine": {
+        "pali": "jātipaccayā jarāmaraṇaṃ",
+        "translation": "with birth as condition, aging-and-death",
+        "ref": "sn12.1"
+      },
+      "sources": [
+        { "type": "sutta", "ref": "sn12.1", "url": "https://suttacentral.net/sn12.1" },
+        { "type": "dictionary", "ref": "dpd:jāti", "url": "https://dpdict.net/?q=jāti" }
+      ],
+      "pronunciation": "JAA-ti"
+    }
+  ],
+  "talk": [
+    { "text": "The wheel turns fast. Out of " },
+    { "term": "avijja", "surface": "avijjā" },
+    { "text": " — not seeing clearly — " },
+    { "term": "sankhara", "surface": "saṅkhārā" },
+    { "text": " shape a world, and " },
+    { "term": "vinnana", "surface": "viññāṇa" },
+    { "text": " lights it up. Where sense meets object, " },
+    { "term": "phassa", "surface": "phassa" },
+    { "text": " sparks " },
+    { "term": "vedana", "surface": "vedanā" },
+    { "text": " — and if the feeling is pleasant, " },
+    { "term": "tanha", "surface": "taṇhā" },
+    { "text": " reaches. Craving hardens into " },
+    { "term": "upadana", "surface": "upādāna" },
+    { "text": ", clinging builds " },
+    { "term": "bhava", "surface": "bhava" },
+    { "text": ", and becoming delivers " },
+    { "term": "jati", "surface": "jāti" },
+    { "text": " — a self, born again into the story. But the chain has a weak link: right where " },
+    { "term": "vedana", "surface": "vedanā" },
+    { "text": " turns to " },
+    { "term": "tanha", "surface": "taṇhā" },
+    { "text": ", " },
+    { "term": "sati", "surface": "sati" },
+    { "text": " can hold the line." }
+  ],
+  "suttaRec": {
+    "title": "Kaccānagotta — Right View",
+    "ref": "sn12.15",
+    "url": "https://suttacentral.net/sn12.15",
+    "blurb": "\"By and large, this world depends on a duality — existence and non-existence.\" The short discourse on the middle way between the two.",
+    "minutes": 4
+  }
+}

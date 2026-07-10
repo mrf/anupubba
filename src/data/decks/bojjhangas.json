@@ -1,0 +1,80 @@
+{
+  "id": "bojjhangas",
+  "name": "The Seven Factors of Awakening",
+  "paliName": "satta bojjhaṅgā",
+  "order": 10,
+  "intro": "Seven factors that ripen into awakening — four you already hold (sati, pīti, samādhi, upekkhā), three that complete the set.",
+  "words": [
+    {
+      "id": "dhammavicaya",
+      "pali": "dhammavicaya",
+      "gloss": "investigation of phenomena; discerning what is happening",
+      "literal": "sifting of dhammas",
+      "etymology": { "root": "dhamma + vi + √ci (to gather, discern)", "note": "investigation as a lamp, not a doubt — looking closely at experience while it happens" },
+      "cluster": "bojjhangas",
+      "confusables": ["vicara", "vipassana"],
+      "sources": [
+        { "type": "sutta", "ref": "sn46.5", "url": "https://suttacentral.net/sn46.5" },
+        { "type": "dictionary", "ref": "dpd:dhammavicaya", "url": "https://dpdict.net/?q=dhammavicaya" }
+      ],
+      "pronunciation": "DHUM-ma-vi-cha-ya"
+    },
+    {
+      "id": "viriya",
+      "pali": "viriya",
+      "gloss": "energy; persistent effort",
+      "literal": "the state of a hero",
+      "etymology": { "root": "from vīra (hero)", "note": "not strain but heroic persistence — the energy that keeps returning to the object" },
+      "cluster": "bojjhangas",
+      "confusables": ["passaddhi"],
+      "sources": [
+        { "type": "sutta", "ref": "sn46.2", "url": "https://suttacentral.net/sn46.2" },
+        { "type": "dictionary", "ref": "dpd:viriya", "url": "https://dpdict.net/?q=viriya" }
+      ],
+      "pronunciation": "VI-ri-ya"
+    },
+    {
+      "id": "passaddhi",
+      "pali": "passaddhi",
+      "gloss": "tranquility; calm of body and mind",
+      "literal": "settling, calming down",
+      "etymology": { "root": "pa + √sambh (to settle; passambhati)", "note": "the calm that makes happiness possible — quieter than pīti, deeper than comfort" },
+      "cluster": "bojjhangas",
+      "confusables": ["samatha", "sukha"],
+      "canonicalLine": {
+        "pali": "passaddhakāyo sukhaṃ vedeti, sukhino cittaṃ samādhiyati",
+        "translation": "tranquil in body, one feels happiness; the mind of one who is happy becomes concentrated",
+        "ref": "mn7"
+      },
+      "sources": [
+        { "type": "sutta", "ref": "mn7", "url": "https://suttacentral.net/mn7" },
+        { "type": "dictionary", "ref": "dpd:passaddhi", "url": "https://dpdict.net/?q=passaddhi" }
+      ],
+      "pronunciation": "pus-SUD-dhi"
+    }
+  ],
+  "talk": [
+    { "text": "Awakening has seven factors, and they balance like a fire. " },
+    { "term": "sati", "surface": "sati" },
+    { "text": " tends it, useful always. " },
+    { "term": "dhammavicaya", "surface": "dhammavicaya" },
+    { "text": " looks closely — what is actually happening right now? " },
+    { "term": "viriya", "surface": "viriya" },
+    { "text": " brings wood when the mind is dull, and " },
+    { "term": "piti", "surface": "pīti" },
+    { "text": " rises with the flame. When the fire runs hot, " },
+    { "term": "passaddhi", "surface": "passaddhi" },
+    { "text": " settles body and mind, " },
+    { "term": "samadhi", "surface": "samādhi" },
+    { "text": " gathers the light to one point, and " },
+    { "term": "upekkha", "surface": "upekkhā" },
+    { "text": " lets it burn evenly, needing nothing." }
+  ],
+  "suttaRec": {
+    "title": "Gilāna — Sick",
+    "ref": "sn46.14",
+    "url": "https://suttacentral.net/sn46.14",
+    "blurb": "Mahākassapa is gravely ill; the Buddha recites the seven factors of awakening, and he rises cured. The origin of the bojjhaṅga healing chants.",
+    "minutes": 3
+  }
+}
