@@ -53,7 +53,7 @@ The north star is **appamāda** — heedfulness, diligence — supported without
 Each word climbs four stages:
 
 1. **Recognition** — pick the gloss from options
-2. **Recall** — produce the word (ASCII-forgiving input; correct diacritics always shown after)
+2. **Recall** — produce the word (sound-forgiving input: plain ASCII counts, and so do spellings that only miss what can't be heard — doubling, aspiration, nasal place; correct diacritics always shown after)
 3. **Discrimination** — confusable drills (see 3.3)
 4. **Comprehension** — appears un-hinted in talk mode (see 3.4)
 

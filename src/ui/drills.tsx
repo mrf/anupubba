@@ -1,6 +1,6 @@
 import { useState } from 'preact/hooks';
 import type { WordCard } from '../data/types.ts';
-import { matchesPali } from '../engine/match.ts';
+import { matchesPali, matchesPaliLoosely } from '../engine/match.ts';
 import { shuffled } from '../engine/distractors.ts';
 import type { SessionGrade } from '../engine/srs.ts';
 
@@ -98,8 +98,10 @@ function pickedWord(options: readonly WordCard[], id: string): WordCard {
 }
 
 /**
- * Recall: produce the word from its gloss. ASCII-forgiving; the correct
- * diacritics are always shown after (§3.2). A correct answer self-grades
+ * Recall: produce the word from its gloss. Sound-forgiving (§3.2): plain
+ * ASCII always counts, and a spelling that only misses what can't be heard —
+ * doubling, aspiration, nasal place — counts too, with a nudge. The correct
+ * diacritics are always shown after. A correct answer self-grades
  * familiar/clear — honesty is part of the practice.
  */
 export function RecallDrill(props: {
@@ -110,6 +112,7 @@ export function RecallDrill(props: {
   const [input, setInput] = useState('');
   const [revealed, setRevealed] = useState(false);
   const matched = matchesPali(input, word.pali);
+  const close = !matched && matchesPaliLoosely(input, word.pali);
 
   if (revealed) {
     return (
@@ -117,15 +120,20 @@ export function RecallDrill(props: {
         <p class="gloss">{word.gloss}</p>
         <p class="pali-big">{word.pali}</p>
         <p class="pronunciation">{word.pronunciation}</p>
-        {matched ? (
-          <div class="options">
-            <button class="btn option" onClick={() => { onDone('familiar'); }}>
-              familiar
-            </button>
-            <button class="btn option" onClick={() => { onDone('clear'); }}>
-              clear
-            </button>
-          </div>
+        {matched || close ? (
+          <>
+            {close && (
+              <p class="feedback clear">close — the sounds are right; let the spelling settle in</p>
+            )}
+            <div class="options">
+              <button class="btn option" onClick={() => { onDone('familiar'); }}>
+                familiar
+              </button>
+              <button class="btn option" onClick={() => { onDone('clear'); }}>
+                clear
+              </button>
+            </div>
+          </>
         ) : (
           <>
             <p class="feedback not-yet">not yet — it will come around again</p>

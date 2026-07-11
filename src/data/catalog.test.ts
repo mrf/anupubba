@@ -1,4 +1,5 @@
 import { describe, expect, it } from 'vitest';
+import { foldPaliLoose } from '../engine/match.ts';
 import { catalog } from './catalog.ts';
 
 describe('shipped deck content', () => {
@@ -53,6 +54,18 @@ describe('shipped deck content', () => {
   it('has a familiarity sort of ~20 terms', () => {
     expect(catalog.familiarity.length).toBe(20);
     expect(new Set(catalog.familiarity).size).toBe(20);
+  });
+
+  it('keeps every word distinct under the forgiving recall fold', () => {
+    // If two words ever collide under foldPaliLoose, the recall drill would
+    // accept one as a correct answer for the other — a silent content bug.
+    const seen = new Map<string, string>();
+    for (const word of catalog.words.values()) {
+      const loose = foldPaliLoose(word.pali);
+      const other = seen.get(loose);
+      expect(other, `"${word.pali}" collides with "${other ?? ''}" as "${loose}"`).toBeUndefined();
+      seen.set(loose, word.pali);
+    }
   });
 
   it('every deck recommends a sutta with a SuttaCentral link', () => {
