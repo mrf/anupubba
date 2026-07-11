@@ -8,6 +8,14 @@ updates:
       npm-dependencies:
         patterns:
           - "*"
+    ignore:
+      # typescript-eslint@8.63.0 peers typescript ">=4.8.4 <6.1.0" (checked
+      # 2026-07-10; TS 7.0.2 broke npm ci — PR #5). Allow patches only; drop
+      # this once typescript-eslint's peer range admits newer TypeScript.
+      - dependency-name: "typescript"
+        update-types:
+          - "version-update:semver-major"
+          - "version-update:semver-minor"
 
   - package-ecosystem: "github-actions"
     directory: "/"
