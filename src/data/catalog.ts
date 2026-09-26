@@ -1,4 +1,5 @@
 import type { Catalog } from './types.ts';
+import { SANSKRIT_ALIASES } from './sanskrit.ts';
 import { buildCatalog } from './validate.ts';
 import bojjhangas from './decks/bojjhangas.json';
 import brahmaviharas from './decks/brahmaviharas.json';
@@ -70,4 +71,5 @@ export const catalog: Catalog = buildCatalog(
     cetasikasBeautifulSpecial,
   ],
   FAMILIARITY_IDS,
+  SANSKRIT_ALIASES,
 );

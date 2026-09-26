@@ -1,5 +1,6 @@
 import { describe, expect, it } from 'vitest';
-import { foldPali, matchesPali, matchesPaliLoosely } from './match.ts';
+import type { WordCard } from '../data/types.ts';
+import { foldPali, matchesPali, matchesPaliLoosely, recallMatch } from './match.ts';
 
 describe('foldPali', () => {
   it('strips diacritics down to ascii', () => {
@@ -79,5 +80,41 @@ describe('matchesPaliLoosely', () => {
   it('is a wider net than the strict fold', () => {
     expect(matchesPali('meta', 'mettā')).toBe(false);
     expect(matchesPali('panya', 'paññā')).toBe(false);
+  });
+});
+
+describe('recallMatch', () => {
+  const base: WordCard = {
+    id: 'sati',
+    pali: 'sati',
+    gloss: 'mindfulness',
+    cluster: 'foundations-of-practice',
+    confusables: [],
+    sources: [],
+    pronunciation: 'SA-ti',
+  };
+  const withAliases: WordCard = { ...base, aliases: ['smṛti', 'smriti'] };
+
+  it('grades the Pali form exact, close, or none', () => {
+    expect(recallMatch('sati', base)).toBe('exact');
+    expect(recallMatch('satti', base)).toBe('close');
+    expect(recallMatch('sata', base)).toBe('none');
+    expect(recallMatch('', base)).toBe('none');
+  });
+
+  it('treats each alias as a full alternative target, strict and loose', () => {
+    expect(recallMatch('smrti', withAliases)).toBe('exact');
+    expect(recallMatch('smriti', withAliases)).toBe('exact');
+    expect(recallMatch('smritti', withAliases)).toBe('close');
+    expect(recallMatch('smrta', withAliases)).toBe('none');
+  });
+
+  it('prefers exact over close when both a target and an alias fit', () => {
+    const word: WordCard = { ...base, aliases: ['satti'] };
+    expect(recallMatch('satti', word)).toBe('exact');
+  });
+
+  it('works for a word with no aliases at all', () => {
+    expect(recallMatch('smriti', base)).toBe('none');
   });
 });

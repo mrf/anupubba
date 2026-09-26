@@ -27,6 +27,8 @@ export interface WordCard {
   canonicalLine?: CanonicalLine;
   sources: SourceRef[];
   pronunciation: string;
+  /** Alternative spellings the recall drill also accepts — Sanskrit forms and their romanisations. */
+  aliases?: readonly string[];
 }
 
 /** Talk-mode paragraphs are prose interleaved with tappable Pali terms (§3.4). */

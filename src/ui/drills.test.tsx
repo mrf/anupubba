@@ -11,6 +11,7 @@ const metta: WordCard = {
   confusables: [],
   sources: [{ type: 'dictionary', ref: 'dpd:mettā', url: 'https://dpdict.net/?q=mettā' }],
   pronunciation: 'MET-taa',
+  aliases: ['maitrī', 'maitri'],
 };
 
 /** Render the drill, type an answer, submit — returns the onDone spy. */
@@ -34,6 +35,14 @@ describe('RecallDrill', () => {
     expect(screen.getByText(/close — the sounds are right/)).toBeTruthy();
     fireEvent.click(screen.getByText('familiar'));
     expect(onDone).toHaveBeenCalledWith('familiar');
+  });
+
+  it('accepts the Sanskrit alias as a correct answer', () => {
+    const onDone = renderAndCheck('maitri');
+    expect(screen.queryByText(/close — the sounds are right/)).toBeNull();
+    expect(screen.getByText('mettā')).toBeTruthy();
+    fireEvent.click(screen.getByText('clear'));
+    expect(onDone).toHaveBeenCalledWith('clear');
   });
 
   it('still grades a different word as not yet', () => {

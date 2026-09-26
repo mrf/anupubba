@@ -141,7 +141,11 @@ function parseDeck(raw: unknown, index: number): Deck {
  * Parse and cross-check the full deck set. Throws ContentError on any
  * structural problem, dangling reference, or ordering violation.
  */
-export function buildCatalog(rawDecks: unknown, familiarity: readonly string[]): Catalog {
+export function buildCatalog(
+  rawDecks: unknown,
+  familiarity: readonly string[],
+  aliases: Readonly<Record<string, readonly string[]>> = {},
+): Catalog {
   if (!Array.isArray(rawDecks)) {
     throw new ContentError('deck set: expected an array of decks');
   }
@@ -197,6 +201,12 @@ export function buildCatalog(rawDecks: unknown, familiarity: readonly string[]):
     if (!words.has(id)) {
       throw new ContentError(`familiarity id "${id}" does not resolve`);
     }
+  }
+
+  for (const [id, spellings] of Object.entries(aliases)) {
+    const word = words.get(id);
+    if (word === undefined) throw new ContentError(`alias id "${id}" does not resolve`);
+    word.aliases = spellings;
   }
 
   return { decks, words, deckById, deckOf, familiarity };
