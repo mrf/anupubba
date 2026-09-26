@@ -2,6 +2,12 @@ import type { Catalog } from './types.ts';
 import { buildCatalog } from './validate.ts';
 import bojjhangas from './decks/bojjhangas.json';
 import brahmaviharas from './decks/brahmaviharas.json';
+import cetasikasBeautifulCommon from './decks/cetasikas-beautiful-common.json';
+import cetasikasBeautifulSpecial from './decks/cetasikas-beautiful-special.json';
+import cetasikasOccasionals from './decks/cetasikas-occasionals.json';
+import cetasikasSixPairs from './decks/cetasikas-six-pairs.json';
+import cetasikasUniversals from './decks/cetasikas-universals.json';
+import cetasikasUnwholesome from './decks/cetasikas-unwholesome.json';
 import danaSilaBhavana from './decks/dana-sila-bhavana.json';
 import fiveHindrances from './decks/five-hindrances.json';
 import fiveKhandhas from './decks/five-khandhas.json';
@@ -55,6 +61,13 @@ export const catalog: Catalog = buildCatalog(
     fiveHindrances,
     bojjhangas,
     paticcaSamuppada,
+    // Advanced tier: the 52 cetasikas (DESIGN.md §6.1), one deck per chart group.
+    cetasikasUniversals,
+    cetasikasOccasionals,
+    cetasikasUnwholesome,
+    cetasikasBeautifulCommon,
+    cetasikasSixPairs,
+    cetasikasBeautifulSpecial,
   ],
   FAMILIARITY_IDS,
 );

@@ -1,0 +1,201 @@
+{
+  "id": "cetasikas-six-pairs",
+  "name": "The Six Pairs",
+  "paliName": "cha yugalāni (sobhanasādhāraṇa)",
+  "order": 16,
+  "intro": "The remaining twelve common beautiful factors come as six pairs, each applied twice: once to the body of mental factors (kāya) and once to consciousness itself (citta). Learn the six qualities and the pairs follow.",
+  "words": [
+    {
+      "id": "kayapassaddhi",
+      "pali": "kāyapassaddhi",
+      "gloss": "tranquility of the mental factors",
+      "literal": "calming of the body (of factors)",
+      "etymology": { "root": "kāya (body — here the body of cetasikas) + passaddhi (tranquility)", "note": "the pair that counters uddhacca — the factors settle" },
+      "cluster": "cetasikas-six-pairs",
+      "confusables": ["cittapassaddhi", "passaddhi"],
+      "sources": [
+        { "type": "dictionary", "ref": "dpd:kāyapassaddhi", "url": "https://dpdict.net/?q=kāyapassaddhi" }
+      ],
+      "pronunciation": "KAA-ya-pus-SUD-dhi"
+    },
+    {
+      "id": "cittapassaddhi",
+      "pali": "cittapassaddhi",
+      "gloss": "tranquility of consciousness",
+      "literal": "calming of the mind",
+      "etymology": { "root": "citta (mind) + passaddhi (tranquility)", "note": "the same settling, in consciousness itself" },
+      "cluster": "cetasikas-six-pairs",
+      "confusables": ["kayapassaddhi", "passaddhi"],
+      "sources": [
+        { "type": "dictionary", "ref": "dpd:cittapassaddhi", "url": "https://dpdict.net/?q=cittapassaddhi" }
+      ],
+      "pronunciation": "CHIT-ta-pus-SUD-dhi"
+    },
+    {
+      "id": "kayalahuta",
+      "pali": "kāyalahutā",
+      "gloss": "lightness of the mental factors",
+      "literal": "lightness of the body (of factors)",
+      "etymology": { "root": "kāya + lahu (light) + -tā", "note": "the pair that counters thīna and middha — the factors lose their heaviness" },
+      "cluster": "cetasikas-six-pairs",
+      "confusables": ["cittalahuta", "thina"],
+      "sources": [
+        { "type": "dictionary", "ref": "dpd:kāyalahutā", "url": "https://dpdict.net/?q=kāyalahutā" }
+      ],
+      "pronunciation": "KAA-ya-la-hu-TAA"
+    },
+    {
+      "id": "cittalahuta",
+      "pali": "cittalahutā",
+      "gloss": "lightness of consciousness",
+      "literal": "lightness of the mind",
+      "etymology": { "root": "citta + lahu (light) + -tā", "note": "the same buoyancy, in consciousness itself" },
+      "cluster": "cetasikas-six-pairs",
+      "confusables": ["kayalahuta", "middha"],
+      "sources": [
+        { "type": "dictionary", "ref": "dpd:cittalahutā", "url": "https://dpdict.net/?q=cittalahutā" }
+      ],
+      "pronunciation": "CHIT-ta-la-hu-TAA"
+    },
+    {
+      "id": "kayamuduta",
+      "pali": "kāyamudutā",
+      "gloss": "pliancy of the mental factors",
+      "literal": "softness of the body (of factors)",
+      "etymology": { "root": "kāya + mudu (soft, malleable) + -tā", "note": "the pair that counters diṭṭhi and māna — the factors lose their rigidity" },
+      "cluster": "cetasikas-six-pairs",
+      "confusables": ["cittamuduta", "ditthi"],
+      "sources": [
+        { "type": "dictionary", "ref": "dpd:kāyamudutā", "url": "https://dpdict.net/?q=kāyamudutā" }
+      ],
+      "pronunciation": "KAA-ya-mu-du-TAA"
+    },
+    {
+      "id": "cittamuduta",
+      "pali": "cittamudutā",
+      "gloss": "pliancy of consciousness",
+      "literal": "softness of the mind",
+      "etymology": { "root": "citta + mudu (soft, malleable) + -tā", "note": "the same malleability, in consciousness itself" },
+      "cluster": "cetasikas-six-pairs",
+      "confusables": ["kayamuduta", "mana"],
+      "sources": [
+        { "type": "dictionary", "ref": "dpd:cittamudutā", "url": "https://dpdict.net/?q=cittamudutā" }
+      ],
+      "pronunciation": "CHIT-ta-mu-du-TAA"
+    },
+    {
+      "id": "kayakammannata",
+      "pali": "kāyakammaññatā",
+      "gloss": "workability of the mental factors",
+      "literal": "fitness for work of the body (of factors)",
+      "etymology": { "root": "kāya + kammañña (fit for work) + -tā", "note": "the pair that counters the hindrances at large — the factors become usable, like well-wrought gold" },
+      "cluster": "cetasikas-six-pairs",
+      "confusables": ["cittakammannata"],
+      "sources": [
+        { "type": "dictionary", "ref": "dpd:kāyakammaññatā", "url": "https://dpdict.net/?q=kāyakammaññatā" }
+      ],
+      "pronunciation": "KAA-ya-kum-mun-nya-TAA"
+    },
+    {
+      "id": "cittakammannata",
+      "pali": "cittakammaññatā",
+      "gloss": "workability of consciousness",
+      "literal": "fitness for work of the mind",
+      "etymology": { "root": "citta + kammañña (fit for work) + -tā", "note": "the same readiness, in consciousness itself" },
+      "cluster": "cetasikas-six-pairs",
+      "confusables": ["kayakammannata"],
+      "sources": [
+        { "type": "dictionary", "ref": "dpd:cittakammaññatā", "url": "https://dpdict.net/?q=cittakammaññatā" }
+      ],
+      "pronunciation": "CHIT-ta-kum-mun-nya-TAA"
+    },
+    {
+      "id": "kayapagunnata",
+      "pali": "kāyapāguññatā",
+      "gloss": "proficiency of the mental factors",
+      "literal": "skilfulness of the body (of factors)",
+      "etymology": { "root": "kāya + pāguñña (proficiency, health) + -tā", "note": "the pair that counters lack of faith — the factors are sound and practised" },
+      "cluster": "cetasikas-six-pairs",
+      "confusables": ["cittapagunnata"],
+      "sources": [
+        { "type": "dictionary", "ref": "dpd:kāyapāguññatā", "url": "https://dpdict.net/?q=kāyapāguññatā" }
+      ],
+      "pronunciation": "KAA-ya-paa-goon-nya-TAA"
+    },
+    {
+      "id": "cittapagunnata",
+      "pali": "cittapāguññatā",
+      "gloss": "proficiency of consciousness",
+      "literal": "skilfulness of the mind",
+      "etymology": { "root": "citta + pāguñña (proficiency, health) + -tā", "note": "the same soundness, in consciousness itself" },
+      "cluster": "cetasikas-six-pairs",
+      "confusables": ["kayapagunnata"],
+      "sources": [
+        { "type": "dictionary", "ref": "dpd:cittapāguññatā", "url": "https://dpdict.net/?q=cittapāguññatā" }
+      ],
+      "pronunciation": "CHIT-ta-paa-goon-nya-TAA"
+    },
+    {
+      "id": "kayujukata",
+      "pali": "kāyujukatā",
+      "gloss": "rectitude of the mental factors",
+      "literal": "straightness of the body (of factors)",
+      "etymology": { "root": "kāya + uju (straight) + -ka + -tā", "note": "the pair that counters deceit and hypocrisy — the factors run straight, without crookedness" },
+      "cluster": "cetasikas-six-pairs",
+      "confusables": ["cittujukata"],
+      "sources": [
+        { "type": "dictionary", "ref": "dpd:kāyujukatā", "url": "https://dpdict.net/?q=kāyujukatā" }
+      ],
+      "pronunciation": "kaa-YU-ju-ka-taa"
+    },
+    {
+      "id": "cittujukata",
+      "pali": "cittujukatā",
+      "gloss": "rectitude of consciousness",
+      "literal": "straightness of the mind",
+      "etymology": { "root": "citta + uju (straight) + -ka + -tā", "note": "the same straightness, in consciousness itself" },
+      "cluster": "cetasikas-six-pairs",
+      "confusables": ["kayujukata"],
+      "sources": [
+        { "type": "dictionary", "ref": "dpd:cittujukatā", "url": "https://dpdict.net/?q=cittujukatā" }
+      ],
+      "pronunciation": "chit-TU-ju-ka-taa"
+    }
+  ],
+  "talk": [
+    { "text": "Six qualities, each named twice — for the factors and for the mind. Tranquility: " },
+    { "term": "kayapassaddhi", "surface": "kāyapassaddhi" },
+    { "text": " and " },
+    { "term": "cittapassaddhi", "surface": "cittapassaddhi" },
+    { "text": ", the " },
+    { "term": "passaddhi", "surface": "passaddhi" },
+    { "text": " of the bojjhaṅgas split in two. Lightness: " },
+    { "term": "kayalahuta", "surface": "kāyalahutā" },
+    { "text": " and " },
+    { "term": "cittalahuta", "surface": "cittalahutā" },
+    { "text": ". Pliancy: " },
+    { "term": "kayamuduta", "surface": "kāyamudutā" },
+    { "text": " and " },
+    { "term": "cittamuduta", "surface": "cittamudutā" },
+    { "text": ". Workability: " },
+    { "term": "kayakammannata", "surface": "kāyakammaññatā" },
+    { "text": " and " },
+    { "term": "cittakammannata", "surface": "cittakammaññatā" },
+    { "text": ". Proficiency: " },
+    { "term": "kayapagunnata", "surface": "kāyapāguññatā" },
+    { "text": " and " },
+    { "term": "cittapagunnata", "surface": "cittapāguññatā" },
+    { "text": ". Rectitude: " },
+    { "term": "kayujukata", "surface": "kāyujukatā" },
+    { "text": " and " },
+    { "term": "cittujukata", "surface": "cittujukatā" },
+    { "text": ". Together they describe a mind that is calm, light, soft, usable, sound, and straight — the felt texture of a wholesome moment." }
+  ],
+  "suttaRec": {
+    "title": "Pabhassara — Luminous",
+    "ref": "an1.41-50",
+    "url": "https://suttacentral.net/an1.41-50",
+    "blurb": "The mind is luminous, but defiled by adventitious defilements — the one-line sutta the beautiful factors elaborate.",
+    "minutes": 1
+  }
+}

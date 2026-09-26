@@ -4,8 +4,8 @@ import { catalog } from './catalog.ts';
 
 describe('shipped deck content', () => {
   it('loads and cross-validates', () => {
-    expect(catalog.decks.length).toBe(11);
-    expect(catalog.words.size).toBeGreaterThanOrEqual(45);
+    expect(catalog.decks.length).toBe(17);
+    expect(catalog.words.size).toBeGreaterThanOrEqual(85);
   });
 
   it('orders decks along the gradual path', () => {
@@ -21,6 +21,12 @@ describe('shipped deck content', () => {
       'five-hindrances',
       'bojjhangas',
       'paticca-samuppada',
+      'cetasikas-universals',
+      'cetasikas-occasionals',
+      'cetasikas-unwholesome',
+      'cetasikas-beautiful-common',
+      'cetasikas-six-pairs',
+      'cetasikas-beautiful-special',
     ]);
   });
 

@@ -1,0 +1,61 @@
+{
+  "id": "cetasikas-occasionals",
+  "name": "Occasional Mental Factors",
+  "paliName": "pakiṇṇaka cetasikā",
+  "order": 13,
+  "intro": "Six factors that arise in some mind-moments but not all, and that can serve either wholesome or unwholesome ends. Four came with the jhāna factors and the bojjhaṅgas; two are new.",
+  "words": [
+    {
+      "id": "adhimokkha",
+      "pali": "adhimokkha",
+      "gloss": "decision; resolve that settles on the object",
+      "literal": "releasing onto",
+      "etymology": { "root": "adhi (onto) + √muc (to release)", "note": "the mind letting go of wavering and landing — the opposite pole of vicikicchā" },
+      "cluster": "cetasikas-occasionals",
+      "confusables": ["vicikiccha", "saddha"],
+      "sources": [
+        { "type": "sutta", "ref": "mn111", "url": "https://suttacentral.net/mn111" },
+        { "type": "dictionary", "ref": "dpd:adhimokkha", "url": "https://dpdict.net/?q=adhimokkha" }
+      ],
+      "pronunciation": "a-dhi-MOK-kha"
+    },
+    {
+      "id": "chanda",
+      "pali": "chanda",
+      "gloss": "desire-to-act; wish, zeal for the object",
+      "literal": "wish, will",
+      "etymology": { "root": "√chand (to please, wish)", "note": "ethically neutral wanting — the same factor drives kāmacchanda and the first iddhipāda" },
+      "cluster": "cetasikas-occasionals",
+      "confusables": ["tanha", "kamacchanda", "cetana"],
+      "sources": [
+        { "type": "sutta", "ref": "mn111", "url": "https://suttacentral.net/mn111" },
+        { "type": "dictionary", "ref": "dpd:chanda", "url": "https://dpdict.net/?q=chanda" }
+      ],
+      "pronunciation": "CHUN-da"
+    }
+  ],
+  "talk": [
+    { "text": "Some factors visit only sometimes. " },
+    { "term": "vitakka", "surface": "vitakka" },
+    { "text": " places the mind on the object and " },
+    { "term": "vicara", "surface": "vicāra" },
+    { "text": " keeps it there; " },
+    { "term": "adhimokkha", "surface": "adhimokkha" },
+    { "text": " decides this is the one; " },
+    { "term": "viriya", "surface": "viriya" },
+    { "text": " supplies the energy; " },
+    { "term": "piti", "surface": "pīti" },
+    { "text": " brings the glad interest; and " },
+    { "term": "chanda", "surface": "chanda" },
+    { "text": " is the wish to do — which, pointed at " },
+    { "term": "samadhi", "surface": "samādhi" },
+    { "text": ", becomes a base of power, and pointed at sense pleasure becomes a hindrance." }
+  ],
+  "suttaRec": {
+    "title": "Anupada — One by One as They Occurred",
+    "ref": "mn111",
+    "url": "https://suttacentral.net/mn111",
+    "blurb": "Sāriputta reviews each jhāna factor by factor as it arises — the suttas' own list of mental factors, the seed of the Abhidhamma chart.",
+    "minutes": 10
+  }
+}

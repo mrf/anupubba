@@ -1,0 +1,79 @@
+{
+  "id": "cetasikas-universals",
+  "name": "Universal Mental Factors",
+  "paliName": "sabbacittasādhāraṇa cetasikā",
+  "order": 12,
+  "intro": "The Abhidhamma's map of the mind: seven factors present in every single moment of consciousness. Four you already know — phassa, vedanā, saññā, ekaggatā — and three that complete the set.",
+  "words": [
+    {
+      "id": "cetana",
+      "pali": "cetanā",
+      "gloss": "volition; the intending that organises a mind-moment",
+      "literal": "intending, thinking-toward",
+      "etymology": { "root": "√cit (to think, intend) + -anā", "note": "the factor the Buddha equates with kamma — the leaning of the mind that makes an action an action" },
+      "cluster": "cetasikas-universals",
+      "confusables": ["sankhara", "chanda"],
+      "canonicalLine": {
+        "pali": "cetanāhaṃ, bhikkhave, kammaṃ vadāmi",
+        "translation": "it is volition, monks, that I call kamma",
+        "ref": "an6.63"
+      },
+      "sources": [
+        { "type": "sutta", "ref": "an6.63", "url": "https://suttacentral.net/an6.63" },
+        { "type": "dictionary", "ref": "dpd:cetanā", "url": "https://dpdict.net/?q=cetanā" }
+      ],
+      "pronunciation": "che-ta-NAA"
+    },
+    {
+      "id": "jivitindriya",
+      "pali": "jīvitindriya",
+      "gloss": "life faculty; what keeps a mind-moment alive for its duration",
+      "literal": "the faculty of living",
+      "etymology": { "root": "jīvita (life) + indriya (faculty, controlling power)", "note": "not the body's vitality but the mental one — the factor that sustains its co-arising factors until they cease" },
+      "cluster": "cetasikas-universals",
+      "confusables": ["jati"],
+      "sources": [
+        { "type": "dictionary", "ref": "dpd:jīvitindriya", "url": "https://dpdict.net/?q=jīvitindriya" }
+      ],
+      "pronunciation": "JEE-vi-tin-dri-ya"
+    },
+    {
+      "id": "manasikara",
+      "pali": "manasikāra",
+      "gloss": "attention; turning the mind toward an object",
+      "literal": "making in the mind",
+      "etymology": { "root": "manasi (in the mind, locative of manas) + kāra (making)", "note": "the steering — yoniso manasikāra, wise attention, is the same factor pointed well" },
+      "cluster": "cetasikas-universals",
+      "confusables": ["sati", "mana"],
+      "sources": [
+        { "type": "sutta", "ref": "mn2", "url": "https://suttacentral.net/mn2" },
+        { "type": "dictionary", "ref": "dpd:manasikāra", "url": "https://dpdict.net/?q=manasikāra" }
+      ],
+      "pronunciation": "ma-na-si-KAA-ra"
+    }
+  ],
+  "talk": [
+    { "text": "Every moment of mind, the Abhidhamma says, carries seven factors whether we notice or not. " },
+    { "term": "phassa", "surface": "phassa" },
+    { "text": " touches the object; " },
+    { "term": "vedana", "surface": "vedanā" },
+    { "text": " feels its tone; " },
+    { "term": "sanna", "surface": "saññā" },
+    { "text": " names it. " },
+    { "term": "cetana", "surface": "cetanā" },
+    { "text": " leans toward it — this is where kamma is made. " },
+    { "term": "ekaggata", "surface": "ekaggatā" },
+    { "text": " holds the mind on it for that instant, " },
+    { "term": "jivitindriya", "surface": "jīvitindriya" },
+    { "text": " keeps the whole moment alive, and " },
+    { "term": "manasikara", "surface": "manasikāra" },
+    { "text": " is the turning-toward that chose this object rather than another." }
+  ],
+  "suttaRec": {
+    "title": "Nibbedhika — Penetrative",
+    "ref": "an6.63",
+    "url": "https://suttacentral.net/an6.63",
+    "blurb": "The sutta where the Buddha defines kamma as cetanā — intention — and lays out what must be understood about sense pleasures, feelings, and the taints.",
+    "minutes": 12
+  }
+}

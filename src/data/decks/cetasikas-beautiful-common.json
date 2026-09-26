@@ -1,0 +1,125 @@
+{
+  "id": "cetasikas-beautiful-common",
+  "name": "Common Beautiful Factors",
+  "paliName": "sobhanasādhāraṇa cetasikā",
+  "order": 15,
+  "intro": "The first seven of the nineteen factors present in every beautiful mind-moment. Sati you already hold; six more join it, including the roots alobha and adosa that the suttas call generosity and mettā.",
+  "words": [
+    {
+      "id": "saddha",
+      "pali": "saddhā",
+      "gloss": "faith; confidence that clears the mind",
+      "literal": "placing the heart on",
+      "etymology": { "root": "sad (heart, Skt. śrad) + √dhā (to place)", "note": "not belief but trust — likened to the water-clearing gem that lets the mind settle" },
+      "cluster": "cetasikas-beautiful-common",
+      "confusables": ["adhimokkha", "vicikiccha"],
+      "sources": [
+        { "type": "sutta", "ref": "sn48.10", "url": "https://suttacentral.net/sn48.10" },
+        { "type": "dictionary", "ref": "dpd:saddhā", "url": "https://dpdict.net/?q=saddhā" }
+      ],
+      "pronunciation": "sud-DHAA"
+    },
+    {
+      "id": "hiri",
+      "pali": "hiri",
+      "gloss": "conscience; shame at doing wrong",
+      "literal": "shame, modesty",
+      "etymology": { "root": "√hrī (to be ashamed)", "note": "the inner guardian — self-respect that recoils from the unworthy" },
+      "cluster": "cetasikas-beautiful-common",
+      "confusables": ["ottappa", "ahirika"],
+      "canonicalLine": {
+        "pali": "dveme, bhikkhave, sukkā dhammā lokaṃ pālenti",
+        "translation": "these two bright qualities, monks, protect the world",
+        "ref": "an2.9"
+      },
+      "sources": [
+        { "type": "sutta", "ref": "an2.9", "url": "https://suttacentral.net/an2.9" },
+        { "type": "dictionary", "ref": "dpd:hiri", "url": "https://dpdict.net/?q=hiri" }
+      ],
+      "pronunciation": "HI-ri"
+    },
+    {
+      "id": "ottappa",
+      "pali": "ottappa",
+      "gloss": "fear of wrongdoing; regard for consequences",
+      "literal": "dread, scruple",
+      "etymology": { "root": "ud + √tap (to burn, be tormented)", "note": "the outer guardian — care for what the act will bring, to others and to oneself" },
+      "cluster": "cetasikas-beautiful-common",
+      "confusables": ["hiri", "anottappa"],
+      "sources": [
+        { "type": "sutta", "ref": "an2.9", "url": "https://suttacentral.net/an2.9" },
+        { "type": "dictionary", "ref": "dpd:ottappa", "url": "https://dpdict.net/?q=ottappa" }
+      ],
+      "pronunciation": "ot-TUP-pa"
+    },
+    {
+      "id": "alobha",
+      "pali": "alobha",
+      "gloss": "non-greed; generosity, letting go",
+      "literal": "without lobha",
+      "etymology": { "root": "a (not) + lobha (greed)", "note": "a positive force, not a mere absence — the open hand, dāna as a mental factor" },
+      "cluster": "cetasikas-beautiful-common",
+      "confusables": ["lobha", "dana", "adosa"],
+      "sources": [
+        { "type": "sutta", "ref": "an3.69", "url": "https://suttacentral.net/an3.69" },
+        { "type": "dictionary", "ref": "dpd:alobha", "url": "https://dpdict.net/?q=alobha" }
+      ],
+      "pronunciation": "a-LO-bha"
+    },
+    {
+      "id": "adosa",
+      "pali": "adosa",
+      "gloss": "non-hatred; goodwill, gentleness",
+      "literal": "without dosa",
+      "etymology": { "root": "a (not) + dosa (hatred)", "note": "mettā's place on the chart — the illimitable of loving-kindness is this factor developed toward all beings" },
+      "cluster": "cetasikas-beautiful-common",
+      "confusables": ["dosa", "metta", "alobha"],
+      "sources": [
+        { "type": "sutta", "ref": "an3.69", "url": "https://suttacentral.net/an3.69" },
+        { "type": "dictionary", "ref": "dpd:adosa", "url": "https://dpdict.net/?q=adosa" }
+      ],
+      "pronunciation": "a-DO-sa"
+    },
+    {
+      "id": "tatramajjhattata",
+      "pali": "tatramajjhattatā",
+      "gloss": "neutrality of mind; even balance among the factors",
+      "literal": "being in the middle there",
+      "etymology": { "root": "tatra (there) + majjhatta (in the middle) + -tā", "note": "upekkhā's place on the chart — the illimitable of equanimity is this factor developed toward all beings" },
+      "cluster": "cetasikas-beautiful-common",
+      "confusables": ["upekkha"],
+      "sources": [
+        { "type": "dictionary", "ref": "dpd:tatramajjhattatā", "url": "https://dpdict.net/?q=tatramajjhattatā" }
+      ],
+      "pronunciation": "ta-tra-muj-JHUT-ta-taa"
+    }
+  ],
+  "talk": [
+    { "text": "Where the unwholesome moment had its four constant companions, the beautiful moment has nineteen. " },
+    { "term": "saddha", "surface": "saddhā" },
+    { "text": " clears the water; " },
+    { "term": "sati", "surface": "sati" },
+    { "text": " keeps watch; " },
+    { "term": "hiri", "surface": "hiri" },
+    { "text": " and " },
+    { "term": "ottappa", "surface": "ottappa" },
+    { "text": " guard the door from within and without. " },
+    { "term": "alobha", "surface": "alobha" },
+    { "text": " is the open hand and " },
+    { "term": "adosa", "surface": "adosa" },
+    { "text": " the warm heart — " },
+    { "term": "metta", "surface": "mettā" },
+    { "text": " by another name — while " },
+    { "term": "tatramajjhattata", "surface": "tatramajjhattatā" },
+    { "text": " holds the whole ensemble level, the way " },
+    { "term": "upekkha", "surface": "upekkhā" },
+    { "text": " holds the heart level. Twelve more come as six pairs." }
+  ],
+  "suttaRec": {
+    "title": "Cariya — Conduct",
+    "ref": "an2.9",
+    "url": "https://suttacentral.net/an2.9",
+    "blurb": "Hiri and ottappa as the two bright qualities that protect the world — without them, the Buddha says, no one would recognise mother, aunt, or teacher's wife.",
+    "minutes": 2
+  }
+}

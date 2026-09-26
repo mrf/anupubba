@@ -1,0 +1,229 @@
+{
+  "id": "cetasikas-unwholesome",
+  "name": "Unwholesome Mental Factors",
+  "paliName": "akusala cetasikā",
+  "order": 14,
+  "intro": "Fourteen factors that only ever arise in unwholesome mind-moments: four that accompany every one of them, then the greed group, the hatred group, the sluggish pair, and doubt.",
+  "words": [
+    {
+      "id": "moha",
+      "pali": "moha",
+      "gloss": "delusion; not seeing things as they are",
+      "literal": "confusion, bewilderment",
+      "etymology": { "root": "√muh (to be confused)", "note": "the root of all unwholesome states — avijjā seen as a mental factor" },
+      "cluster": "cetasikas-unwholesome",
+      "confusables": ["avijja", "lobha", "dosa"],
+      "sources": [
+        { "type": "sutta", "ref": "an3.65", "url": "https://suttacentral.net/an3.65" },
+        { "type": "dictionary", "ref": "dpd:moha", "url": "https://dpdict.net/?q=moha" }
+      ],
+      "pronunciation": "MO-ha"
+    },
+    {
+      "id": "ahirika",
+      "pali": "ahirika",
+      "gloss": "shamelessness; no inner recoil from wrongdoing",
+      "literal": "without hiri",
+      "etymology": { "root": "a (not) + hiri (shame) + -ka", "note": "the absence of conscience — nothing inside says no" },
+      "cluster": "cetasikas-unwholesome",
+      "confusables": ["hiri", "anottappa"],
+      "sources": [
+        { "type": "sutta", "ref": "an2.9", "url": "https://suttacentral.net/an2.9" },
+        { "type": "dictionary", "ref": "dpd:ahirika", "url": "https://dpdict.net/?q=ahirika" }
+      ],
+      "pronunciation": "a-HI-ri-ka"
+    },
+    {
+      "id": "anottappa",
+      "pali": "anottappa",
+      "gloss": "fearlessness of wrongdoing; heedless of consequences",
+      "literal": "without ottappa",
+      "etymology": { "root": "an (not) + ottappa (dread of wrongdoing)", "note": "nothing outside gives pause either — no thought of what this will bring" },
+      "cluster": "cetasikas-unwholesome",
+      "confusables": ["ottappa", "ahirika"],
+      "sources": [
+        { "type": "sutta", "ref": "an2.9", "url": "https://suttacentral.net/an2.9" },
+        { "type": "dictionary", "ref": "dpd:anottappa", "url": "https://dpdict.net/?q=anottappa" }
+      ],
+      "pronunciation": "a-not-TUP-pa"
+    },
+    {
+      "id": "uddhacca",
+      "pali": "uddhacca",
+      "gloss": "restlessness; agitation of mind",
+      "literal": "shaken-upward-ness",
+      "etymology": { "root": "ud (up) + √dhu (to shake)", "note": "the first half of the hindrance uddhacca-kukkucca, on its own — present in every unwholesome moment, however subtly" },
+      "cluster": "cetasikas-unwholesome",
+      "confusables": ["uddhaccakukkucca", "kukkucca"],
+      "sources": [
+        { "type": "sutta", "ref": "sn46.55", "url": "https://suttacentral.net/sn46.55" },
+        { "type": "dictionary", "ref": "dpd:uddhacca", "url": "https://dpdict.net/?q=uddhacca" }
+      ],
+      "pronunciation": "ood-DHUCH-cha"
+    },
+    {
+      "id": "lobha",
+      "pali": "lobha",
+      "gloss": "greed; grasping attachment",
+      "literal": "coveting",
+      "etymology": { "root": "√lubh (to desire, covet)", "note": "taṇhā's root as a mental factor — the sticky quality that clings to whatever it touches" },
+      "cluster": "cetasikas-unwholesome",
+      "confusables": ["tanha", "alobha", "chanda"],
+      "sources": [
+        { "type": "sutta", "ref": "an3.65", "url": "https://suttacentral.net/an3.65" },
+        { "type": "dictionary", "ref": "dpd:lobha", "url": "https://dpdict.net/?q=lobha" }
+      ],
+      "pronunciation": "LO-bha"
+    },
+    {
+      "id": "ditthi",
+      "pali": "diṭṭhi",
+      "gloss": "wrong view; holding a mistaken picture of reality",
+      "literal": "seeing, a view",
+      "etymology": { "root": "√dis (to see)", "note": "as a cetasika always means micchā-diṭṭhi — the greed-rooted grip on a view, especially of a self" },
+      "cluster": "cetasikas-unwholesome",
+      "confusables": ["vicikiccha", "mana"],
+      "sources": [
+        { "type": "sutta", "ref": "mn2", "url": "https://suttacentral.net/mn2" },
+        { "type": "dictionary", "ref": "dpd:diṭṭhi", "url": "https://dpdict.net/?q=diṭṭhi" }
+      ],
+      "pronunciation": "DIT-thi"
+    },
+    {
+      "id": "mana",
+      "pali": "māna",
+      "gloss": "conceit; measuring oneself against others",
+      "literal": "measuring",
+      "etymology": { "root": "√man (to think, measure)", "note": "better, worse, or equal — every comparison is the same factor, and the sense 'I am' is its subtlest form" },
+      "cluster": "cetasikas-unwholesome",
+      "confusables": ["manasikara", "ditthi"],
+      "sources": [
+        { "type": "sutta", "ref": "sn22.89", "url": "https://suttacentral.net/sn22.89" },
+        { "type": "dictionary", "ref": "dpd:māna", "url": "https://dpdict.net/?q=māna" }
+      ],
+      "pronunciation": "MAA-na"
+    },
+    {
+      "id": "dosa",
+      "pali": "dosa",
+      "gloss": "hatred; aversion, ill will",
+      "literal": "fault, corruption",
+      "etymology": { "root": "√dus (to spoil, be corrupted)", "note": "byāpāda's root as a mental factor — the mind striking against its object" },
+      "cluster": "cetasikas-unwholesome",
+      "confusables": ["byapada", "adosa", "moha"],
+      "sources": [
+        { "type": "sutta", "ref": "an3.65", "url": "https://suttacentral.net/an3.65" },
+        { "type": "dictionary", "ref": "dpd:dosa", "url": "https://dpdict.net/?q=dosa" }
+      ],
+      "pronunciation": "DO-sa"
+    },
+    {
+      "id": "issa",
+      "pali": "issā",
+      "gloss": "envy; resenting another's good fortune",
+      "literal": "jealousy",
+      "etymology": { "root": "√is (to envy)", "note": "muditā's shadow — the hatred-group factor that cannot bear someone else's gain" },
+      "cluster": "cetasikas-unwholesome",
+      "confusables": ["macchariya", "mudita"],
+      "sources": [
+        { "type": "sutta", "ref": "dn21", "url": "https://suttacentral.net/dn21" },
+        { "type": "dictionary", "ref": "dpd:issā", "url": "https://dpdict.net/?q=issā" }
+      ],
+      "pronunciation": "is-SAA"
+    },
+    {
+      "id": "macchariya",
+      "pali": "macchariya",
+      "gloss": "stinginess; unwillingness to share what one has",
+      "literal": "avarice, meanness",
+      "etymology": { "root": "from macchara (avarice)", "note": "dāna's shadow — hiding one's own good fortune from others, the twin of issā" },
+      "cluster": "cetasikas-unwholesome",
+      "confusables": ["issa", "dana"],
+      "sources": [
+        { "type": "sutta", "ref": "dn21", "url": "https://suttacentral.net/dn21" },
+        { "type": "dictionary", "ref": "dpd:macchariya", "url": "https://dpdict.net/?q=macchariya" }
+      ],
+      "pronunciation": "much-CHA-ri-ya"
+    },
+    {
+      "id": "kukkucca",
+      "pali": "kukkucca",
+      "gloss": "remorse; worry over what was done or left undone",
+      "literal": "badly-done-ness",
+      "etymology": { "root": "ku (wrongly) + kata (done) + -ya", "note": "the second half of the hindrance, on its own — aversion turned backward at one's own past" },
+      "cluster": "cetasikas-unwholesome",
+      "confusables": ["uddhaccakukkucca", "uddhacca"],
+      "sources": [
+        { "type": "sutta", "ref": "sn46.55", "url": "https://suttacentral.net/sn46.55" },
+        { "type": "dictionary", "ref": "dpd:kukkucca", "url": "https://dpdict.net/?q=kukkucca" }
+      ],
+      "pronunciation": "kook-KOOCH-cha"
+    },
+    {
+      "id": "thina",
+      "pali": "thīna",
+      "gloss": "sloth; stiffness and sluggishness of mind",
+      "literal": "stiffness",
+      "etymology": { "root": "√styā (to stiffen, congeal)", "note": "the mind gone stiff — thīnamiddha's first half, the mental side of the heavy blanket" },
+      "cluster": "cetasikas-unwholesome",
+      "confusables": ["middha", "thinamiddha"],
+      "sources": [
+        { "type": "sutta", "ref": "sn46.55", "url": "https://suttacentral.net/sn46.55" },
+        { "type": "dictionary", "ref": "dpd:thīna", "url": "https://dpdict.net/?q=thīna" }
+      ],
+      "pronunciation": "THEE-na"
+    },
+    {
+      "id": "middha",
+      "pali": "middha",
+      "gloss": "torpor; drowsiness of the mental factors",
+      "literal": "drowsiness",
+      "etymology": { "root": "√mid (to be sluggish)", "note": "thīnamiddha's second half — the sinking that makes the mental factors unworkable" },
+      "cluster": "cetasikas-unwholesome",
+      "confusables": ["thina", "thinamiddha"],
+      "sources": [
+        { "type": "sutta", "ref": "sn46.55", "url": "https://suttacentral.net/sn46.55" },
+        { "type": "dictionary", "ref": "dpd:middha", "url": "https://dpdict.net/?q=middha" }
+      ],
+      "pronunciation": "MID-dha"
+    }
+  ],
+  "talk": [
+    { "text": "Every unwholesome moment carries the same four: " },
+    { "term": "moha", "surface": "moha" },
+    { "text": " not seeing clearly, " },
+    { "term": "ahirika", "surface": "ahirika" },
+    { "text": " and " },
+    { "term": "anottappa", "surface": "anottappa" },
+    { "text": " with no brake inside or out, and " },
+    { "term": "uddhacca", "surface": "uddhacca" },
+    { "text": " shaking it all. Then the mind takes a direction. Toward the object: " },
+    { "term": "lobha", "surface": "lobha" },
+    { "text": " grasps, " },
+    { "term": "ditthi", "surface": "diṭṭhi" },
+    { "text": " builds a story about it, " },
+    { "term": "mana", "surface": "māna" },
+    { "text": " measures me against you. Against the object: " },
+    { "term": "dosa", "surface": "dosa" },
+    { "text": " strikes, " },
+    { "term": "issa", "surface": "issā" },
+    { "text": " resents what you have, " },
+    { "term": "macchariya", "surface": "macchariya" },
+    { "text": " hides what I have, " },
+    { "term": "kukkucca", "surface": "kukkucca" },
+    { "text": " picks at what I did. Or the mind simply sinks — " },
+    { "term": "thina", "surface": "thīna" },
+    { "text": " and " },
+    { "term": "middha", "surface": "middha" },
+    { "text": " — or wobbles in " },
+    { "term": "vicikiccha", "surface": "vicikicchā" },
+    { "text": ". Fourteen names for weather already familiar from the hindrances." }
+  ],
+  "suttaRec": {
+    "title": "Akusalamūla — Unwholesome Roots",
+    "ref": "an3.69",
+    "url": "https://suttacentral.net/an3.69",
+    "blurb": "Greed, hatred, and delusion as the three roots, each traced from the factor to the act to the fruit — and their wholesome opposites.",
+    "minutes": 8
+  }
+}

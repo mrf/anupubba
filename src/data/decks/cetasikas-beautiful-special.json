@@ -1,0 +1,95 @@
+{
+  "id": "cetasikas-beautiful-special",
+  "name": "Abstinences, Illimitables & Wisdom",
+  "paliName": "virati · appamaññā · paññindriya",
+  "order": 17,
+  "intro": "The last six beautiful factors arise only in particular moments: three abstinences from the Eightfold Path, two illimitables you know from the brahmavihāras, and the faculty of wisdom that completes the fifty-two.",
+  "words": [
+    {
+      "id": "sammavaca",
+      "pali": "sammāvācā",
+      "gloss": "right speech; abstaining from wrong speech",
+      "literal": "complete, right speech",
+      "etymology": { "root": "sammā (rightly, completely) + vācā (speech)", "note": "as a cetasika it is the moment of refraining — the lie not told, the harsh word held back" },
+      "cluster": "cetasikas-beautiful-special",
+      "confusables": ["sammakammanta", "sammaajiva"],
+      "sources": [
+        { "type": "sutta", "ref": "sn45.8", "url": "https://suttacentral.net/sn45.8" },
+        { "type": "dictionary", "ref": "dpd:sammāvācā", "url": "https://dpdict.net/?q=sammāvācā" }
+      ],
+      "pronunciation": "sum-maa-VAA-chaa"
+    },
+    {
+      "id": "sammakammanta",
+      "pali": "sammākammanta",
+      "gloss": "right action; abstaining from wrong bodily conduct",
+      "literal": "complete, right action",
+      "etymology": { "root": "sammā (rightly) + kammanta (action, work)", "note": "the refraining from killing, taking, and sexual wrongdoing, in the moment of the choice" },
+      "cluster": "cetasikas-beautiful-special",
+      "confusables": ["sammavaca", "sammaajiva"],
+      "sources": [
+        { "type": "sutta", "ref": "sn45.8", "url": "https://suttacentral.net/sn45.8" },
+        { "type": "dictionary", "ref": "dpd:sammākammanta", "url": "https://dpdict.net/?q=sammākammanta" }
+      ],
+      "pronunciation": "sum-maa-kum-MUN-ta"
+    },
+    {
+      "id": "sammaajiva",
+      "pali": "sammā-ājīva",
+      "gloss": "right livelihood; abstaining from wrong ways of earning a living",
+      "literal": "complete, right living",
+      "etymology": { "root": "sammā (rightly) + ājīva (livelihood, from ā + √jīv, to live)", "note": "the same refraining, when the wrong speech or act would have been for one's living" },
+      "cluster": "cetasikas-beautiful-special",
+      "confusables": ["sammakammanta", "sammavaca"],
+      "sources": [
+        { "type": "sutta", "ref": "sn45.8", "url": "https://suttacentral.net/sn45.8" },
+        { "type": "dictionary", "ref": "dpd:sammāājīva", "url": "https://dpdict.net/?q=sammāājīva" }
+      ],
+      "pronunciation": "sum-maa-aa-JEE-va"
+    },
+    {
+      "id": "pannindriya",
+      "pali": "paññindriya",
+      "gloss": "faculty of wisdom; non-delusion as a controlling power",
+      "literal": "the faculty of paññā",
+      "etymology": { "root": "paññā (wisdom) + indriya (faculty)", "note": "amoha on the chart — the factor that sees anicca, dukkha, anattā; the direct opposite of moha" },
+      "cluster": "cetasikas-beautiful-special",
+      "confusables": ["panna", "moha", "vipassana"],
+      "sources": [
+        { "type": "sutta", "ref": "sn48.10", "url": "https://suttacentral.net/sn48.10" },
+        { "type": "dictionary", "ref": "dpd:paññindriya", "url": "https://dpdict.net/?q=paññindriya" }
+      ],
+      "pronunciation": "pun-NYIN-dri-ya"
+    }
+  ],
+  "talk": [
+    { "text": "The nineteen common beautiful factors are always there; these six come when called. When a wrong word is about to leave and doesn't, that is " },
+    { "term": "sammavaca", "surface": "sammāvācā" },
+    { "text": "; when the hand stops, " },
+    { "term": "sammakammanta", "surface": "sammākammanta" },
+    { "text": "; when it would have been for your living, " },
+    { "term": "sammaajiva", "surface": "sammā-ājīva" },
+    { "text": ". When the heart opens toward suffering it is " },
+    { "term": "karuna", "surface": "karuṇā" },
+    { "text": ", and toward another's joy, " },
+    { "term": "mudita", "surface": "muditā" },
+    { "text": " — the two illimitables that are factors in their own right, where " },
+    { "term": "metta", "surface": "mettā" },
+    { "text": " and " },
+    { "term": "upekkha", "surface": "upekkhā" },
+    { "text": " were adosa and tatramajjhattatā under other names. And " },
+    { "term": "pannindriya", "surface": "paññindriya" },
+    { "text": " is " },
+    { "term": "panna", "surface": "paññā" },
+    { "text": " as a faculty — the seeing that undoes " },
+    { "term": "moha", "surface": "moha" },
+    { "text": ". Fifty-two factors, and the chart is complete." }
+  ],
+  "suttaRec": {
+    "title": "Vibhaṅga — Analysis of the Path",
+    "ref": "sn45.8",
+    "url": "https://suttacentral.net/sn45.8",
+    "blurb": "The Buddha defines each factor of the Eightfold Path in turn — right speech, action, and livelihood as the three abstinences.",
+    "minutes": 5
+  }
+}
