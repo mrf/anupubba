@@ -56,4 +56,26 @@ export const SANSKRIT_ALIASES: Readonly<Record<string, readonly string[]>> = {
   // paṭicca-samuppāda
   avijja: ['avidyā', 'avidya'],
   phassa: ['sparśa', 'sparsha', 'sparsa'],
+  // 52 cetasikas — universals & occasionals
+  jivitindriya: ['jīvitendriya', 'jivitendriya'],
+  manasikara: ['manaskāra', 'manaskara'],
+  adhimokkha: ['adhimokṣa', 'adhimoksha', 'adhimoksa'],
+  // 52 cetasikas — unwholesome
+  ahirika: ['āhrīkya', 'ahrikya'],
+  anottappa: ['anapatrāpya', 'anapatrapya'],
+  uddhacca: ['auddhatya'],
+  dosa: ['dveṣa', 'dvesha', 'dvesa'],
+  ditthi: ['dṛṣṭi', 'drsti', 'drishti', 'drushti'],
+  issa: ['īrṣyā', 'irsya', 'irshya'],
+  macchariya: ['mātsarya', 'matsarya'],
+  kukkucca: ['kaukṛtya', 'kaukrtya', 'kaukritya'],
+  thina: ['styāna', 'styana'],
+  // 52 cetasikas — beautiful
+  saddha: ['śraddhā', 'shraddha', 'sraddha'],
+  hiri: ['hrī', 'hri'],
+  ottappa: ['apatrāpya', 'apatrapya'],
+  sammavaca: ['samyagvāc', 'samyagvac', 'samyakvac'],
+  sammakammanta: ['samyakkarmānta', 'samyakkarmanta'],
+  sammaajiva: ['samyagājīva', 'samyagajiva', 'samyakajiva'],
+  pannindriya: ['prajñendriya', 'prajnendriya'],
 };
