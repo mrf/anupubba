@@ -1,6 +1,6 @@
 import { useState } from 'preact/hooks';
 import type { WordCard } from '../data/types.ts';
-import { matchesPali, matchesPaliLoosely } from '../engine/match.ts';
+import { recallMatch } from '../engine/match.ts';
 import { shuffled } from '../engine/distractors.ts';
 import type { SessionGrade } from '../engine/srs.ts';
 
@@ -100,8 +100,9 @@ function pickedWord(options: readonly WordCard[], id: string): WordCard {
 /**
  * Recall: produce the word from its gloss. Sound-forgiving (§3.2): plain
  * ASCII always counts, and a spelling that only misses what can't be heard —
- * doubling, aspiration, nasal place — counts too, with a nudge. The correct
- * diacritics are always shown after. A correct answer self-grades
+ * doubling, aspiration, nasal place — counts too, with a nudge. The Sanskrit
+ * equivalent (smṛti, prajñā…) and its usual romanisations count as well.
+ * The correct diacritics are always shown after. A correct answer self-grades
  * familiar/clear — honesty is part of the practice.
  */
 export function RecallDrill(props: {
@@ -111,8 +112,9 @@ export function RecallDrill(props: {
   const { word, onDone } = props;
   const [input, setInput] = useState('');
   const [revealed, setRevealed] = useState(false);
-  const matched = matchesPali(input, word.pali);
-  const close = !matched && matchesPaliLoosely(input, word.pali);
+  const grade = recallMatch(input, word);
+  const matched = grade === 'exact';
+  const close = grade === 'close';
 
   if (revealed) {
     return (

@@ -57,15 +57,26 @@ describe('shipped deck content', () => {
   });
 
   it('keeps every word distinct under the forgiving recall fold', () => {
-    // If two words ever collide under foldPaliLoose, the recall drill would
-    // accept one as a correct answer for the other — a silent content bug.
+    // If two words ever collide under foldPaliLoose — Pali form or any
+    // Sanskrit alias — the recall drill would accept one as a correct answer
+    // for the other: a silent content bug.
     const seen = new Map<string, string>();
     for (const word of catalog.words.values()) {
-      const loose = foldPaliLoose(word.pali);
-      const other = seen.get(loose);
-      expect(other, `"${word.pali}" collides with "${other ?? ''}" as "${loose}"`).toBeUndefined();
-      seen.set(loose, word.pali);
+      for (const spelling of [word.pali, ...(word.aliases ?? [])]) {
+        const loose = foldPaliLoose(spelling);
+        const other = seen.get(loose);
+        expect(
+          other === undefined || other === word.id,
+          `"${spelling}" (${word.id}) collides with ${other ?? ''} as "${loose}"`,
+        ).toBe(true);
+        seen.set(loose, word.id);
+      }
     }
+  });
+
+  it('attaches the Sanskrit alias table to the shipped words', () => {
+    expect(catalog.words.get('sati')?.aliases).toContain('smṛti');
+    expect(catalog.words.get('karuna')?.aliases).toBeUndefined();
   });
 
   it('every deck recommends a sutta with a SuttaCentral link', () => {

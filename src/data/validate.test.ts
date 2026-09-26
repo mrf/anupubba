@@ -129,6 +129,13 @@ describe('buildCatalog', () => {
     expect(() => buildCatalog([deck('one', 1)], ['ghost'])).toThrow(/familiarity.*ghost/i);
   });
 
+  it('attaches aliases by word id and rejects ones that do not resolve', () => {
+    const catalog = buildCatalog([deck('one', 1)], [], { 'one-a': ['alias-a'] });
+    expect(catalog.words.get('one-a')?.aliases).toEqual(['alias-a']);
+    expect(catalog.words.get('one-b')?.aliases).toBeUndefined();
+    expect(() => buildCatalog([deck('one', 1)], [], { ghost: ['x'] })).toThrow(/alias.*ghost/i);
+  });
+
   it('rejects malformed segments and missing fields with a path in the message', () => {
     const malformed = deck('one', 1, { talk: [{ bogus: true }] });
     expect(() => buildCatalog([malformed], [])).toThrow(/talk/i);

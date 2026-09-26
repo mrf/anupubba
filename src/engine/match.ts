@@ -1,3 +1,5 @@
+import type { WordCard } from '../data/types.ts';
+
 /**
  * ASCII-forgiving matching for the recall stage (§3.2): typing "sankhara"
  * counts for "saṅkhāra". Correct diacritics are always shown afterwards.
@@ -38,4 +40,18 @@ export function foldPaliLoose(input: string): string {
 export function matchesPaliLoosely(input: string, target: string): boolean {
   const folded = foldPaliLoose(input);
   return folded.length > 0 && folded === foldPaliLoose(target);
+}
+
+export type RecallMatch = 'exact' | 'close' | 'none';
+
+/**
+ * Grade a recall answer against a word: its Pali form or any alias (the
+ * Sanskrit equivalents in data/sanskrit.ts) counts, each under the same
+ * strict-then-loose folds. Exact on any spelling beats close on another.
+ */
+export function recallMatch(input: string, word: WordCard): RecallMatch {
+  const targets = [word.pali, ...(word.aliases ?? [])];
+  if (targets.some((t) => matchesPali(input, t))) return 'exact';
+  if (targets.some((t) => matchesPaliLoosely(input, t))) return 'close';
+  return 'none';
 }
