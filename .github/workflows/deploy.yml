@@ -1,11 +1,15 @@
 name: Deploy to GitHub Pages
 
+# Pages serves the gh-pages branch: main at the root, each open PR at
+# /pr-preview/pr-<N>/ so a change can be tried on a phone before merging.
+
 on:
   push:
     branches: [main]
-  # Build (no deploy) on PRs so Dependabot bumps get tested before merge —
+  # Build on every PR so Dependabot bumps get tested before merge —
   # TS 7.0.2 (PR #5) merged unchecked and broke npm ci on main.
   pull_request:
+    types: [opened, reopened, synchronize, closed]
   workflow_dispatch:
 
 permissions:
@@ -17,6 +21,7 @@ concurrency:
 
 jobs:
   build:
+    if: github.event.action != 'closed'
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v7
@@ -29,9 +34,10 @@ jobs:
       - run: npm test
       - run: npm run build
         env:
-          BASE_PATH: /${{ github.event.repository.name }}/
-      - uses: actions/upload-pages-artifact@v5
+          BASE_PATH: /${{ github.event.repository.name }}/${{ github.event_name == 'pull_request' && format('pr-preview/pr-{0}/', github.event.number) || '' }}
+      - uses: actions/upload-artifact@v7
         with:
+          name: dist
           path: dist
 
   deploy:
@@ -39,11 +45,46 @@ jobs:
     needs: build
     runs-on: ubuntu-latest
     permissions:
-      pages: write
-      id-token: write
-    environment:
-      name: github-pages
-      url: ${{ steps.deployment.outputs.page_url }}
+      contents: write
+    concurrency:
+      group: gh-pages-branch
+      cancel-in-progress: false
     steps:
-      - id: deployment
-        uses: actions/deploy-pages@v5
+      - uses: actions/checkout@v7
+      - uses: actions/download-artifact@v8
+        with:
+          name: dist
+          path: dist
+      - uses: JamesIves/github-pages-deploy-action@v4
+        with:
+          folder: dist
+          branch: gh-pages
+          clean-exclude: pr-preview/
+
+  # Same-repo PRs only: Dependabot and fork PRs get a read-only token, and
+  # their build above still runs.
+  preview:
+    if: >-
+      always() && github.event_name == 'pull_request'
+      && github.event.pull_request.head.repo.full_name == github.repository
+      && github.actor != 'dependabot[bot]'
+      && (needs.build.result == 'success' || github.event.action == 'closed')
+    needs: build
+    runs-on: ubuntu-latest
+    permissions:
+      contents: write
+      pull-requests: write
+    concurrency:
+      group: gh-pages-branch
+      cancel-in-progress: false
+    steps:
+      - uses: actions/checkout@v7
+      - if: github.event.action != 'closed'
+        uses: actions/download-artifact@v8
+        with:
+          name: dist
+          path: dist
+      - uses: rossjrw/pr-preview-action@v1
+        with:
+          source-dir: dist
+          action: ${{ github.event.action == 'closed' && 'remove' || 'deploy' }}
