@@ -1,5 +1,6 @@
 import { useState } from 'preact/hooks';
 import type { Catalog, Deck } from '../data/types.ts';
+import { SpeakButton } from './SpeakButton.tsx';
 
 /**
  * Talk mode (§3.4): a short paragraph the way teachers actually speak, each
@@ -47,7 +48,7 @@ export function TalkReader(props: {
       </p>
       {openWord !== undefined && (
         <p class="talk-gloss">
-          <strong>{openWord.pali}</strong> — {openWord.gloss}
+          <strong>{openWord.pali}</strong> — {openWord.gloss} <SpeakButton pali={openWord.pali} />
         </p>
       )}
       <button class="btn primary" onClick={() => { onFinish(tapped); }}>

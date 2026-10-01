@@ -421,3 +421,13 @@ form {
   color: var(--ink-soft);
   line-height: 1.5;
 }
+
+.speak {
+  align-self: center;
+  font-size: 0.85rem;
+  text-decoration: none;
+}
+
+.talk-gloss .speak {
+  vertical-align: baseline;
+}
