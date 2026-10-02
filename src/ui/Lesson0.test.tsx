@@ -1,5 +1,6 @@
 import { fireEvent, render, screen } from '@testing-library/preact';
-import { describe, expect, it, vi } from 'vitest';
+import { afterEach, describe, expect, it, vi } from 'vitest';
+import { installSpeech, spokenTexts } from '../test/fakeSpeech.ts';
 import { Lesson0 } from './Lesson0.tsx';
 
 /** Assert a page's drill prompt, optionally miss once and check its hint, then solve it. */
@@ -57,5 +58,32 @@ describe('Lesson0', () => {
     solvePage({ prompt: /tap the heavy syllable in anicca/, answer: 'nic' });
     fireEvent.click(screen.getByText(/done — the sounds are yours/));
     expect(onDone).toHaveBeenCalledTimes(1);
+  });
+
+  describe('hearing the sounds', () => {
+    afterEach(() => { vi.unstubAllGlobals(); });
+
+    it('speaks each tapped syllable, the whole word, and the example words', () => {
+      const engine = installSpeech(['hi-IN']);
+      render(<Lesson0 onDone={() => undefined} onSkip={() => undefined} />);
+      expect(screen.queryByText(/add a Hindi voice/)).toBeNull();
+
+      fireEvent.click(screen.getByText('sa'));
+      fireEvent.click(screen.getByLabelText('hear samādhi pronounced'));
+      fireEvent.click(screen.getByText('mā'));
+      fireEvent.click(screen.getByText('continue'));
+      fireEvent.click(screen.getByLabelText('hear paññā pronounced'));
+
+      expect(spokenTexts(engine)).toEqual(['स', 'समाधि', 'मा', 'पञ्ञा']);
+    });
+
+    it('says how to get a voice when the device has none, and stays usable', () => {
+      installSpeech(['en-US']);
+      render(<Lesson0 onDone={() => undefined} onSkip={() => undefined} />);
+      expect(screen.getByText(/add a Hindi voice/)).toBeTruthy();
+      expect(screen.queryByLabelText(/pronounced/)).toBeNull();
+      fireEvent.click(screen.getByText('mā'));
+      expect(screen.getByText('yes — the line means linger')).toBeTruthy();
+    });
   });
 });

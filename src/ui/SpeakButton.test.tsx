@@ -1,27 +1,7 @@
-import { fireEvent, render, screen } from '@testing-library/preact';
+import { act, fireEvent, render, screen } from '@testing-library/preact';
 import { afterEach, describe, expect, it, vi } from 'vitest';
+import { FakeUtterance, installSpeech } from '../test/fakeSpeech.ts';
 import { SpeakButton } from './SpeakButton.tsx';
-
-class FakeUtterance {
-  voice: SpeechSynthesisVoice | null = null;
-  lang = '';
-  rate = 1;
-  constructor(public text: string) {}
-}
-
-function installSpeech(langs: readonly string[]) {
-  const voices = langs.map((lang) => ({ lang, localService: true, name: lang, voiceURI: lang, default: false }));
-  const engine = {
-    getVoices: () => voices,
-    speak: vi.fn(),
-    cancel: vi.fn(),
-    addEventListener: vi.fn(),
-    removeEventListener: vi.fn(),
-  };
-  vi.stubGlobal('speechSynthesis', engine);
-  vi.stubGlobal('SpeechSynthesisUtterance', FakeUtterance);
-  return engine;
-}
 
 afterEach(() => {
   vi.unstubAllGlobals();
@@ -36,6 +16,19 @@ describe('SpeakButton', () => {
     const spoken = engine.speak.mock.calls[0]?.[0] as FakeUtterance;
     expect(spoken.text).toBe('मेत्ता');
     expect(spoken.lang).toBe('hi-IN');
+  });
+
+  it('appears once voices load late, even without a voiceschanged event', () => {
+    vi.useFakeTimers();
+    const engine = installSpeech(['hi-IN']);
+    const voices = engine.getVoices();
+    engine.getVoices = () => [];
+    const { container } = render(<SpeakButton pali="mettā" />);
+    expect(container.innerHTML).toBe('');
+    engine.getVoices = () => voices;
+    void act(() => { vi.advanceTimersByTime(300); });
+    expect(screen.getByLabelText('hear mettā pronounced')).toBeTruthy();
+    vi.useRealTimers();
   });
 
   it('renders nothing when no suitable voice exists', () => {

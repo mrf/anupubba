@@ -1,8 +1,12 @@
 import { useState } from 'preact/hooks';
+import { speakPali } from '../audio/speech.ts';
+import { SpeakButton, useCanSpeak } from './SpeakButton.tsx';
 
 interface SyllableDrill {
   /** Asks for the sound this page just taught. */
   prompt: string;
+  /** The whole word the syllables spell, to hear them run together. */
+  word: string;
   syllables: readonly string[];
   /** Index of the syllable carrying that sound. */
   answer: number;
@@ -13,6 +17,8 @@ interface SyllableDrill {
 interface Page {
   title: string;
   points: readonly string[];
+  /** Words the points mention, besides the drill word, to hear on tap. */
+  examples: readonly string[];
   drill: SyllableDrill;
 }
 
@@ -29,7 +35,9 @@ const PAGES: readonly Page[] = [
       'samādhi is sa-MAA-dhi: the mā carries the weight.',
       'Every other vowel is short and light.',
     ],
+    examples: [],
     drill: {
+      word: 'samādhi',
       prompt: 'tap the long syllable in samādhi',
       syllables: ['sa', 'mā', 'dhi'],
       answer: 1,
@@ -44,7 +52,9 @@ const PAGES: readonly Page[] = [
       'ñ is the Spanish ñ: paññā is PUN-yaa.',
       'ṃ is a nasal hum through the nose, as in saṃsāra.',
     ],
+    examples: ['paññā', 'saṃsāra'],
     drill: {
+      word: 'vicāra',
       prompt: 'tap the syllable that sounds like “chaa” in vicāra',
       syllables: ['vi', 'cā', 'ra'],
       answer: 1,
@@ -60,7 +70,9 @@ const PAGES: readonly Page[] = [
       'So th is a breathy t — never the th of “thin”: Theravāda is tay-ra-VAA-da. And ph is a breathy p, never “f”: phala is PHA-la.',
       'Doubled consonants are truly doubled: hold them a beat.',
     ],
+    examples: ['taṇhā', 'Theravāda', 'phala'],
     drill: {
+      word: 'dukkha',
       prompt: 'tap the syllable with the puff of breath in dukkha',
       syllables: ['duk', 'kha'],
       answer: 1,
@@ -75,7 +87,9 @@ const PAGES: readonly Page[] = [
       'Three nasals, three places: ñ at the palate (paññā), ṅ at the back (saṅgha), ṃ humming through the nose (saṃsāra).',
       'Where English would break “n-k” apart, Pali glides: think “sung-KHAA-ra”, not “san-KHAA-ra”.',
     ],
+    examples: ['saṅgha', 'paññā', 'saṃsāra'],
     drill: {
+      word: 'saṅkhāra',
       prompt: 'tap the syllable with the “ng” in saṅkhāra',
       syllables: ['saṅ', 'khā', 'ra'],
       answer: 0,
@@ -90,7 +104,9 @@ const PAGES: readonly Page[] = [
       'bodhi is BOH-dhi; deva is DAY-va; mettā — squeezed by the doubled tt — drops to the e of “met”.',
       'So Pali has ten vowels: a, i, u short; ā, ī, ū long; e and o long by nature, shortened only when doubled consonants press in.',
     ],
+    examples: ['deva', 'mettā'],
     drill: {
+      word: 'bodhi',
       prompt: 'tap the long syllable in bodhi',
       syllables: ['bo', 'dhi'],
       answer: 0,
@@ -105,7 +121,9 @@ const PAGES: readonly Page[] = [
       'A syllable is heavy when its vowel is long, or when doubled consonants close it: u-PEK-khaa, a-NUT-taa.',
       'Meet a new word by finding its heavy syllables and letting them carry it: nibbāna, viññāṇa, anicca.',
     ],
+    examples: ['upekkhā', 'anattā', 'nibbāna', 'viññāṇa'],
     drill: {
+      word: 'anicca',
       prompt: 'tap the heavy syllable in anicca',
       syllables: ['a', 'nic', 'ca'],
       answer: 1,
@@ -119,6 +137,7 @@ export function Lesson0(props: { onDone: () => void; onSkip: () => void }) {
   const { onDone, onSkip } = props;
   const [pageIndex, setPageIndex] = useState(0);
   const [picked, setPicked] = useState<number | null>(null);
+  const canSpeak = useCanSpeak();
 
   const page = PAGES[pageIndex];
   if (page === undefined) return null;
@@ -141,6 +160,12 @@ export function Lesson0(props: { onDone: () => void; onSkip: () => void }) {
           Pali is written exactly as it sounds. A few minutes here and every word in the app
           becomes pronounceable.
         </p>
+        {!canSpeak && (
+          <p class="speak-missing">
+            To hear the words spoken, add a Hindi voice in your device’s text-to-speech
+            settings.
+          </p>
+        )}
       </header>
       <section class="card lesson">
         <h2>{page.title}</h2>
@@ -149,18 +174,29 @@ export function Lesson0(props: { onDone: () => void; onSkip: () => void }) {
             <li key={point}>{point}</li>
           ))}
         </ul>
+        {canSpeak && page.examples.length > 0 && (
+          <div class="hear-examples">
+            {page.examples.map((word) => (
+              <SpeakButton key={word} pali={word} label={word} />
+            ))}
+          </div>
+        )}
         <p class="drill-prompt">{page.drill.prompt}</p>
         <div class="options syllables">
           {page.drill.syllables.map((syllable, index) => (
             <button
               key={syllable}
               class={`btn option${picked === index ? (index === page.drill.answer ? ' right' : ' soft') : ''}`}
-              onClick={() => { setPicked(index); }}
+              onClick={() => {
+                setPicked(index);
+                if (canSpeak) speakPali(syllable);
+              }}
             >
               {syllable}
             </button>
           ))}
         </div>
+        <SpeakButton pali={page.drill.word} label={`hear ${page.drill.word}`} />
         {picked !== null && (
           <p class={solved ? 'feedback clear' : 'feedback not-yet'}>
             {solved ? page.drill.success : page.drill.hint}

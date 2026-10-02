@@ -91,26 +91,71 @@ export function canSpeak(): boolean {
 }
 
 /**
- * Call `listener` whenever the device's voice list changes; returns an
- * unsubscribe. Some browsers only populate voices after this event fires.
+ * Call `listener` whenever the device's voice list may have changed; returns
+ * an unsubscribe. Voices load asynchronously, and not every browser announces
+ * it: older Safari has only `onvoiceschanged`, and iOS sometimes never fires
+ * the event at all. So listen either way, and also look again a few times
+ * while the list is still filling.
  */
 export function onVoicesChanged(listener: () => void): () => void {
   const engine = synth();
   if (engine === null) return () => undefined;
-  engine.addEventListener('voiceschanged', listener);
-  return () => { engine.removeEventListener('voiceschanged', listener); };
+  const target = engine as SpeechSynthesis & Partial<EventTarget>;
+  const usesEvents = typeof target.addEventListener === 'function';
+  const previous = engine.onvoiceschanged;
+  if (usesEvents) {
+    engine.addEventListener('voiceschanged', listener);
+  } else {
+    engine.onvoiceschanged = listener;
+  }
+  let polls = 0;
+  const poll = setInterval(() => {
+    polls += 1;
+    listener();
+    if (polls >= VOICE_POLLS || pickVoice(engine.getVoices()) !== null) clearInterval(poll);
+  }, VOICE_POLL_MS);
+  return () => {
+    clearInterval(poll);
+    if (usesEvents) engine.removeEventListener('voiceschanged', listener);
+    else engine.onvoiceschanged = previous;
+  };
 }
 
-/** Speak a Pali word, slowly enough to hear each syllable. Call from a tap. */
+const VOICE_POLLS = 12;
+const VOICE_POLL_MS = 250;
+
+/**
+ * The utterance being spoken. Chrome drops an utterance that nothing refers
+ * to mid-speech (its end event never fires and the queue jams), so hold it
+ * until it finishes.
+ */
+let current: SpeechSynthesisUtterance | null = null;
+
+/** Speak romanised Pali, slowly enough to hear each syllable. Call from a tap. */
 export function speakPali(pali: string): void {
   const engine = synth();
   if (engine === null) return;
   const voice = pickVoice(engine.getVoices());
   if (voice === null) return;
-  engine.cancel();
   const utterance = new SpeechSynthesisUtterance(toDevanagari(pali));
   utterance.voice = voice;
-  utterance.lang = voice.lang;
+  // Android reports hi_IN; the utterance wants a BCP 47 tag.
+  utterance.lang = voice.lang.replace('_', '-');
   utterance.rate = 0.75;
-  engine.speak(utterance);
+  utterance.onend = () => { if (current === utterance) current = null; };
+  utterance.onerror = utterance.onend;
+  current = utterance;
+
+  // Chrome can be left paused (e.g. after the tab was backgrounded), which
+  // silently queues every later utterance; resuming is harmless otherwise.
+  if (engine.paused) engine.resume();
+  if (engine.speaking || engine.pending) {
+    // Chrome swallows a speak() issued in the same tick as cancel(). Audio
+    // is already unlocked here (something was playing), so iOS's
+    // must-be-in-a-tap rule is satisfied without the synchronous call.
+    engine.cancel();
+    setTimeout(() => { if (current === utterance) engine.speak(utterance); }, 60);
+  } else {
+    engine.speak(utterance);
+  }
 }

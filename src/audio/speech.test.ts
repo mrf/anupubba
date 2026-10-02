@@ -1,6 +1,7 @@
-import { describe, expect, it } from 'vitest';
+import { afterEach, describe, expect, it, vi } from 'vitest';
 import { catalog } from '../data/catalog.ts';
-import { pickVoice, toDevanagari } from './speech.ts';
+import { FakeUtterance, installSpeech, spokenTexts } from '../test/fakeSpeech.ts';
+import { onVoicesChanged, pickVoice, speakPali, toDevanagari } from './speech.ts';
 
 function voice(lang: string, localService = true): SpeechSynthesisVoice {
   return { lang, localService, name: lang, voiceURI: lang, default: false };
@@ -49,5 +50,64 @@ describe('pickVoice', () => {
   it('returns null rather than an English voice', () => {
     expect(pickVoice([voice('en-US'), voice('en-IN')])).toBeNull();
     expect(pickVoice([])).toBeNull();
+  });
+});
+
+describe('speakPali', () => {
+  afterEach(() => {
+    vi.unstubAllGlobals();
+    vi.useRealTimers();
+  });
+
+  it('speaks straight away when nothing is playing, with a BCP 47 language tag', () => {
+    const engine = installSpeech(['hi_IN']);
+    speakPali('dukkha');
+    expect(engine.cancel).not.toHaveBeenCalled();
+    const spoken = engine.speak.mock.calls[0]?.[0] as FakeUtterance;
+    expect(spoken.text).toBe('दुक्ख');
+    expect(spoken.lang).toBe('hi-IN');
+  });
+
+  it('cuts off the previous word, then speaks after a beat so Chrome does not drop it', () => {
+    vi.useFakeTimers();
+    const engine = installSpeech(['hi-IN']);
+    engine.speaking = true;
+    speakPali('mettā');
+    expect(engine.cancel).toHaveBeenCalledTimes(1);
+    expect(engine.speak).not.toHaveBeenCalled();
+    vi.advanceTimersByTime(100);
+    expect(spokenTexts(engine)).toEqual(['मेत्ता']);
+  });
+
+  it('only the last of several quick taps is spoken', () => {
+    vi.useFakeTimers();
+    const engine = installSpeech(['hi-IN']);
+    engine.speaking = true;
+    speakPali('mettā');
+    speakPali('karuṇā');
+    vi.advanceTimersByTime(100);
+    expect(spokenTexts(engine)).toEqual(['करुणा']);
+  });
+
+  it('resumes an engine left paused', () => {
+    const engine = installSpeech(['hi-IN']);
+    engine.paused = true;
+    speakPali('pīti');
+    expect(engine.resume).toHaveBeenCalled();
+    expect(engine.speak).toHaveBeenCalledTimes(1);
+  });
+});
+
+describe('onVoicesChanged', () => {
+  afterEach(() => { vi.unstubAllGlobals(); });
+
+  it('falls back to onvoiceschanged where speechSynthesis is no EventTarget', () => {
+    const engine = installSpeech(['hi-IN'], { events: false });
+    const listener = vi.fn();
+    const stop = onVoicesChanged(listener);
+    engine.onvoiceschanged?.();
+    expect(listener).toHaveBeenCalledTimes(1);
+    stop();
+    expect(engine.onvoiceschanged).toBeNull();
   });
 });

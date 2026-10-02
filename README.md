@@ -25,11 +25,11 @@ Pages serves the `gh-pages` branch: `main` deploys to the root, and every same-r
 
 - **Eleven cluster decks, 47 words** (`src/data/decks/`): refuges, three marks, dāna–sīla–bhāvanā, four noble truths, brahmavihāras, khandhas, foundations of practice, jhāna factors, five hindrances, seven bojjhaṅgas, dependent origination — each word with gloss, literal meaning, etymology, authored confusables, SuttaCentral + Digital Pali Dictionary sources, and (where well-attested) a canonical line. A runtime validator fails the build on any dangling reference.
 - **FSRS engine** with non-aversive grading (*not yet / familiar / clear*), a four-stage mastery ladder (recognition → recall → discrimination → comprehension), and the **distractor dial** — new words get distant distractors, mature words face their true confusables (*pīti* finally meets *sukha*).
-- **Familiarity sort** onboarding (know it / heard it / new to me) seeding SRS state via backdated reviews; **Lesson 0** pronunciation primer — six pages covering long vowels, c/ñ/ṃ, retroflexes and aspirates, the ṅ nasal, long-by-nature e/o, and syllable weight — each with a tap-the-syllable micro-drill.
+- **Familiarity sort** onboarding (know it / heard it / new to me) seeding SRS state via backdated reviews; **Lesson 0** pronunciation primer — six pages covering long vowels, c/ñ/ṃ, retroflexes and aspirates, the ṅ nasal, long-by-nature e/o, and syllable weight — each with a tap-the-syllable micro-drill. Where the device can speak Pali, tapping a syllable says it aloud, and each page's words can be heard whole.
 - **Session as a sit**: synthesized bell to open and close, bounded reviews-first plans, intro-card-before-drill, and **talk mode** paragraphs with tappable glosses as each cluster's graduation.
 - **Closing screen**: lifetime cultivation count, per-deck growth (seed/sprout/bud/bloom), one sutta recommendation.
 - **Export/import** of all local state as JSON — the data belongs to the user.
-- **Tap-to-hear pronunciation** on intro cards, revealed drill answers, and talk-mode glosses: each word is respelled in Devanagari and spoken by the device's own Sanskrit/Hindi voice (Web Speech API) — offline, no audio assets, never autoplays. Hidden on devices with no Indic voice.
+- **Tap-to-hear pronunciation** on intro cards, revealed drill answers, and talk-mode glosses: each word is respelled in Devanagari and spoken by the device's own Sanskrit/Hindi voice (Web Speech API) — offline, no audio assets, never autoplays. Hidden on devices with no Indic voice; the sounds lesson tells the user how to add one.
 
 ## Deferred (per DESIGN.md roadmap)
 

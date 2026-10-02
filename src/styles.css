@@ -431,3 +431,14 @@ form {
 .talk-gloss .speak {
   vertical-align: baseline;
 }
+
+.hear-examples {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 0.25rem 0.75rem;
+}
+
+.speak-missing {
+  font-size: 0.85rem;
+}

@@ -188,7 +188,7 @@ Same shape as the equanimity tracker:
 - **IndexedDB** for SRS state, settings, cultivation count
 - **`ts-fsrs`** for scheduling
 - **Offline-first** service worker; decks bundled as static JSON
-- **Audio:** tap-to-hear via the browser's speech engine. Pali maps one-to-one onto Devanagari, so each word is respelled and read by a Sanskrit/Hindi voice, which keeps retroflexes, aspirates and vowel length that English voices flatten. Tap only, never autoplay; hidden when the device has no Indic voice. Known limit: Hindi voices may drop a word-final short *a* (schwa deletion). Recorded audio (or curated links to chanting recordings) remains a v2 candidate
+- **Audio:** tap-to-hear via the browser's speech engine. Pali maps one-to-one onto Devanagari, so each word is respelled and read by a Sanskrit/Hindi voice, which keeps retroflexes, aspirates and vowel length that English voices flatten. Tap only, never autoplay; hidden when the device has no Indic voice (Lesson 0 says how to add one). Lesson 0 speaks each syllable as it is tapped, plus the whole drill word and the page's example words. Known limit: Hindi voices may drop a word-final short *a* (schwa deletion). Recorded audio (or curated links to chanting recordings) remains a v2 candidate
 - Export/import of local state as JSON (data belongs to the user)
 
 ---
