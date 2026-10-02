@@ -6,15 +6,22 @@ class FakeUtterance {
   voice: SpeechSynthesisVoice | null = null;
   lang = '';
   rate = 1;
+  readonly listeners: ((event: { error: string }) => void)[] = [];
   constructor(public text: string) {}
+  addEventListener(_type: 'error', listener: (event: { error: string }) => void) {
+    this.listeners.push(listener);
+  }
 }
 
 function installSpeech(langs: readonly string[]) {
   const voices = langs.map((lang) => ({ lang, localService: true, name: lang, voiceURI: lang, default: false }));
   const engine = {
+    speaking: false,
+    pending: false,
     getVoices: () => voices,
     speak: vi.fn(),
     cancel: vi.fn(),
+    resume: vi.fn(),
     addEventListener: vi.fn(),
     removeEventListener: vi.fn(),
   };
@@ -36,6 +43,36 @@ describe('SpeakButton', () => {
     const spoken = engine.speak.mock.calls[0]?.[0] as FakeUtterance;
     expect(spoken.text).toBe('मेत्ता');
     expect(spoken.lang).toBe('hi-IN');
+  });
+
+  it('does not cancel an idle engine, which silences the next word on iOS', () => {
+    const engine = installSpeech(['hi-IN']);
+    render(<SpeakButton pali="mettā" />);
+    fireEvent.click(screen.getByLabelText('hear mettā pronounced'));
+    expect(engine.cancel).not.toHaveBeenCalled();
+    expect(engine.speak).toHaveBeenCalledTimes(1);
+  });
+
+  it('cuts off a word still being spoken before saying the next', () => {
+    const engine = installSpeech(['hi-IN']);
+    engine.speaking = true;
+    render(<SpeakButton pali="mettā" />);
+    fireEvent.click(screen.getByLabelText('hear mettā pronounced'));
+    expect(engine.cancel).toHaveBeenCalledTimes(1);
+  });
+
+  it('retries by language alone when the chosen voice fails', () => {
+    const engine = installSpeech(['hi-IN']);
+    render(<SpeakButton pali="mettā" />);
+    fireEvent.click(screen.getByLabelText('hear mettā pronounced'));
+    const first = engine.speak.mock.calls[0]?.[0] as FakeUtterance;
+    first.listeners.forEach((listener) => { listener({ error: 'interrupted' }); });
+    expect(engine.speak).toHaveBeenCalledTimes(1);
+    first.listeners.forEach((listener) => { listener({ error: 'synthesis-failed' }); });
+    const retry = engine.speak.mock.calls[1]?.[0] as FakeUtterance;
+    expect(retry.text).toBe('मेत्ता');
+    expect(retry.lang).toBe('hi-IN');
+    expect(retry.voice).toBeNull();
   });
 
   it('renders nothing when no suitable voice exists', () => {

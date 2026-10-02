@@ -107,10 +107,26 @@ export function speakPali(pali: string): void {
   if (engine === null) return;
   const voice = pickVoice(engine.getVoices());
   if (voice === null) return;
-  engine.cancel();
-  const utterance = new SpeechSynthesisUtterance(toDevanagari(pali));
+  // iOS Safari silently drops a speak() issued straight after cancel(), so
+  // only cancel when something is actually queued; resume() unsticks
+  // engines (Safari, Chrome) left paused by an earlier interrupted utterance.
+  if (engine.speaking || engine.pending) engine.cancel();
+  engine.resume();
+  const text = toDevanagari(pali);
+  const utterance = makeUtterance(text, voice.lang);
   utterance.voice = voice;
-  utterance.lang = voice.lang;
-  utterance.rate = 0.75;
+  // A listed voice can still fail (on iOS, one not yet downloaded): retry
+  // once by language alone and let the device pick its own voice for it.
+  utterance.addEventListener('error', (event) => {
+    if (event.error === 'interrupted' || event.error === 'canceled') return;
+    engine.speak(makeUtterance(text, voice.lang));
+  });
   engine.speak(utterance);
+}
+
+function makeUtterance(text: string, lang: string): SpeechSynthesisUtterance {
+  const utterance = new SpeechSynthesisUtterance(text);
+  utterance.lang = lang;
+  utterance.rate = 0.75;
+  return utterance;
 }
