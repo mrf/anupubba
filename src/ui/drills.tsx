@@ -3,6 +3,7 @@ import type { WordCard } from '../data/types.ts';
 import { recallMatch } from '../engine/match.ts';
 import { shuffled } from '../engine/distractors.ts';
 import type { SessionGrade } from '../engine/srs.ts';
+import { SpeakButton } from './SpeakButton.tsx';
 
 /** The part of the gloss short enough for an option button. */
 export function shortGloss(word: WordCard): string {
@@ -15,6 +16,7 @@ export function IntroCard(props: { word: WordCard; onDone: () => void }) {
     <section class="card intro">
       <p class="pali-big">{word.pali}</p>
       <p class="pronunciation">{word.pronunciation}</p>
+      <SpeakButton pali={word.pali} />
       <p class="gloss">{word.gloss}</p>
       {word.literal !== undefined && (
         <p class="literal">
@@ -66,6 +68,7 @@ export function RecognitionDrill(props: {
     return (
       <section class="card drill">
         <p class="pali-big">{word.pali}</p>
+        <SpeakButton pali={word.pali} />
         <p class={correct ? 'feedback clear' : 'feedback not-yet'}>
           {correct ? word.gloss : `not yet — ${word.pali} is ${shortGloss(word)}`}
         </p>
@@ -122,6 +125,7 @@ export function RecallDrill(props: {
         <p class="gloss">{word.gloss}</p>
         <p class="pali-big">{word.pali}</p>
         <p class="pronunciation">{word.pronunciation}</p>
+        <SpeakButton pali={word.pali} />
         {matched || close ? (
           <>
             {close && (
