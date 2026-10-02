@@ -15,8 +15,11 @@ on:
 permissions:
   contents: read
 
+# Key PR runs by PR number, not ref: once a PR merges, its closing run
+# reports github.ref as the base branch, and sharing main's group made it
+# cancel main's own deploy (PR #15).
 concurrency:
-  group: pages-${{ github.ref }}
+  group: pages-${{ github.event_name == 'pull_request' && format('pr-{0}', github.event.number) || github.ref }}
   cancel-in-progress: true
 
 jobs:
