@@ -19,6 +19,8 @@ npm run verify   # lint + tests + production build
 npm run icons    # regenerate public/ icon set (no image deps)
 ```
 
+Pages serves the `gh-pages` branch: `main` deploys to the root, and every same-repo PR gets a live preview at `/anupubba/pr-preview/pr-<N>/` (linked in a PR comment, removed when the PR closes).
+
 ## What's built (Phase 0–2 core)
 
 - **Eleven cluster decks, 47 words** (`src/data/decks/`): refuges, three marks, dāna–sīla–bhāvanā, four noble truths, brahmavihāras, khandhas, foundations of practice, jhāna factors, five hindrances, seven bojjhaṅgas, dependent origination — each word with gloss, literal meaning, etymology, authored confusables, SuttaCentral + Digital Pali Dictionary sources, and (where well-attested) a canonical line. A runtime validator fails the build on any dangling reference.
