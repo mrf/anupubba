@@ -15,8 +15,11 @@ on:
 permissions:
   contents: read
 
+# Key PR runs by PR number: when a PR merges, its `closed` run reports
+# github.ref as the base branch, and sharing main's group would cancel the
+# main deploy that the merge itself triggered.
 concurrency:
-  group: pages-${{ github.ref }}
+  group: pages-${{ github.event.pull_request.number || github.ref }}
   cancel-in-progress: true
 
 jobs:
