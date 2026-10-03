@@ -12,7 +12,7 @@ export default defineConfig(
     languageOptions: {
       parserOptions: {
         projectService: {
-          allowDefaultProject: ['eslint.config.js', 'scripts/gen-icons.mjs'],
+          allowDefaultProject: ['eslint.config.js', 'scripts/gen-icons.mjs', 'scripts/gen-audio.mjs'],
         },
         tsconfigRootDir: import.meta.dirname,
       },

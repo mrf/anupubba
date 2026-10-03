@@ -34,7 +34,7 @@ export default defineConfig({
         ],
       },
       workbox: {
-        globPatterns: ['**/*.{js,css,html,svg,png,woff2,json}'],
+        globPatterns: ['**/*.{js,css,html,svg,png,woff2,json,mp3}'],
         // PR previews live under this scope (/pr-preview/pr-N/); the main
         // app's worker must not answer their navigations with its own shell.
         navigateFallbackDenylist: [/\/pr-preview\//],
