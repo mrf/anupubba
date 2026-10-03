@@ -29,10 +29,10 @@ Pages serves the `gh-pages` branch: `main` deploys to the root, and every same-r
 - **Session as a sit**: synthesized bell to open and close, bounded reviews-first plans, intro-card-before-drill, and **talk mode** paragraphs with tappable glosses as each cluster's graduation.
 - **Closing screen**: lifetime cultivation count, per-deck growth (seed/sprout/bud/bloom), one sutta recommendation.
 - **Export/import** of all local state as JSON — the data belongs to the user.
-- **Tap-to-hear pronunciation** on intro cards, revealed drill answers, and talk-mode glosses: each word is respelled in Devanagari and spoken by the device's own Sanskrit/Hindi voice (Web Speech API) — offline, no audio assets, never autoplays. Hidden on devices with no Indic voice.
+- **Tap-to-hear pronunciation** on intro cards, revealed drill answers, and talk-mode glosses: one short clip per word, rendered with eSpeak NG from exact Pali phonemes (every final short *a*, vowel length, retroflex and aspirate as written) and bundled with the app — plays the same on every device, offline, never autoplays. `npm run audio` re-renders the clips (needs `espeak-ng` and `ffmpeg`); a test fails while any word lacks one.
 
 ## Deferred (per DESIGN.md roadmap)
 
 - Empirical Tier-1 frequency corpus from talk transcripts (§6.3) — deck order is hand-curated until then
 - Root/etymology unlock web, bodhi-tree visualization, cetasikas tier (Phase 3)
-- Citation-graph view; recorded pronunciation audio (v2 — device speech covers it for now)
+- Citation-graph view; human-recorded pronunciation audio (v2 — eSpeak clips cover it for now)

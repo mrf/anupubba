@@ -1,24 +1,18 @@
-import { useEffect, useState } from 'preact/hooks';
-import { canSpeak, onVoicesChanged, speakPali } from '../audio/speech.ts';
+import { playPronunciation } from '../audio/pronounce.ts';
+import type { WordCard } from '../data/types.ts';
 
 /**
  * Tap to hear the word. Never plays on its own (§5 — the session is a sit;
- * no surprise sounds), and renders nothing when the device has no voice
- * that can say Pali faithfully.
+ * no surprise sounds).
  */
-export function SpeakButton(props: { pali: string }) {
-  const { pali } = props;
-  const [available, setAvailable] = useState(canSpeak);
-
-  useEffect(() => onVoicesChanged(() => { setAvailable(canSpeak()); }), []);
-
-  if (!available) return null;
+export function SpeakButton(props: { word: Pick<WordCard, 'id' | 'pali'> }) {
+  const { word } = props;
   return (
     <button
       type="button"
       class="btn quiet speak"
-      aria-label={`hear ${pali} pronounced`}
-      onClick={() => { speakPali(pali); }}
+      aria-label={`hear ${word.pali} pronounced`}
+      onClick={() => { playPronunciation(word.id); }}
     >
       🔈 hear it
     </button>

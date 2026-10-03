@@ -16,7 +16,7 @@ export function IntroCard(props: { word: WordCard; onDone: () => void }) {
     <section class="card intro">
       <p class="pali-big">{word.pali}</p>
       <p class="pronunciation">{word.pronunciation}</p>
-      <SpeakButton pali={word.pali} />
+      <SpeakButton word={word} />
       <p class="gloss">{word.gloss}</p>
       {word.literal !== undefined && (
         <p class="literal">
@@ -68,7 +68,7 @@ export function RecognitionDrill(props: {
     return (
       <section class="card drill">
         <p class="pali-big">{word.pali}</p>
-        <SpeakButton pali={word.pali} />
+        <SpeakButton word={word} />
         <p class={correct ? 'feedback clear' : 'feedback not-yet'}>
           {correct ? word.gloss : `not yet — ${word.pali} is ${shortGloss(word)}`}
         </p>
@@ -125,7 +125,7 @@ export function RecallDrill(props: {
         <p class="gloss">{word.gloss}</p>
         <p class="pali-big">{word.pali}</p>
         <p class="pronunciation">{word.pronunciation}</p>
-        <SpeakButton pali={word.pali} />
+        <SpeakButton word={word} />
         {matched || close ? (
           <>
             {close && (
