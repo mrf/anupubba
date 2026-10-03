@@ -48,7 +48,7 @@ export function TalkReader(props: {
       </p>
       {openWord !== undefined && (
         <p class="talk-gloss">
-          <strong>{openWord.pali}</strong> — {openWord.gloss} <SpeakButton pali={openWord.pali} />
+          <strong>{openWord.pali}</strong> — {openWord.gloss} <SpeakButton word={openWord} />
         </p>
       )}
       <button class="btn primary" onClick={() => { onFinish(tapped); }}>

@@ -29,7 +29,7 @@ Pages serves the `gh-pages` branch: `main` deploys to the root, and every same-r
 - **Session as a sit**: synthesized bell to open and close, bounded reviews-first plans, intro-card-before-drill, and **talk mode** paragraphs with tappable glosses as each cluster's graduation.
 - **Closing screen**: lifetime cultivation count, per-deck growth (seed/sprout/bud/bloom), one sutta recommendation.
 - **Export/import** of all local state as JSON — the data belongs to the user.
-- **Tap-to-hear pronunciation** on intro cards, revealed drill answers, and talk-mode glosses: each word is respelled in Devanagari and spoken by the device's own Sanskrit/Hindi voice (Web Speech API) — offline, no audio assets, never autoplays. Hidden on devices with no Indic voice.
+- **Tap-to-hear pronunciation** on intro cards, revealed drill answers, and talk-mode glosses: each word is respelled in Devanagari and spoken by the device's own Sanskrit/Hindi voice (Web Speech API) — offline, no audio assets, never autoplays. Devices with no Indic voice (stock Windows, Firefox) read the English pronunciation guide instead, marked *approximate*, with a tip on adding a Hindi voice.
 
 ## Deferred (per DESIGN.md roadmap)
 

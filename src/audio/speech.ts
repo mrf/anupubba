@@ -5,8 +5,10 @@
  * Pali has no voice of its own, but its sounds map one-to-one onto Devanagari,
  * and Indic voices read Devanagari with the retroflexes, aspirates and vowel
  * lengths that English voices flatten. So each word is respelled in Devanagari
- * and handed to the closest Indic voice on the device. With no such voice the
- * caller hides the button: better silence than a wrong sound taught as right.
+ * and handed to the closest Indic voice on the device. Many devices have none
+ * (Windows and Firefox ship English voices only), so there an English voice
+ * reads the written guide instead — marked approximate, with a tip on adding
+ * a Hindi voice, since it flattens retroflexes and aspirates.
  */
 
 const INDEPENDENT_VOWELS: Readonly<Record<string, string>> = {
@@ -84,10 +86,41 @@ export function pickVoice(voices: readonly SpeechSynthesisVoice[]): SpeechSynthe
   return null;
 }
 
-/** Whether a suitable voice is available right now (voices load asynchronously). */
-export function canSpeak(): boolean {
+/**
+ * How this device can say a word: `native` through an Indic voice,
+ * `approximate` by reading the English respelling, or `none` at all.
+ */
+export type SpeechMode = 'native' | 'approximate' | 'none';
+
+/** An English voice for the respelling, Indian English first (closest vowels). */
+export function pickEnglishVoice(
+  voices: readonly SpeechSynthesisVoice[],
+): SpeechSynthesisVoice | null {
+  const english = voices.filter((v) => v.lang.toLowerCase().startsWith('en'));
+  return (
+    english.find((v) => /^en[-_]in$/i.test(v.lang)) ??
+    english.find((v) => v.default) ??
+    english[0] ??
+    null
+  );
+}
+
+/** The current mode (voices load asynchronously, so re-check on change). */
+export function speechMode(): SpeechMode {
   const engine = synth();
-  return engine !== null && pickVoice(engine.getVoices()) !== null;
+  if (engine === null) return 'none';
+  const voices = engine.getVoices();
+  if (pickVoice(voices) !== null) return 'native';
+  return pickEnglishVoice(voices) === null ? 'none' : 'approximate';
+}
+
+/**
+ * The written guide made speakable: lowercase so stressed syllables aren't
+ * spelled out as letters (NICH → N-I-C-H), and "aa" as "ah" so English
+ * voices lengthen it.
+ */
+export function toEnglishRespelling(pronunciation: string): string {
+  return pronunciation.toLowerCase().replace(/aa/g, 'ah');
 }
 
 /**
@@ -101,18 +134,20 @@ export function onVoicesChanged(listener: () => void): () => void {
   return () => { engine.removeEventListener('voiceschanged', listener); };
 }
 
-/** Speak a Pali word, slowly enough to hear each syllable. Call from a tap. */
-export function speakPali(pali: string): void {
+/** Say a word as well as this device can, slowly. Call from a tap. */
+export function speakWord(word: { pali: string; pronunciation: string }): void {
   const engine = synth();
   if (engine === null) return;
-  const voice = pickVoice(engine.getVoices());
+  const voices = engine.getVoices();
+  const indic = pickVoice(voices);
+  const voice = indic ?? pickEnglishVoice(voices);
   if (voice === null) return;
   // iOS Safari silently drops a speak() issued straight after cancel(), so
   // only cancel when something is actually queued; resume() unsticks
   // engines (Safari, Chrome) left paused by an earlier interrupted utterance.
   if (engine.speaking || engine.pending) engine.cancel();
   engine.resume();
-  const text = toDevanagari(pali);
+  const text = indic !== null ? toDevanagari(word.pali) : toEnglishRespelling(word.pronunciation);
   const utterance = makeUtterance(text, voice.lang);
   utterance.voice = voice;
   // A listed voice can still fail (on iOS, one not yet downloaded): retry

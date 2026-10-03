@@ -1,9 +1,9 @@
 import { describe, expect, it } from 'vitest';
 import { catalog } from '../data/catalog.ts';
-import { pickVoice, toDevanagari } from './speech.ts';
+import { pickEnglishVoice, pickVoice, toDevanagari, toEnglishRespelling } from './speech.ts';
 
-function voice(lang: string, localService = true): SpeechSynthesisVoice {
-  return { lang, localService, name: lang, voiceURI: lang, default: false };
+function voice(lang: string, localService = true, isDefault = false): SpeechSynthesisVoice {
+  return { lang, localService, name: lang, voiceURI: lang, default: isDefault };
 }
 
 describe('toDevanagari', () => {
@@ -49,5 +49,20 @@ describe('pickVoice', () => {
   it('returns null rather than an English voice', () => {
     expect(pickVoice([voice('en-US'), voice('en-IN')])).toBeNull();
     expect(pickVoice([])).toBeNull();
+  });
+});
+
+describe('pickEnglishVoice', () => {
+  it('prefers Indian English, then the default English voice', () => {
+    expect(pickEnglishVoice([voice('en-US'), voice('en-IN')])?.lang).toBe('en-IN');
+    expect(pickEnglishVoice([voice('en-GB'), voice('en-US', true, true)])?.lang).toBe('en-US');
+    expect(pickEnglishVoice([voice('fr-FR')])).toBeNull();
+  });
+});
+
+describe('toEnglishRespelling', () => {
+  it('lowercases stress so it is not spelled out, and lengthens aa', () => {
+    expect(toEnglishRespelling('uh-NICH-cha')).toBe('uh-nich-cha');
+    expect(toEnglishRespelling('KA-ru-naa')).toBe('ka-ru-nah');
   });
 });
