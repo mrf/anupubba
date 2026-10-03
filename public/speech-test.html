@@ -20,10 +20,13 @@
 </head>
 <body>
 <h1>Speech test</h1>
-<p>Tap each button in order and note which ones you can hear. Then copy the log at the bottom and send it back.</p>
+<p>Reload this page first. Then tap the buttons in order and note which ones you can hear. Then copy the log at the bottom and send it back.</p>
 
+<button id="english0">A · "Hello" before any beep</button>
 <button id="beep">1 · Beep (Web Audio, like the opening bell)</button>
 <button id="english">2 · "Hello" in the default voice</button>
+<button id="closeBeep">B · Close the beep's audio, then tap 2 again</button>
+<button id="playback">C · Set audio session to "playback", then tap 2 again</button>
 <button id="langOnly">3 · मेत्ता (mettā), Hindi by language only</button>
 <button id="picked">4 · मेत्ता, voice the app would pick</button>
 <div id="voiceButtons"></div>
@@ -87,10 +90,23 @@
     });
   }
 
+  const contexts = [];
+  line(`audioSession: ${navigator.audioSession ? navigator.audioSession.type : 'not supported'}`);
+  document.getElementById('english0').onclick = () => speak('hello before beep', 'Hello');
+  document.getElementById('closeBeep').onclick = async () => {
+    for (const c of contexts.splice(0)) await c.close();
+    line(`closed beep audio; audioSession now ${navigator.audioSession ? navigator.audioSession.type : 'n/a'}`);
+  };
+  document.getElementById('playback').onclick = () => {
+    if (!navigator.audioSession) { line('audioSession: not supported'); return; }
+    navigator.audioSession.type = 'playback';
+    line(`audioSession set: ${navigator.audioSession.type}`);
+  };
   document.getElementById('beep').onclick = () => {
     const Ctx = window.AudioContext || window.webkitAudioContext;
     if (!Ctx) { line('beep: no AudioContext'); return; }
     const ctx = new Ctx();
+    contexts.push(ctx);
     ctx.resume().then(() => line(`beep: context ${ctx.state}`));
     const osc = ctx.createOscillator();
     const amp = ctx.createGain();
