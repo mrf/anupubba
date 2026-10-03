@@ -1,0 +1,122 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Speech test</title>
+<style>
+  :root { color-scheme: light dark; --ink: #2b2a27; --bg: #f6f3ec; --line: #d8d2c4; --accent: #8a6d3b; }
+  @media (prefers-color-scheme: dark) { :root { --ink: #ece8df; --bg: #1d1c1a; --line: #45423c; --accent: #c9a96e; } }
+  body { margin: 0; padding: 16px; font: 16px/1.45 system-ui, sans-serif; color: var(--ink); background: var(--bg); }
+  h1 { font-size: 1.2rem; margin: 0 0 4px; }
+  p { margin: 4px 0 12px; }
+  button { font: inherit; display: block; width: 100%; margin: 6px 0; padding: 12px; border: 1px solid var(--line);
+           border-radius: 10px; background: transparent; color: var(--ink); text-align: left; }
+  button:active { background: color-mix(in srgb, var(--accent) 20%, transparent); }
+  #log { white-space: pre-wrap; font: 13px/1.4 ui-monospace, monospace; border: 1px solid var(--line);
+         border-radius: 10px; padding: 10px; min-height: 6em; }
+  small { opacity: 0.7; }
+</style>
+</head>
+<body>
+<h1>Speech test</h1>
+<p>Tap each button in order and note which ones you can hear. Then copy the log at the bottom and send it back.</p>
+
+<button id="beep">1 · Beep (Web Audio, like the opening bell)</button>
+<button id="english">2 · "Hello" in the default voice</button>
+<button id="langOnly">3 · मेत्ता (mettā), Hindi by language only</button>
+<button id="picked">4 · मेत्ता, voice the app would pick</button>
+<div id="voiceButtons"></div>
+<button id="copy">Copy log</button>
+<div id="log"></div>
+<p><small id="ua"></small></p>
+
+<script>
+  const log = document.getElementById('log');
+  const t0 = performance.now();
+  function line(text) {
+    log.textContent += `${((performance.now() - t0) / 1000).toFixed(1)}s  ${text}\n`;
+  }
+  document.getElementById('ua').textContent = navigator.userAgent;
+
+  const synth = window.speechSynthesis;
+  if (!synth) line('speechSynthesis: NOT AVAILABLE');
+
+  const PREFERENCE = ['sa', 'pi', 'hi', 'mr', 'ne'];
+  const base = (v) => v.lang.toLowerCase().split(/[-_]/)[0];
+  function indic(voices) { return voices.filter((v) => PREFERENCE.includes(base(v))); }
+  function pick(voices) {
+    for (const language of PREFERENCE) {
+      const matching = voices.filter((v) => base(v) === language);
+      const best = matching.find((v) => v.localService) ?? matching[0];
+      if (best) return best;
+    }
+    return null;
+  }
+
+  function speak(label, text, { lang, voice } = {}) {
+    if (!synth) return;
+    line(`${label}: speaking=${synth.speaking} pending=${synth.pending} paused=${synth.paused}`);
+    if (synth.speaking || synth.pending) synth.cancel();
+    synth.resume();
+    const u = new SpeechSynthesisUtterance(text);
+    if (lang) u.lang = lang;
+    if (voice) u.voice = voice;
+    u.rate = 0.75;
+    u.onstart = () => line(`${label}: start`);
+    u.onend = () => line(`${label}: end`);
+    u.onerror = (e) => line(`${label}: ERROR ${e.error}`);
+    synth.speak(u);
+    setTimeout(() => line(`${label}: after 1s speaking=${synth.speaking} pending=${synth.pending} paused=${synth.paused}`), 1000);
+  }
+
+  function listVoices() {
+    const voices = synth ? synth.getVoices() : [];
+    const ind = indic(voices);
+    line(`voices: ${voices.length} total, ${ind.length} Indic`);
+    for (const v of ind) line(`  ${v.name} [${v.lang}] local=${v.localService} default=${v.default}`);
+    const chosen = pick(voices);
+    line(`app would pick: ${chosen ? `${chosen.name} [${chosen.lang}]` : 'none'}`);
+    const box = document.getElementById('voiceButtons');
+    box.textContent = '';
+    ind.forEach((v, i) => {
+      const b = document.createElement('button');
+      b.textContent = `${5 + i} · मेत्ता with ${v.name} [${v.lang}]`;
+      b.onclick = () => speak(v.name, 'मेत्ता', { voice: v, lang: v.lang });
+      box.append(b);
+    });
+  }
+
+  document.getElementById('beep').onclick = () => {
+    const Ctx = window.AudioContext || window.webkitAudioContext;
+    if (!Ctx) { line('beep: no AudioContext'); return; }
+    const ctx = new Ctx();
+    ctx.resume().then(() => line(`beep: context ${ctx.state}`));
+    const osc = ctx.createOscillator();
+    const amp = ctx.createGain();
+    osc.frequency.value = 528;
+    amp.gain.setValueAtTime(0.3, ctx.currentTime);
+    amp.gain.exponentialRampToValueAtTime(0.0001, ctx.currentTime + 1.5);
+    osc.connect(amp).connect(ctx.destination);
+    osc.start();
+    osc.stop(ctx.currentTime + 1.5);
+  };
+  document.getElementById('english').onclick = () => speak('english', 'Hello');
+  document.getElementById('langOnly').onclick = () => speak('hi lang only', 'मेत्ता', { lang: 'hi-IN' });
+  document.getElementById('picked').onclick = () => {
+    const v = pick(synth ? synth.getVoices() : []);
+    if (!v) { line('picked: no Indic voice'); return; }
+    speak(`picked ${v.name}`, 'मेत्ता', { voice: v, lang: v.lang });
+  };
+  document.getElementById('copy').onclick = async () => {
+    try { await navigator.clipboard.writeText(log.textContent); line('log copied'); }
+    catch { line('copy failed: select the log text by hand'); }
+  };
+
+  if (synth) {
+    listVoices();
+    synth.addEventListener?.('voiceschanged', () => { line('voiceschanged'); listVoices(); });
+  }
+</script>
+</body>
+</html>
