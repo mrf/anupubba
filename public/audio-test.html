@@ -1,0 +1,99 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Audio clip test</title>
+<style>
+  :root { color-scheme: light dark; --ink: #2b2a27; --bg: #f6f3ec; --line: #d8d2c4; --accent: #8a6d3b; }
+  @media (prefers-color-scheme: dark) { :root { --ink: #ece8df; --bg: #1d1c1a; --line: #45423c; --accent: #c9a96e; } }
+  body { margin: 0; padding: 16px; font: 16px/1.45 system-ui, sans-serif; color: var(--ink); background: var(--bg); }
+  h1 { font-size: 1.2rem; margin: 0 0 4px; }
+  h2 { font-size: 1rem; margin: 18px 0 4px; }
+  p { margin: 4px 0 10px; }
+  button { font: inherit; display: block; width: 100%; margin: 6px 0; padding: 12px; border: 1px solid var(--line);
+           border-radius: 10px; background: transparent; color: var(--ink); text-align: left; }
+  button:active { background: color-mix(in srgb, var(--accent) 20%, transparent); }
+  audio { width: 100%; margin: 4px 0; }
+  #log { white-space: pre-wrap; font: 13px/1.4 ui-monospace, monospace; border: 1px solid var(--line);
+         border-radius: 10px; padding: 10px; min-height: 6em; }
+</style>
+</head>
+<body>
+<h1>Audio clip test</h1>
+<p>These are the pre-made eSpeak recordings, played three different ways. Try each section and note which ones you hear.</p>
+
+<h2>1 · Tap a word (how the app would play it)</h2>
+<div id="words"></div>
+
+<h2>2 · Built-in player</h2>
+<p>Press ▶ on the player.</p>
+<audio id="native" controls preload="auto" src="audio/anicca.mp3"></audio>
+
+<h2>3 · Through Web Audio (the same route as the bell)</h2>
+<button id="webaudio">anicca via Web Audio</button>
+
+<button id="copy">Copy log</button>
+<div id="log"></div>
+
+<script>
+  const WORDS = [
+    ['anicca', 'anicca'], ['dukkha', 'dukkha'], ['metta', 'mettā'],
+    ['sankhara', 'saṅkhāra'], ['nibbana', 'nibbāna'], ['sammaajiva', 'sammā-ājīva'],
+  ];
+  const log = document.getElementById('log');
+  const t0 = performance.now();
+  const line = (text) => { log.textContent += `${((performance.now() - t0) / 1000).toFixed(1)}s  ${text}\n`; };
+  line(navigator.userAgent);
+
+  function watch(audio, label) {
+    for (const type of ['play', 'playing', 'ended', 'pause', 'stalled']) {
+      audio.addEventListener(type, () => line(`${label}: ${type}`));
+    }
+    audio.addEventListener('error', () => line(`${label}: ERROR ${audio.error ? audio.error.code + ' ' + audio.error.message : ''}`));
+  }
+
+  let current = null;
+  const box = document.getElementById('words');
+  for (const [id, pali] of WORDS) {
+    const b = document.createElement('button');
+    b.textContent = `🔈 ${pali}`;
+    b.onclick = () => {
+      if (current) current.pause();
+      const audio = new Audio(`audio/${id}.mp3`);
+      watch(audio, pali);
+      current = audio;
+      audio.play().then(() => line(`${pali}: play() resolved`), (e) => line(`${pali}: play() REJECTED ${e.name}: ${e.message}`));
+    };
+    box.append(b);
+  }
+
+  watch(document.getElementById('native'), 'built-in player');
+
+  let ctx = null;
+  document.getElementById('webaudio').onclick = async () => {
+    try {
+      const Ctx = window.AudioContext || window.webkitAudioContext;
+      ctx = ctx || new Ctx();
+      await ctx.resume();
+      line(`web audio: context ${ctx.state}`);
+      const data = await (await fetch('audio/anicca.mp3')).arrayBuffer();
+      const buffer = await ctx.decodeAudioData(data);
+      line(`web audio: decoded ${buffer.duration.toFixed(2)}s`);
+      const src = ctx.createBufferSource();
+      src.buffer = buffer;
+      src.connect(ctx.destination);
+      src.onended = () => line('web audio: ended');
+      src.start();
+    } catch (e) {
+      line(`web audio: ERROR ${e.name}: ${e.message}`);
+    }
+  };
+
+  document.getElementById('copy').onclick = async () => {
+    try { await navigator.clipboard.writeText(log.textContent); line('log copied'); }
+    catch { line('copy failed: select the log text by hand'); }
+  };
+</script>
+</body>
+</html>
