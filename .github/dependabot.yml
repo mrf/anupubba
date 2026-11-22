@@ -8,6 +8,9 @@ updates:
       npm-dependencies:
         patterns:
           - "*"
+        update-types:
+          - "minor"
+          - "patch"
     ignore:
       # typescript-eslint@8.63.0 peers typescript ">=4.8.4 <6.1.0" (checked
       # 2026-07-10; TS 7.0.2 broke npm ci — PR #5). Allow patches only; drop
@@ -16,6 +19,12 @@ updates:
         update-types:
           - "version-update:semver-major"
           - "version-update:semver-minor"
+      # ts-fsrs 6 replaces Card/fsrs/createEmptyCard/next with DefaultScheduler
+      # and a new card shape (stored cards would need migrating); #24 failed
+      # no-deprecated lint. Hold majors until that migration is done.
+      - dependency-name: "ts-fsrs"
+        update-types:
+          - "version-update:semver-major"
 
   - package-ecosystem: "github-actions"
     directory: "/"
